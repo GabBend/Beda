@@ -4,18 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma + PhotoSwipe</title>
+    <title>Technické šití</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.css">
 
     <style>
+        .subtitle.is-5 {
+            margin-bottom: 5px !important;
+            /* Bulma má velký default */
+        }
+
         .first-image img {
             display: block;
             width: 290px;
             height: 220px;
             border-radius: 5px;
-            margin-top: 20px;
-            margin-bottom: 20px;
         }
 
         #gallery-row {
@@ -25,240 +28,325 @@
             justify-content: center;
             margin-bottom: 15px
         }
+
+        .contact-info {
+            font-size: 2.5rem;
+            line-height: 2.3;
+        }
+
+        .contact-info .sub-address {
+            display: inline-block;
+            margin-left: 148px;
+        }
+
+        /* Pro mobilní zařízení */
+        @media (max-width: 768px) {
+            .contact-info {
+                font-size: 1.8rem;
+                line-height: 2;
+            }
+
+            .contact-info .sub-address {
+                margin-left: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-info {
+                font-size: 1.5rem;
+                line-height: 1.8;
+            }
+
+            .contact-info .sub-address {
+                margin-left: 20px;
+            }
+        }
     </style>
 </head>
 
 <body>
+
+
+
     <section class="section">
         <div class="container">
-            <h1 class="title">Hello World</h1>
-            <p class="subtitle">My first website with <strong>Bulma</strong> + PhotoSwipe!</p>
+
+            <header class="section p-0">
+                <div class="container is-flex is-align-items-center">
+                    <figure class="image is-128x128 mr-3">
+                        <img src="foto/logo_beda.jpg" alt="Logo společnosti">
+                    </figure>
+                    <div>
+                        <h1 class="title is-4 mb-0">TECHNICKÉ ZAKÁZKOVÉ ŠITÍ</h1>
+                        <p class="subtitle mb-0">Šijeme střednětěžké až těžké tkaniny a PVC.</p>
+                    </div>
+                </div>
+            </header>
+
 
             <!-- Tabs -->
-            <div class="tabs">
+            <div class="tabs is-right">
                 <ul>
-                    <li aria-controls="content1" class="is-active"><a>Pictures</a></li>
-                    <li aria-controls="content2"><a>Music</a></li>
-                    <li aria-controls="content3"><a>Videos</a></li>
-                    <li aria-controls="content4"><a>Documents</a></li>
-                    <li aria-controls="content5"><a>New tab</a></li>
+                    <li aria-controls="content1" class="is-active"><a>O nás</a></li>
+                    <li aria-controls="content2"><a>Foto</a></li>
+                    <li aria-controls="content3"><a>Kontakt</a></li>
+                    <!--   <li aria-controls="content4"><a>Documents</a></li>
+                    <li aria-controls="content5"><a>New tab</a></li>-->
                 </ul>
             </div>
 
-            <!-- Tab contents -->
             <div class="contents">
+
+                <!-- content1 -->
                 <div id="content1">
+                    <h2 class="title is-4">O nás</h2>
+                    <br>
+                    <h3 class="subtitle is-5">Co šijeme</h3>
+                    <p>Specializujeme se na technické šití různých produktů:</p>
+                    <ul>
+                        <li>autostany, kryty, přístřešky</li>
+                        <li>pergoly, slunečníky, stánky</li>
+                        <li>předstany, stany, táborové plachty, teepee, šeltry</li>
+                        <li>stanové přívěsy a individuální zakázky</li>
+                    </ul>
+                    <br>
+                    <h3 class="subtitle is-5">Zakázková výroba</h3>
+                    <p>Zpracujeme vaši zakázku od návrhu po hotový výrobek:</p>
+                    <ul>
+                        <li>tvorba návrhů a nákresů</li>
+                        <li>kalkulace a odhad ceny zdarma</li>
+                        <li>vytváření nových střihů i repasování starých</li>
+                        <li>šití na zakázku pro vámi vyrobené konstrukce</li>
+                    </ul>
+                    <br>
+                    <h3 class="subtitle is-5">Další služby</h3>
+                    <ul>
+                        <li>Výměna zipů a zdrhovadel všech délek.</li>
+                        <li>Čalounictví</li>
+                        <li>Pojízdná šicí dílna pro lokální opravy a výrobu.</li>
+                    </ul>
+                    <br>
+                    <h3 class="subtitle is-5">Proč si vybrat nás</h3>
+                    <ul>
+                        <li><strong>Tradiční postupy:</strong> Repasujeme, rekonstruujeme a opravujeme výrobky
+                            tak, aby
+                            vydržely
+                            dlouho.</li>
+                        <li><strong>Kvalitní materiál:</strong> Poradíme s výběrem a umožníme osobní výběr ze
+                            široké
+                            škály
+                            vzorků.</li>
+                        <li><strong>Konstrukce na zakázku:</strong> Opravíme nebo vyrobíme nové konstrukce ke
+                            stanům,
+                            autostanům
+                            a přístřeškům.</li>
+                        <li><strong>Precizní práce:</strong> Dbáme na funkčnost, životnost a kvalitní zpracování
+                            každého
+                            výrobku.</li>
+                    </ul>
+                </div>
+
+                <!-- content2 -->
+                <div id="content2" class="is-hidden">
                     <h2 class="title is-4">Photo Gallery</h2>
                     <div id="gallery-row">
 
                         <section id="category-bus">
+                            <h3 class="subtitle is-5">Autobusová pergola</h3>
                             <div id="gallery--getting-started1" class="pswp-gallery">
                                 <figure class="first-image">
                                     <a href="foto/IMG_zkouskabus.jpg" aria-label="autobus">
                                         <img src="foto/IMG_zkouskabus.jpg" alt="Hlavní obrázek" class="first-image">
                                     </a>
-                                    <figcaption>Autobusová pergola</figcaption>
+
                                 </figure>
 
-                                <!-- Skrytá galerie (další obrázky) -->
                                 <div style="display:none">
-                                    <a href="foto/IMG_logobus.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="Logobus">
+                                    <a href="foto/IMG_logobus.jpg" data-pswp-width="1920" data-pswp-height="1080">
                                     </a>
-                                    <a href="foto/IMG_sitibus.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="Sitibus">
-                                        <!--PRO SEO: <img src="foto/IMG_sitibus.jpg" alt="Autobus Sitibus">
+                                    <a href="foto/IMG_sitibus.jpg" data-pswp-width="1920" data-pswp-height="1080">
+                                    </a>
+                                    <!--PRO SEO: <img src="foto/IMG_sitibus.jpg" alt="Autobus Sitibus">
                                     nebo pro ukrytí z vizuálu: <img src="foto/pergola_condor_vchod.jpg" alt="Condor vchod"
                                         style="width:1px; height:1px; position:absolute; left:-9999px;">
 
                                         teď ALT slouží: Když se obrázek nenačte (např. špatný link), prohlížeč zobrazí alt místo obrázku. -->
-                                    </a>
-                                    <a href="foto/IMG_plachtabus.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="Plachtabus">
-                                    </a>
-                                    <a href="foto/Index_bus.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="Zkouskabus">
-                                    </a>
-                                    <a href="foto/IMG-finalbus.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="Finalbus">
-                                    </a>
-                                </div>
 
+                                    <a href="foto/IMG_plachtabus.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/Index_bus.jpg" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                    <a href="foto/IMG-finalbus.jpg" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                </div>
                             </div>
                         </section>
 
 
                         <section id="category-chaloupka">
+                            <h3 class="subtitle is-5">Prodejní stánek</h3>
                             <div id="gallery--getting-started2" class="pswp-gallery">
                                 <figure class="first-image">
                                     <a href="foto/chaloupka.jpg" data-caption="Popisek k druhému obrázku">
                                         <img src="foto/chaloupka.jpg" alt="Hlavní obrázek" class="first-image">
                                     </a>
-                                    <figcaption>Prodejní stánek</figcaption>
                                 </figure>
 
-                                <!-- Skrytá galerie (další obrázky) -->
                                 <div style="display:none;">
-                                    <a href="foto/chaloupka_okna.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="okna">
-                                    </a>
-                                    <a href="foto/chaloupka_siti.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="siti">
-                                    </a>
-                                    <a href="foto/chaloupka_vlnky.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="vlnky">
-                                    </a>
-                                    <a href="foto/chaloupka_střecha.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="strecha">
-                                    </a>
-                                    <a href="foto/chaloupka_vnitrek.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="vnitrek">
-                                    </a>
+                                    <a href="foto/chaloupka_okna.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/chaloupka_siti.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/chaloupka_vlnky.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/chaloupka_střecha.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/chaloupka_vnitrek.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
                                 </div>
                             </div>
-
                         </section>
 
                         <section id="category-vuz">
+                            <h3 class="subtitle is-5">Formanský vůz</h3>
                             <div id="gallery--getting-started3" class="pswp-gallery">
                                 <figure class="first-image">
                                     <a href="foto/vuz.jpg">
-                                        <img src="foto/vuz.jpg" alt="Hlavní obrázek" class="first-image">
-                                    </a>
-                                    <figcaption>Formanský vůz</figcaption>
+                                        <img src="foto/vuz.jpg" alt="Hlavní obrázek" class="first-image"> </a>
                                 </figure>
 
-                                <!-- Skrytá galerie (další obrázky) -->
                                 <div style="display:none;">
-                                    <a href="foto/vuz_nakres.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="nakres">
-                                    </a>
-                                    <a href="foto/vuz-strih.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="strih">
-                                    </a>
-
-                                    <a href="foto/vuz_vypln.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="vypln">
-                                    </a>
-                                    <a href="foto/vuz_vypln_vsito.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="vyplnvsito">
-                                    </a>
-                                    <a href="foto/vuz_okna.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="okna">
-                                    </a>
+                                    <a href="foto/vuz_nakres.jpg" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                    <a href="foto/vuz-strih.jpg" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                    <a href="foto/vuz_vypln.jpg" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                    <a href="foto/vuz_vypln_vsito.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/vuz_okna.jpg" data-pswp-width="1920" data-pswp-height="1080"></a>
                                 </div>
                             </div>
                         </section>
 
                         <section id="category-tramp">
+                            <h3 class="subtitle is-5">Vozík Tramp 66</h3>
                             <div id="gallery--getting-started4" class="pswp-gallery">
                                 <figure class="first-image">
                                     <a href="foto/vozík_Tramp66_bok.JPG" aria-label="Tramp66">
                                         <img src="foto/vozík_Tramp66_bok.JPG" alt="Hlavní obrázek" class="first-image">
                                     </a>
-                                    <figcaption>vozík Tramp 66, polská výroba r. 1967</figcaption>
                                 </figure>
 
-                                <!-- Skrytá galerie (další obrázky) -->
                                 <div style="display:none">
-                                    <a href="foto/vozík_Tramp66_celo.JPG" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="vozík_Tramp66_celo">
-                                    </a>
-                                    <a href="foto/vozík_Tramp66_in.JPG" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="vozík_Tramp66_in">
-                                    </a>
+                                    <a href="foto/vozík_Tramp66_celo.JPG" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/vozík_Tramp66_in.JPG" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
                                     <a href="foto/vozík_Tramp66_prace.jpg" data-pswp-width="1920"
-                                        data-pswp-height="1080" alt="vozík_Tramp66_prace">
-                                    </a>
+                                        data-pswp-height="1080"></a>
                                     <a href="foto/vozík_Tramp66_nakres.jpg" data-pswp-width="1920"
-                                        data-pswp-height="1080" alt="vozík_Tramp66_nakres">
-                                    </a>
+                                        data-pswp-height="1080"></a>
                                     <a href="foto/vozík_Tramp66_strih.jpg" data-pswp-width="1920"
-                                        data-pswp-height="1080" alt="vozík_Tramp66_strih">
-                                    </a>
+                                        data-pswp-height="1080"></a>
                                 </div>
                             </div>
                         </section>
 
                         <section id="category-pickup">
+                            <h3 class="subtitle is-5">Kufrový stan na Pick-up</h3>
                             <div id="gallery--getting-started5" class="pswp-gallery">
                                 <figure class="first-image">
                                     <a href="foto/autostan_pickup_full.jpg" aria-label="pickup">
                                         <img src="foto/autostan_pickup_full.jpg" alt="Hlavní obrázek"
-                                            class="first-image">
-                                    </a>
-                                    <figcaption>Kufrový stan na Pick-up</figcaption>
+                                            class="first-image"></a>
                                 </figure>
 
-                                <!-- Skrytá galerie (další obrázky) -->
                                 <div style="display:none">
                                     <a href="foto/autostan_pickup_strih.JPG" data-pswp-width="1920"
-                                        data-pswp-height="1080" alt="autostan_pickup_strih">
-                                    </a>
+                                        data-pswp-height="1080"></a>
                                     <a href="foto/autostan_pickup_sit.JPG" data-pswp-width="1920"
-                                        data-pswp-height="1080" alt="autostan_pickup_sit">
-                                    </a>
+                                        data-pswp-height="1080"></a>
                                     <a href="foto/autostan_pickup_vchod.JPG" data-pswp-width="1920"
-                                        data-pswp-height="1080" alt="pickup_vchod">
-                                    </a>
+                                        data-pswp-height="1080"></a>
                                     <a href="foto/autostan_pickup_closs.JPG" data-pswp-width="1920"
-                                        data-pswp-height="1080" alt="pickup_closs">
-                                    </a>
+                                        data-pswp-height="1080"></a>
                                     <a href="foto/autostan_pickup_open.JPG" data-pswp-width="1920"
-                                        data-pswp-height="1080" alt="pickup_open">
-                                    </a>
+                                        data-pswp-height="1080"></a>
                                 </div>
-
                             </div>
                         </section>
 
                         <section id="category-condor">
+                            <h3 class="subtitle is-5">Pergola k vozíku Condor</h3>
                             <div id="gallery--getting-started6" class="pswp-gallery">
                                 <figure class="first-image">
                                     <a href="foto/pergola_condor_bok.jpg" aria-label="condor">
                                         <img src="foto/pergola_condor_bok.jpg" alt="Hlavní obrázek" class="first-image">
                                     </a>
-                                    <figcaption>Pergola k vozíku Condor</figcaption>
                                 </figure>
 
-                                <!-- Skrytá galerie (další obrázky) -->
                                 <div style="display:none">
                                     <a href="foto/pergola_condor_strecha.jpg" data-pswp-width="1920"
-                                        data-pswp-height="1080" alt="condor_strecha">
-                                    </a>
-                                    <a href="foto/pergola_condor_sit.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="condor_sit">
-                                    </a>
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/pergola_condor_sit.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
                                     <a href="foto/pergola_condor_vchod.jpg" data-pswp-width="1920"
-                                        data-pswp-height="1080" alt="condor_vchod">
-                                    </a>
+                                        data-pswp-height="1080"></a>
                                     <a href="foto/pergola_condor_okno.jpg" data-pswp-width="1920"
-                                        data-pswp-height="1080" alt="condor_okno">
-                                    </a>
-                                    <a href="foto/pergola_condor_pul.jpg" data-pswp-width="1920" data-pswp-height="1080"
-                                        alt="condor_pul">
-                                    </a>
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/pergola_condor_pul.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
                                 </div>
-
                             </div>
                         </section>
-
                     </div>
                 </div>
+
+                <div id="content3" class="is-hidden">
+                    <h2 class="title is-4">Kontakt</h2>
+                    <div class="columns">
+                        <!-- Kontaktní informace -->
+                        <div class="column is-half contact-info">
+                            <p><strong>Adresa:</strong> Rudník 72, 54372<br><span class="sub-address">Krkonoše</span>
+                            </p>
+                            <p><strong>Telefon:</strong> <a href="tel:+420605841391">+420 605 841 391</a></p>
+                            <p><strong>Email:</strong> <a href="mailto:bedaspol@gmail.com">bedaspol@gmail.com</a></p>
+                        </div>
+
+                        <!-- Formulář -->
+                        <div class="column is-half">
+                            <form>
+                                <div class="field">
+                                    <label class="label">Jméno</label>
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Vaše jméno">
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label class="label">Email</label>
+                                    <div class="control">
+                                        <input class="input" type="email" placeholder="Váš email">
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label class="label">Zpráva</label>
+                                    <div class="control">
+                                        <textarea class="textarea" placeholder="Vaše zpráva"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="control">
+                                    <button class="button is-link">Odeslat</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+            <!--   <div id="content4" class="is-hidden">Content for Documents</div>
+            <div id="content5" class="is-hidden">Content for new</div> -->
         </div>
 
     </section>
-
-
-
-
-
-
-    <div id="content2" class="is-hidden">Content for Music</div>
-    <div id="content3" class="is-hidden">Content for Videos</div>
-    <div id="content4" class="is-hidden">Content for Documents</div>
-    <div id="content5" class="is-hidden">Content for new</div>
 
 
     <!-- JS část -->
