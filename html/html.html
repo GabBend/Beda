@@ -10,18 +10,20 @@
 
     <style>
         .first-image img {
-            display: flex;
-            width: 220px;
-            height: 150px;
-            object-fit: cover;
+            display: block;
+            width: 290px;
+            height: 220px;
             border-radius: 5px;
-            margin-right: 10px;
-            /* mezera mezi obrázky */
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         #gallery-row {
             display: flex;
+            flex-wrap: wrap;
             gap: 30px;
+            justify-content: center;
+            margin-bottom: 15px
         }
     </style>
 </head>
@@ -48,47 +50,46 @@
                 <div id="content1">
                     <h2 class="title is-4">Photo Gallery</h2>
                     <div id="gallery-row">
+
                         <section id="category-bus">
-                            <div id="gallery--getting-started1">
+                            <div id="gallery--getting-started1" class="pswp-gallery">
                                 <figure class="first-image">
-                                    <a href="foto/Index_bus.jpg" aria-label="autobus"
-                                        data-caption="Popisek k prvnímu obrázku">
-                                        <img src="foto/Index_bus.jpg" alt="Hlavní obrázek" class="first-image">
+                                    <a href="foto/IMG_zkouskabus.jpg" aria-label="autobus">
+                                        <img src="foto/IMG_zkouskabus.jpg" alt="Hlavní obrázek" class="first-image">
                                     </a>
                                     <figcaption>Autobusová pergola</figcaption>
                                 </figure>
 
                                 <!-- Skrytá galerie (další obrázky) -->
-                                <div style="display:none;">
-                                    <div class="pswp-gallery" id="gallery-bus">
+                                <div style="display:none">
+                                    <a href="foto/IMG_logobus.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="Logobus">
+                                    </a>
+                                    <a href="foto/IMG_sitibus.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="Sitibus">
+                                        <!--PRO SEO: <img src="foto/IMG_sitibus.jpg" alt="Autobus Sitibus">
+                                    nebo pro ukrytí z vizuálu: <img src="foto/pergola_condor_vchod.jpg" alt="Condor vchod"
+                                        style="width:1px; height:1px; position:absolute; left:-9999px;">
 
-
-                                        <a href="foto/IMG_logobus.jpg" data-pswp-width="1920" data-pswp-height="1080">
-                                            <img src="foto/IMG_logobus.jpg" alt="Logobus">
-                                        </a>
-                                        <a href="foto/IMG_sitibus.jpg" data-pswp-width="1920" data-pswp-height="1080">
-                                            <img src="foto/IMG_sitibus.jpg" alt="Sitibus">
-                                        </a>
-                                        <a href="foto/IMG_zkouskabus.jpg" data-pswp-width="1920"
-                                            data-pswp-height="1080">
-                                            <img src="foto/IMG_zkouskabus.jpg" alt="Zkouskabus">
-                                        </a>
-                                        <a href="foto/IMG_plachtabus.jpg" data-pswp-width="1920"
-                                            data-pswp-height="1080">
-                                            <img src="foto/IMG_plachtabus.jpg" alt="Plachtabus">
-                                        </a>
-
-                                        <a href="foto/IMG-finalbus.jpg" data-pswp-width="1920" data-pswp-height="1080">
-                                            <img src="foto/IMG-finalbus.jpg" alt="Finalbus">
-                                        </a>
-                                    </div>
+                                        teď ALT slouží: Když se obrázek nenačte (např. špatný link), prohlížeč zobrazí alt místo obrázku. -->
+                                    </a>
+                                    <a href="foto/IMG_plachtabus.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="Plachtabus">
+                                    </a>
+                                    <a href="foto/Index_bus.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="Zkouskabus">
+                                    </a>
+                                    <a href="foto/IMG-finalbus.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="Finalbus">
+                                    </a>
                                 </div>
+
                             </div>
                         </section>
 
 
                         <section id="category-chaloupka">
-                            <div id="gallery--getting-started2">
+                            <div id="gallery--getting-started2" class="pswp-gallery">
                                 <figure class="first-image">
                                     <a href="foto/chaloupka.jpg" data-caption="Popisek k druhému obrázku">
                                         <img src="foto/chaloupka.jpg" alt="Hlavní obrázek" class="first-image">
@@ -98,39 +99,30 @@
 
                                 <!-- Skrytá galerie (další obrázky) -->
                                 <div style="display:none;">
-                                    <div class="pswp-gallery" id="gallery-chaloupka">
-
-
-                                        <a href="foto/chaloupka_okna.jpg" data-pswp-width="1920"
-                                            data-pswp-height="1080">
-                                            <img src="foto/chaloupka_okna.jpg" alt="okna">
-                                        </a>
-                                        <a href="foto/chaloupka_siti.jpg" data-pswp-width="1920"
-                                            data-pswp-height="1080">
-                                            <img src="foto/chaloupka_siti.jpg" alt="siti">
-                                        </a>
-                                        <a href="foto/chaloupka_vlnky.jpg" data-pswp-width="1920"
-                                            data-pswp-height="1080">
-                                            <img src="foto/chaloupka_vlnky.jpg" alt="vlnky">
-                                        </a>
-                                        <a href="foto/chaloupka_střecha.jpg" data-pswp-width="1920"
-                                            data-pswp-height="1080">
-                                            <img src="foto/chaloupka_střecha.jpg" alt="strecha">
-                                        </a>
-
-                                        <a href="foto/chaloupka_vnitrek.jpg" data-pswp-width="1920"
-                                            data-pswp-height="1080">
-                                            <img src="foto/chaloupka_vnitrek.jpg" alt="vnitrek">
-                                        </a>
-                                    </div>
+                                    <a href="foto/chaloupka_okna.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="okna">
+                                    </a>
+                                    <a href="foto/chaloupka_siti.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="siti">
+                                    </a>
+                                    <a href="foto/chaloupka_vlnky.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="vlnky">
+                                    </a>
+                                    <a href="foto/chaloupka_střecha.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="strecha">
+                                    </a>
+                                    <a href="foto/chaloupka_vnitrek.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="vnitrek">
+                                    </a>
                                 </div>
                             </div>
+
                         </section>
 
                         <section id="category-vuz">
-                            <div id="gallery--getting-started3">
+                            <div id="gallery--getting-started3" class="pswp-gallery">
                                 <figure class="first-image">
-                                    <a href="foto/vuz.jpg" data-caption="Popisek k druhému obrázku">
+                                    <a href="foto/vuz.jpg">
                                         <img src="foto/vuz.jpg" alt="Hlavní obrázek" class="first-image">
                                     </a>
                                     <figcaption>Formanský vůz</figcaption>
@@ -138,32 +130,120 @@
 
                                 <!-- Skrytá galerie (další obrázky) -->
                                 <div style="display:none;">
-                                    <div class="pswp-gallery" id="gallery-chaloupka">
+                                    <a href="foto/vuz_nakres.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="nakres">
+                                    </a>
+                                    <a href="foto/vuz-strih.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="strih">
+                                    </a>
 
-
-                                        <a href="foto/vuz_nakres.jpg" data-pswp-width="1920" data-pswp-height="1080">
-                                            <img src="foto/vuz_nakres.jpg" alt="nakres">
-                                        </a>
-                                        <a href="foto/vuz-strih.jpg" data-pswp-width="1920" data-pswp-height="1080">
-                                            <img src="foto/vuz-strih.jpg" alt="strih">
-                                        </a>
-
-                                        <a href="foto/vuz_vypln.jpg" data-pswp-width="1920" data-pswp-height="1080">
-                                            <img src="foto/vuz_vypln.jpg" alt="vypln">
-                                        </a>
-                                        <a href="foto/vuz_vypln_vsito.jpg" data-pswp-width="1920"
-                                            data-pswp-height="1080">
-                                            <img src="foto/vuz_vypln_vsito.jpg" alt="vyplnvsito">
-                                        </a>
-                                        <a href="foto/vuz_okna.jpg" data-pswp-width="1920" data-pswp-height="1080">
-                                            <img src="foto/vuz_okna.jpg" alt="okna">
-                                        </a>
-                                    </div>
+                                    <a href="foto/vuz_vypln.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="vypln">
+                                    </a>
+                                    <a href="foto/vuz_vypln_vsito.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="vyplnvsito">
+                                    </a>
+                                    <a href="foto/vuz_okna.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="okna">
+                                    </a>
                                 </div>
                             </div>
                         </section>
-                    </div>
 
+                        <section id="category-tramp">
+                            <div id="gallery--getting-started4" class="pswp-gallery">
+                                <figure class="first-image">
+                                    <a href="foto/vozík_Tramp66_bok.JPG" aria-label="Tramp66">
+                                        <img src="foto/vozík_Tramp66_bok.JPG" alt="Hlavní obrázek" class="first-image">
+                                    </a>
+                                    <figcaption>vozík Tramp 66, polská výroba r. 1967</figcaption>
+                                </figure>
+
+                                <!-- Skrytá galerie (další obrázky) -->
+                                <div style="display:none">
+                                    <a href="foto/vozík_Tramp66_celo.JPG" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="vozík_Tramp66_celo">
+                                    </a>
+                                    <a href="foto/vozík_Tramp66_in.JPG" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="vozík_Tramp66_in">
+                                    </a>
+                                    <a href="foto/vozík_Tramp66_prace.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080" alt="vozík_Tramp66_prace">
+                                    </a>
+                                    <a href="foto/vozík_Tramp66_nakres.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080" alt="vozík_Tramp66_nakres">
+                                    </a>
+                                    <a href="foto/vozík_Tramp66_strih.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080" alt="vozík_Tramp66_strih">
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="category-pickup">
+                            <div id="gallery--getting-started5" class="pswp-gallery">
+                                <figure class="first-image">
+                                    <a href="foto/autostan_pickup_full.jpg" aria-label="pickup">
+                                        <img src="foto/autostan_pickup_full.jpg" alt="Hlavní obrázek"
+                                            class="first-image">
+                                    </a>
+                                    <figcaption>Kufrový stan na Pick-up</figcaption>
+                                </figure>
+
+                                <!-- Skrytá galerie (další obrázky) -->
+                                <div style="display:none">
+                                    <a href="foto/autostan_pickup_strih.JPG" data-pswp-width="1920"
+                                        data-pswp-height="1080" alt="autostan_pickup_strih">
+                                    </a>
+                                    <a href="foto/autostan_pickup_sit.JPG" data-pswp-width="1920"
+                                        data-pswp-height="1080" alt="autostan_pickup_sit">
+                                    </a>
+                                    <a href="foto/autostan_pickup_vchod.JPG" data-pswp-width="1920"
+                                        data-pswp-height="1080" alt="pickup_vchod">
+                                    </a>
+                                    <a href="foto/autostan_pickup_closs.JPG" data-pswp-width="1920"
+                                        data-pswp-height="1080" alt="pickup_closs">
+                                    </a>
+                                    <a href="foto/autostan_pickup_open.JPG" data-pswp-width="1920"
+                                        data-pswp-height="1080" alt="pickup_open">
+                                    </a>
+                                </div>
+
+                            </div>
+                        </section>
+
+                        <section id="category-condor">
+                            <div id="gallery--getting-started6" class="pswp-gallery">
+                                <figure class="first-image">
+                                    <a href="foto/pergola_condor_bok.jpg" aria-label="condor">
+                                        <img src="foto/pergola_condor_bok.jpg" alt="Hlavní obrázek" class="first-image">
+                                    </a>
+                                    <figcaption>Pergola k vozíku Condor</figcaption>
+                                </figure>
+
+                                <!-- Skrytá galerie (další obrázky) -->
+                                <div style="display:none">
+                                    <a href="foto/pergola_condor_strecha.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080" alt="condor_strecha">
+                                    </a>
+                                    <a href="foto/pergola_condor_sit.jpg" data-pswp-width="1920" data-pswp-height="1080"
+                                        alt="condor_sit">
+                                    </a>
+                                    <a href="foto/pergola_condor_vchod.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080" alt="condor_vchod">
+                                    </a>
+                                    <a href="foto/pergola_condor_vchod.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080" alt="condor_vchod">
+                                    </a>
+                                    <a href="foto/pergola_condor_vchod.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080" alt="condor_vchod">
+                                    </a>
+                                </div>
+
+                            </div>
+                        </section>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -248,10 +328,31 @@
             pswpModule: () => import('https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.esm.js')
         });
 
+        const lightbox4 = new PhotoSwipeLightbox({
+            gallery: '#gallery--getting-started4',
+            children: 'a',
+            pswpModule: () => import('https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.esm.js')
+        });
+
+        const lightbox5 = new PhotoSwipeLightbox({
+            gallery: '#gallery--getting-started5',
+            children: 'a',
+            pswpModule: () => import('https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.esm.js')
+        });
+
+        const lightbox6 = new PhotoSwipeLightbox({
+            gallery: '#gallery--getting-started6',
+            children: 'a',
+            pswpModule: () => import('https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.esm.js')
+        });
+
 
         lightbox1.init();
         lightbox2.init();
         lightbox3.init();
+        lightbox4.init();
+        lightbox5.init();
+        lightbox6.init();
 
     </script>
 </body>
