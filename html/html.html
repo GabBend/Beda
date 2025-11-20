@@ -5,8 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Technické šití</title>
+    <meta name="description"
+        content="Profesionální technické šití a opravy středně těžkých i těžkých tkanin od kusové po sériovou výrobu. Stany, autostany, kryty, konstrukce, návrhy a kvalitní zpracování.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.css">
+    <!--DVA PROBlÉMY: 
+        1. při kliknutí na text se zobrazí coded, 
+        2. při refresh se vrátilo na úvodní stránku, 
+        děkuji! 
+-->
 
     <style>
         .subtitle.is-5 {
@@ -101,6 +108,7 @@
                 <div id="content1">
                     <h2 class="title is-4">O nás</h2>
                     <br>
+                    <p class="lead">
                     <h3 class="subtitle is-5">Co šijeme</h3>
                     <p>Specializujeme se na technické šití různých produktů:</p>
                     <ul>
@@ -144,6 +152,7 @@
                             každého
                             výrobku.</li>
                     </ul>
+                    </p>
                 </div>
 
                 <!-- content2 -->
@@ -347,7 +356,7 @@
         </div>
 
     </section>
-
+    <p>Coded by Gabriela Bendová &copy; 2025</p>
 
     <!-- JS část -->
     <script type="module">
@@ -443,6 +452,31 @@
         lightbox5.init();
         lightbox6.init();
 
+
+        window.addEventListener('load', () => {
+            const savedTab = localStorage.getItem('activeTab');
+            if (savedTab) {
+                allItems.forEach(item => {
+                    const tab = new Tab(item);
+                    if (item.getAttribute('aria-controls') === savedTab) {
+                        tab.activate();
+                        activeTab = tab;
+                    } else {
+                        tab.deactivate();
+                    }
+                });
+            } else {
+                // výchozí první tab
+                activeTab.activate();
+            }
+        });
+
+        // Při kliknutí ulož aktivní tab
+        allItems.forEach(item => {
+            item.addEventListener('click', () => {
+                localStorage.setItem('activeTab', item.getAttribute('aria-controls'));
+            });
+        });
     </script>
 </body>
 
