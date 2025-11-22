@@ -27,7 +27,7 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
 
         #content1 {
@@ -79,6 +79,7 @@
             margin-bottom: 15px
         }
 
+
         .contact-section {
             max-width: 900px;
             margin: 0 auto;
@@ -117,6 +118,14 @@
 
         /* Pro tablety a malé mobily */
         @media (max-width: 768px) {
+
+            #content1,
+            #content2,
+            #content3 {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
             .contact-section .contact-info p {
                 font-size: 1.6rem;
                 line-height: 1.6;
@@ -124,6 +133,28 @@
         }
 
         @media (max-width: 480px) {
+
+            #content1,
+            #content2,
+            #content3 {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .first-image img {
+                width: 80%;
+                height: auto !important;
+                max-height: none !important;
+                display: block;
+                margin: 0 auto;
+            }
+
+            section[id^="category-"] h3 {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            /* aby se vycentrovala */
             .contact-section {
                 flex-direction: column;
                 /* položky pod sebe */
@@ -435,7 +466,7 @@
                             <p><strong>Email:</strong> <a href="mailto:bedaspol@gmail.com">bedaspol@gmail.com</a></p>
                         </div>
 
-                        <!-- Formulář -->
+                        <!-- Formulář 
                         <div class="contact-form" style="flex: 1; min-width: 250px;">
                             <form>
                                 <div class="field">
@@ -464,6 +495,7 @@
                                 </div>
                             </form>
                         </div>
+                        -->
                     </div>
                 </div>
                 <!--   <div id="content4" class="is-hidden">Content for Documents</div>
@@ -471,6 +503,18 @@
             </div>
         </div>
     </section>
+
+    <footer style="text-align:center; padding:20px 0; font-size:0.9rem; color:#555;">
+        Lukáš Benda
+        <br>
+        IČO: 72925442
+        <br>
+        Adresa: Rudník 72, 54372, Krkonoše
+        <br>
+        Telefon: <a href="tel:+420605841391">+420 605 841 391</a> |
+        Email: <a href="mailto:bedaspol@gmail.com">bedaspol@gmail.com</a>
+    </footer>
+    <br>
     <p>Coded by Gabriela Bendová &copy; 2025</p>
 
     <!-- JS část -->
