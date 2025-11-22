@@ -9,14 +9,56 @@
         content="Profesionální technické šití a opravy středně těžkých i těžkých tkanin od kusové po sériovou výrobu. Stany, autostany, kryty, konstrukce, návrhy a kvalitní zpracování.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.css">
+
+    <link rel="shortcut icon" href="ikony/needle-with-thread-to-sew-clothes-svgrepo-com.svg" type="image/png">
+    <!-- odkaz: https://www.svgrepo.com/ s LICENSE: CC0 License -->
+
     <!--DVA PROBlÉMY: 
         1. při kliknutí na text se zobrazí coded - ubráním u/li vyřešeno!!!
-        2. při refresh se vrátilo na úvodní stránku, 
-        3.TIPI odkaz na nové okno
+        2. při refresh se vrátilo na úvodní stránku/v galerii problikává,
+        3.TIPI odkaz na nové okno - target="_blank"!
+
+        4. vyplatí se použít data-caption="Popisek při smazání fota"?
         děkuji! 
 -->
 
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #content1 {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        #content1 .content-block {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #content1 .content-block img.icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        #content1 .content-block .text h3 {
+            margin: 0 0 8px 0;
+            color: #000;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        #content1 .content-block .text p {
+            margin: 0 0 10px 0;
+        }
+
         .subtitle.is-5 {
             margin-bottom: 5px !important;
             /* Bulma má velký default */
@@ -37,40 +79,72 @@
             margin-bottom: 15px
         }
 
-        .contact-info {
-            font-size: 2.5rem;
-            line-height: 2.3;
+        .contact-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            /* mezera mezi sloupci */
         }
 
-        .contact-info .sub-address {
-            display: inline-block;
-            margin-left: 148px;
+        .contact-section .contact-info,
+        .contact-section .contact-form {
+            flex: 1 1 300px;
+            /* flexibilní šířka, min 300px */
+            min-width: 250px;
+            /* pro mobil */
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
-        /* Pro mobilní zařízení */
+        /* Velikost textu na desktopu */
+        .contact-section .contact-info p {
+            font-size: 1.8rem;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* Telefon a email zachovají velikost */
+        .contact-section .contact-info a {
+            font-size: 2rem;
+            /* nepřehluší mobilní řádek */
+            word-break: break-word;
+            /* zajistí zalomení, pokud je nutné */
+        }
+
+        /* Pro tablety a malé mobily */
         @media (max-width: 768px) {
-            .contact-info {
-                font-size: 1.8rem;
-                line-height: 2;
-            }
-
-            .contact-info .sub-address {
-                margin-left: 30px;
+            .contact-section .contact-info p {
+                font-size: 1.6rem;
+                line-height: 1.6;
             }
         }
 
         @media (max-width: 480px) {
-            .contact-info {
-                font-size: 1.5rem;
-                line-height: 1.8;
+            .contact-section {
+                flex-direction: column;
+                /* položky pod sebe */
+                gap: 1rem;
+                /* menší mezera */
             }
 
-            .contact-info .sub-address {
-                margin-left: 20px;
+            .contact-section .contact-info p {
+                font-size: 1.4rem;
+                line-height: 1.5;
+            }
+
+            .contact-section .contact-info a {
+                font-size: 1rem;
+                /* telefon a email zůstanou čitelné */
             }
         }
     </style>
+
 </head>
+
 
 <body>
 
@@ -104,74 +178,83 @@
                 </ul>
             </div>
 
+
             <div class="contents">
 
                 <!-- content1 -->
                 <div id="content1">
-                    <h2 class="title is-4">O nás</h2>
 
-                    <p class="lead">
-                        Jsme profesionální technická šicí dílna zaměřená na zakázkovou výrobu a opravy výrobků z
-                        technických textilií.
-                        Navrhujeme, šijeme a repasujeme produkty pro outdoor, volný čas i speciální využití. Naší
-                        prioritou je kvalitní
-                        zpracování, dlouhá životnost a individuální přístup ke každé zakázce.
-                    </p>
+                    <div class="content-block">
+                        <img src="ikony/camera-film-strip-svgrepo-com.svg" alt="Co šijeme" class="icon">
+                        <div class="text">
+                            <h3>Co šijeme</h3>
+                            <p>Specializujeme se na technické šití středně těžkých a těžkých tkanin. Naše práce
+                                zahrnuje šití autostanů,
+                                předstanů, táborových plachet, teepee a dalších přístřešků na zakázku. Umíme vytvořit
+                                plachty pro pergoly, stánky či
+                                slunečníky přesně podle vašich potřeb. Každý projekt přizpůsobujeme individuálně – od
+                                menších oprav po komplexní zakázky
+                                – s důrazem na kvalitu, funkčnost a dlouhou životnost výrobků.</p>
+                        </div>
+                    </div>
 
-                    <h3 class="subtitle is-5">Co šijeme</h3>
-                    <p>
-                        Specializujeme se na technické šití různých produktů, jako jsou autostany, kryty a přístřešky.
-                        Dále vyrábíme
-                        pergoly, slunečníky a stánky. Šijeme také předstany, stany, táborové plachty, teepee a šeltry.
-                        Zpracováváme i
-                        zakázky na stanové přívěsy a další individuální projekty.
-                    </p>
+                    <div class="content-block">
+                        <img src="ikony/scissors-svgrepo-com.svg" alt="Zakázková výroba" class="icon">
+                        <div class="text">
+                            <h3>Zakázková výroba</h3>
+                            <p>Vaši zakázku zpracujeme kompletně – od prvotního návrhu až po hotový výrobek. Připravíme
+                                návrhy i
+                                nákresy, provedeme kalkulaci a nabídneme nezávazný odhad ceny zdarma. Vytváříme nové
+                                střihy
+                                a repasujeme
+                                staré. Šijeme také na míru konstrukcím, které si sami necháte vyrobit.</p>
+                        </div>
+                    </div>
 
-                    <h3 class="subtitle is-5">Zakázková výroba</h3>
-                    <p>
-                        Vaši zakázku zpracujeme kompletně – od prvotního návrhu až po hotový výrobek. Připravíme návrhy
-                        i nákresy,
-                        provedeme kalkulaci a nabídneme nezávazný odhad ceny zdarma. Vytváříme nové střihy a repasujeme
-                        staré. Šijeme také
-                        na míru konstrukcím, které si sami necháte vyrobit.
-                    </p>
+                    <div class="content-block">
+                        <img src="ikony/zipper-material-svgrepo-com.svg" alt="Další služby" class="icon">
+                        <div class="text">
+                            <h3>Další služby</h3>
+                            <p>Nabízíme výměnu zipů a zdrhovadel všech délek. Součástí služeb je také čalounictví a naše
+                                pojízdná šicí
+                                dílna, která umožňuje lokální opravy a výrobu přímo u vás nebo v terénu.</p>
+                        </div>
+                    </div>
 
-                    <h3 class="subtitle is-5">Další služby</h3>
-                    <p>
-                        Nabízíme výměnu zipů a zdrhovadel všech délek. Součástí služeb je také čalounictví a naše
-                        pojízdná šicí dílna,
-                        která umožňuje lokální opravy a výrobu přímo u vás nebo v terénu.
-                    </p>
-
-                    <h3 class="subtitle is-5">Proč si vybrat nás</h3>
-
-                    <p><strong>Tradiční postupy:</strong> Repasujeme, rekonstruujeme a opravujeme výrobky tak, aby
-                        vydržely co nejdéle.</p>
-
-                    <p><strong>Kvalitní materiál:</strong> Pomůžeme s výběrem materiálu a nabídneme možnost osobního
-                        výběru ze široké škály
-                        vzorků.</p>
-
-                    <p><strong>Konstrukce na zakázku:</strong> Opravíme nebo vyrobíme nové konstrukce ke stanům,
-                        autostanům a přístřeškům.
-                    </p>
-
-                    <p><strong>Precizní práce:</strong> Dbáme na funkčnost, životnost a kvalitní zpracování každého
-                        výrobku.</p>
-
+                    <div class="content-block">
+                        <img src="ikony/needle-with-thread-to-sew-clothes-svgrepo-com.svg" alt="Proč si vybrat nás"
+                            class="icon">
+                        <div class="text">
+                            <h3>Proč si vybrat nás</h3>
+                            <p><strong>Tradiční postupy:</strong> Repasujeme, rekonstruujeme a opravujeme výrobky tak,
+                                aby
+                                vydržely co
+                                nejdéle.</p>
+                            <p><strong>Kvalitní materiál:</strong> Pomůžeme s výběrem materiálu a nabídneme možnost
+                                osobního
+                                výběru ze
+                                široké škály vzorků.</p>
+                            <p><strong>Konstrukce na zakázku:</strong> Opravíme nebo vyrobíme nové konstrukce ke stanům,
+                                autostanům a
+                                přístřeškům.</p>
+                            <p><strong>Precizní práce:</strong> Dbáme na funkčnost, životnost a kvalitní zpracování
+                                každého
+                                výrobku.</p>
+                        </div>
+                    </div>
 
                 </div>
 
                 <!-- content2 -->
                 <div id="content2" class="is-hidden">
-                    <h2 class="title is-4">Photo Gallery</h2>
+
                     <div id="gallery-row">
 
                         <section id="category-bus">
                             <h3 class="subtitle is-5">Autobusová pergola</h3>
                             <div id="gallery--getting-started1" class="pswp-gallery">
                                 <figure class="first-image">
-                                    <a href="foto/IMG_zkouskabus.jpg" aria-label="autobus">
+                                    <a href="foto/IMG_zkouskabus.jpg">
                                         <img src="foto/IMG_zkouskabus.jpg" alt="Hlavní obrázek" class="first-image">
                                     </a>
 
@@ -201,7 +284,7 @@
                             <h3 class="subtitle is-5">Dílničkový stánek na trhy</h3>
                             <div id="gallery--getting-started2" class="pswp-gallery">
                                 <figure class="first-image">
-                                    <a href="foto/chaloupka.jpg" data-caption="Popisek k druhému obrázku">
+                                    <a href="foto/chaloupka.jpg">
                                         <img src="foto/chaloupka.jpg" alt="Hlavní obrázek" class="first-image">
                                     </a>
                                 </figure>
@@ -245,7 +328,7 @@
                             <h3 class="subtitle is-5">Vozík Tramp 66</h3>
                             <div id="gallery--getting-started4" class="pswp-gallery">
                                 <figure class="first-image">
-                                    <a href="foto/vozík_Tramp66_bok.JPG" aria-label="Tramp66">
+                                    <a href="foto/vozík_Tramp66_bok.JPG">
                                         <img src="foto/vozík_Tramp66_bok.JPG" alt="Hlavní obrázek" class="first-image">
                                     </a>
                                 </figure>
@@ -269,7 +352,7 @@
                             <h3 class="subtitle is-5">Loď čalounění </h3>
                             <div id="gallery--getting-started5" class="pswp-gallery">
                                 <figure class="first-image">
-                                    <a href="foto/lod_final.jpg" aria-label="pickup">
+                                    <a href="foto/lod_final.jpg">
                                         <img src="foto/lod_final.jpg" alt="Hlavní obrázek" class="first-image"></a>
                                 </figure>
 
@@ -287,7 +370,7 @@
                             <h3 class="subtitle is-5">Pergola k vozíku Condor</h3>
                             <div id="gallery--getting-started6" class="pswp-gallery">
                                 <figure class="first-image">
-                                    <a href="foto/pergola_condor_bok.jpg" aria-label="condor">
+                                    <a href="foto/pergola_condor_bok.jpg">
                                         <img src="foto/pergola_condor_bok.jpg" alt="Hlavní obrázek" class="first-image">
                                     </a>
                                 </figure>
@@ -311,7 +394,7 @@
                             <h3 class="subtitle is-5">Kufrový stan na Pick-up</h3>
                             <div id="gallery--getting-started7" class="pswp-gallery">
                                 <figure class="first-image">
-                                    <a href="foto/autostan_pickup_full.jpg" aria-label="pickup">
+                                    <a href="foto/autostan_pickup_full.jpg">
                                         <img src="foto/autostan_pickup_full.jpg" alt="Hlavní obrázek"
                                             class="first-image"></a>
                                 </figure>
@@ -331,33 +414,29 @@
                             </div>
                         </section>
 
-                        <section id="category-pickup">
+                        <section id="category-tipi">
                             <h3 class="subtitle is-5">TIPI</h3>
-                            <div id="gallery--getting-started8" class="pswp-gallery">
-                                <figure class="first-image">
-                                    <a href="https://divilidi.cz/" aria-label="pickup">
-                                        <img src="foto/tipi.jpg" alt="Hlavní obrázek" class="first-image"></a>
-                                </figure>
-
-
-                            </div>
+                            <figure class="first-image">
+                                <a href="https://divilidi.cz/" target="_blank" aria-label="tipi">
+                                    <img src="foto/tipi.jpg" alt="Hlavní obrázek" class="first-image"></a>
+                            </figure>
                         </section>
                     </div>
                 </div>
 
                 <div id="content3" class="is-hidden">
-                    <h2 class="title is-4">Kontakt</h2>
-                    <div class="columns">
+                    <div class="contact-section">
                         <!-- Kontaktní informace -->
-                        <div class="column is-half contact-info">
-                            <p><strong>Adresa:</strong> Rudník 72, 54372<br><span class="sub-address">Krkonoše</span>
-                            </p>
+                        <div class="contact-info"
+                            style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <p><strong>Adresa:</strong> Rudník 72, 54372</p>
+                            <p><strong>Místo:</strong> Krkonoše</p>
                             <p><strong>Telefon:</strong> <a href="tel:+420605841391">+420 605 841 391</a></p>
                             <p><strong>Email:</strong> <a href="mailto:bedaspol@gmail.com">bedaspol@gmail.com</a></p>
                         </div>
 
                         <!-- Formulář -->
-                        <div class="column is-half">
+                        <div class="contact-form" style="flex: 1; min-width: 250px;">
                             <form>
                                 <div class="field">
                                     <label class="label">Jméno</label>
@@ -387,12 +466,10 @@
                         </div>
                     </div>
                 </div>
-
-            </div>
-            <!--   <div id="content4" class="is-hidden">Content for Documents</div>
+                <!--   <div id="content4" class="is-hidden">Content for Documents</div>
             <div id="content5" class="is-hidden">Content for new</div> -->
+            </div>
         </div>
-
     </section>
     <p>Coded by Gabriela Bendová &copy; 2025</p>
 
@@ -434,7 +511,7 @@
         // ---- PhotoSwipe Lightbox ----
 
         import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.js';
-        const galleryLinks = document.querySelectorAll('#gallery--getting-started1 a, #gallery--getting-started2 a, #gallery--getting-started3 a, #gallery--getting-started4 a, #gallery--getting-started5 a, #gallery--getting-started6 a'
+        const galleryLinks = document.querySelectorAll('#gallery--getting-started1 a, #gallery--getting-started2 a, #gallery--getting-started3 a, #gallery--getting-started4 a, #gallery--getting-started5 a, #gallery--getting-started6 a, #gallery--getting-started7 a'
         );
 
         galleryLinks.forEach(link => {
@@ -482,6 +559,13 @@
             pswpModule: () => import('https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.esm.js')
         });
 
+        const lightbox7 = new PhotoSwipeLightbox({
+            gallery: '#gallery--getting-started7',
+            children: 'a',
+            pswpModule: () => import('https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.esm.js')
+        });
+
+
 
         lightbox1.init();
         lightbox2.init();
@@ -489,6 +573,7 @@
         lightbox4.init();
         lightbox5.init();
         lightbox6.init();
+        lightbox7.init();
 
 
         window.addEventListener('load', () => {
