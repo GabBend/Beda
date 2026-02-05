@@ -1,0 +1,18 @@
+# Git tahák (1. ročník)
+
+## 0) Základní pravidlo
+- **Nejdřív ulož soubory** (Ctrl+S)
+- Pak pracuj s Gitem.
+
+---
+
+## 1) Kontrola (nic nemění)
+```bash
+git status
+
+Příkaz      	Co dělá
+git status	    kouká
+git add	        připravuje
+git commit  	ukládá
+git rm	        maže správně
+git push	    posílá na GitHub
