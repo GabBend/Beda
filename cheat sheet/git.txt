@@ -12,9 +12,10 @@ git status
 
 Příkaz      	Co dělá
 git status	     kouká
-git add	.        připravuje .
+git add	 .        připravuje .
 
 git commit -m "aaanázevaaa" 	ukládá
 
 git rm	        maže správně
+
 git push	    posílá na GitHub
