@@ -1,0 +1,48 @@
+1. vytvoříme složku: 
+
+mkdir beda_django_project
+
+2. dostaneme se do složky: 
+
+cd .\beda_django_project\
+
+3. vytvoříme vyrtuální prostředí: 
+
+python -m venv .env
+
+4.   dostaneme se do složky env
+
+cd .env
+
+5. aktivujeme (.env)
+
+Scripts\activate  (melo by to vypadat takto: (.env) C:\Users\zuio\Desktop\Béďa\beda_django_project> )
+
+6. nastavíme python dáme:
+ctrl + shift + p  = python Select Interpreter, Enter interprete, find...
+project, .env,  Scripts, python.exe s obrázkem
+nastaví pro celý editor
+
+
+instalace Djanga:   python -m pip install django 
+
+
+8. dostaneme se přes cd. do projektu: 
+
+cd .\beda_django_project\
+
+9. vytvoření projektu a aktuální složce: (musí být tečka)
+
+django-admin startproject _project . 
+
+10. python manage.py runserver 
+
+11. python manage.py migrate
+
+12: vytvoření superuser: 
+
+python manage.py createsuperuser
+
+13. vytvoření blogu! 
+
+python manage.py startapp blog
