@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Technické zakázkové šití</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title>Technické zakázkové šití</title>
     <meta name="description"
         content="Profesionální technické šití a opravy středně těžkých i těžkých tkanin. Autostany, plachty, pergoly, zakázková výroba.">
 
@@ -32,10 +32,18 @@
             color: #555;
         }
 
+        /* bloky na O nás */
         .content-block {
             display: flex;
             gap: 15px;
             margin-bottom: 25px;
+        }
+
+        .content-block .text h3 {
+            margin: 0 0 8px 0;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #000;
         }
 
         .content-block img.icon {
@@ -46,6 +54,43 @@
 
         .content-block h3 {
             margin-top: 0;
+        }
+
+        /* galerie */
+        #gallery-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .first-image img {
+            width: 290px;
+            height: 220px;
+            border-radius: 5px;
+            display: block;
+        }
+
+        /* kontakt */
+        .contact-section {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .contact-info p {
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        /* jehla u záložek */
+        .tab-needle {
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+            vertical-align: -2px;
         }
 
         footer {
@@ -61,32 +106,58 @@
 
 <body>
 
-    <!-- HLAVIČKA -->
     <section class="section">
         <div class="container">
 
+            <!-- HLAVIČKA -->
             <header class="mb-5">
                 <div class="is-flex is-align-items-center">
                     <figure class="image is-128x128 mr-4">
                         <img src="{% static 'foto/logo_beda.jpg' %}" alt="Logo společnosti">
                     </figure>
                     <div>
-                        <h1 class="title is-4">TECHNICKÉ ZAKÁZKOVÉ ŠITÍ</h1>
-                        <p class="subtitle is-6">
-                            Středně těžké až těžké tkaniny · kusová i sériová výroba
-                        </p>
+                        <h1 class="title is-4 mb-0">TECHNICKÉ ZAKÁZKOVÉ ŠITÍ</h1><br>
+                        <p class="subtitle mb-0">Šijeme střednětěžké až těžké tkaniny a PVC,</p>
+                        <p class="subtitle mb-0">od kusové po sériovou výrobu.</p>
                     </div>
                 </div>
             </header>
 
+            <!-- ZÁLOŽKY (tabs) + aktivní zvýraznění -->
+            <div class="tabs is-right">
+                <ul>
+                    <li class="{% if request.resolver_match.url_name == 'index' %}is-active{% endif %}">
+                        <a href="{% url 'index' %}">
+                            <img class="tab-needle"
+                                src="{% static 'ikony/needle-with-thread-to-sew-clothes-svgrepo-com.svg' %}" alt="">
+                            O nás
+                        </a>
+                    </li>
+
+                    <li class="{% if request.resolver_match.url_name == 'photo' %}is-active{% endif %}">
+                        <a href="{% url 'photo' %}">
+                            <img class="tab-needle"
+                                src="{% static 'ikony/needle-with-thread-to-sew-clothes-svgrepo-com.svg' %}" alt="">
+                            Foto
+                        </a>
+                    </li>
+
+                    <li class="{% if request.resolver_match.url_name == 'contact' %}is-active{% endif %}">
+                        <a href="{% url 'contact' %}">
+                            <img class="tab-needle"
+                                src="{% static 'ikony/needle-with-thread-to-sew-clothes-svgrepo-com.svg' %}" alt="">
+                            Kontakt
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
             <!-- OBSAH STRÁNKY -->
-            {% block content %}
-            {% endblock %}
+            {% block content %}{% endblock %}
 
         </div>
     </section>
 
-    <!-- PATIČKA -->
     <footer>
         <p>
             Lukáš Benda<br>
@@ -95,7 +166,7 @@
             Telefon: <a href="tel:+420605841391">+420 605 841 391</a><br>
             Email: <a href="mailto:bedaspol@gmail.com">bedaspol@gmail.com</a>
         </p>
-        <p>&copy; 2025</p>
+        <p>&copy; 2025 · Coded by Gabriela Bendová</p>
     </footer>
 
     {% block scripts %}{% endblock %}
