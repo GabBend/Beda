@@ -1,0 +1,75 @@
+{% extends "beda/_base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div id="content1">
+
+    <blockquote>
+        Jsme rodinný tým zkušených odborníků specializující se na technické šití. Na trhu působíme
+        od roku 2016.
+    </blockquote>
+
+    <br>
+
+    <div class="content-block">
+        <img src="{% static 'ikony/camera-film-strip-svgrepo-com.svg' %}" alt="Co šijeme" class="icon">
+        <div class="text">
+            <h3>Co šijeme</h3>
+            <p>
+                Naše práce zahrnuje šití autostanů, předstanů, táborových plachet, teepee a dalších přístřešků na
+                zakázku.
+                Umíme vytvořit plachty pro pergoly, stánky či slunečníky přesně podle vašich potřeb. Každý projekt
+                přizpůsobujeme individuálně – od menších oprav po komplexní zakázky – s důrazem na kvalitu, funkčnost a
+                dlouhou životnost výrobků.
+            </p>
+        </div>
+    </div>
+
+    <div class="content-block">
+        <img src="{% static 'ikony/scissors-svgrepo-com.svg' %}" alt="Zakázková výroba" class="icon">
+        <div class="text">
+            <h3>Zakázková výroba</h3>
+            <p>
+                Vaši zakázku zpracujeme kompletně – od prvotního návrhu až po hotový výrobek. Připravíme návrhy i
+                nákresy,
+                provedeme kalkulaci a nabídneme nezávazný odhad ceny zdarma. Vytváříme nové střihy a repasujeme staré.
+                Šijeme také na míru konstrukcím, které si sami necháte vyrobit.
+            </p>
+        </div>
+    </div>
+
+    <div class="content-block">
+        <img src="{% static 'ikony/zipper-material-svgrepo-com.svg' %}" alt="Další služby" class="icon">
+        <div class="text">
+            <h3>Další služby</h3>
+            <p>
+                Nabízíme výměnu zipů a zdrhovadel všech délek. Součástí služeb je také čalounictví a naše pojízdná šicí
+                dílna,
+                která umožňuje lokální opravy a výrobu přímo u vás nebo v terénu.
+            </p>
+        </div>
+    </div>
+
+    <div class="content-block">
+        <img src="{% static 'ikony/needle-with-thread-to-sew-clothes-svgrepo-com.svg' %}" alt="Proč si vybrat nás"
+            class="icon">
+        <div class="text">
+            <h3>Proč si vybrat nás</h3>
+
+            <p><strong>Tradiční postupy:</strong> Repasujeme, rekonstruujeme a opravujeme výrobky tak, aby vydržely co
+                nejdéle.</p>
+
+            <p><strong>Kvalitní materiál:</strong> Pomůžeme s výběrem materiálu a nabídneme možnost osobního výběru ze
+                široké škály vzorků.</p>
+
+            <p><strong>Konstrukce na zakázku:</strong> Opravíme nebo vyrobíme nové konstrukce ke stanům, autostanům a
+                přístřeškům.</p>
+
+            <p><strong>Precizní práce:</strong> Dbáme na funkčnost, životnost a kvalitní zpracování každého výrobku.</p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

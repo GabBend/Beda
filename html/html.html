@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Technické šití</title>
+    <meta name="description"
+        content="Profesionální technické šití a opravy středně těžkých i těžkých tkanin od kusové po sériovou výrobu. Stany, autostany, kryty, konstrukce, návrhy a kvalitní zpracování.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.css">
+
+    <link rel="shortcut icon" href="ikony/needle-with-thread-to-sew-clothes-svgrepo-com.svg" type="image/png">
+    <!-- odkaz: https://www.svgrepo.com/ s LICENSE: CC0 License -->
+
+    <!--DVA PROBlÉMY: 
+        1. při kliknutí na text se zobrazí coded - ubráním u/li vyřešeno!!!
+        2. při refresh se vrátilo na úvodní stránku/v galerii problikává,
+        3.TIPI odkaz na nové okno - target="_blank"!
+-->
+
+    <!--
+        4. vyplatí se použít data-caption=
+        "Popisek při smazání fota"?
+
+        5. uvolnit  <div class="field"> ???
+            snažší poptání zákazníka 
+            x
+            nápedení "hekry"
+        děkuji! 
+-->
+    <!-- JSON-LD pro organizaci a logo -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TECHNICKÉ ZAKÁZKOVÉ ŠITÍ - Lukáš Benda",
+  "url": "https://www.bedaspol.cz/",
+  "logo": "https://www.bedaspol.cz/foto/logo_beda.jpg",
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61551803520575",
+
+  ]
+}
+</script>
+
+    <!-- JSON-LD pro lokální firmu -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "TECHNICKÉ ZAKÁZKOVÉ ŠITÍ - Lukáš Benda",
+  "image": "https://www.bedaspol.cz/foto/logo_beda.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rudník 72",
+    "addressLocality": "Krkonoše",
+    "postalCode": "54372",
+    "addressCountry": "CZ"
+  },
+  "telephone": "+420605841391",
+  "email": "bedaspol@gmail.com",
+  "url": "https://www.bedaspol.cz/"
+}
+</script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        blockquote {
+            font-style: italic;
+            border-left: 4px solid #333;
+            padding-left: 54px;
+            color: #555;
+        }
+
+        #content1 {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        #content1 .content-block {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #content1 .content-block img.icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        #content1 .content-block .text h3 {
+            margin: 0 0 8px 0;
+            color: #000;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        #content1 .content-block .text p {
+            margin: 0 0 10px 0;
+        }
+
+        .subtitle.is-5 {
+            margin-bottom: 5px !important;
+            /* Bulma má velký default */
+        }
+
+        .first-image img {
+            display: block;
+            width: 290px;
+            height: 220px;
+            border-radius: 5px;
+        }
+
+        #gallery-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 15px
+        }
+
+
+        .contact-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            /* mezera mezi sloupci */
+        }
+
+        .contact-section .contact-info,
+        .contact-section .contact-form {
+            flex: 1 1 300px;
+            /* flexibilní šířka, min 300px */
+            min-width: 250px;
+            /* pro mobil */
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        /* Velikost textu na desktopu */
+        .contact-section .contact-info p {
+            font-size: 1.8rem;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* Telefon a email zachovají velikost */
+        .contact-section .contact-info a {
+            font-size: 2rem;
+            /* nepřehluší mobilní řádek */
+            word-break: break-word;
+            /* zajistí zalomení, pokud je nutné */
+        }
+
+        /* Pro tablety a malé mobily */
+        @media (max-width: 768px) {
+
+            #content1,
+            #content2,
+            #content3 {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .contact-section .contact-info p {
+                font-size: 1.6rem;
+                line-height: 1.6;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            #content1,
+            #content2,
+            #content3 {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .first-image img {
+                width: 80%;
+                height: auto !important;
+                max-height: none !important;
+                display: block;
+                margin: 0 auto;
+            }
+
+            section[id^="category-"] h3 {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            /* aby se vycentrovala */
+            .contact-section {
+                flex-direction: column;
+                /* položky pod sebe */
+                gap: 1rem;
+                /* menší mezera */
+            }
+
+            .contact-section .contact-info p {
+                font-size: 1.4rem;
+                line-height: 1.5;
+            }
+
+            .contact-section .contact-info a {
+                font-size: 1rem;
+                /* telefon a email zůstanou čitelné */
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+
+    <section class="section">
+        <div class="container">
+
+            <header class="section p-0">
+                <div class="container is-flex is-align-items-center">
+                    <figure class="image is-128x128 mr-3">
+                        <img src="foto/logo_beda.jpg" alt="Logo společnosti">
+                    </figure>
+                    <div>
+                        <h1 class="title is-4 mb-0">TECHNICKÉ ZAKÁZKOVÉ ŠITÍ</h1><br>
+                        <p class="subtitle mb-0">Šijeme střednětěžké až těžké tkaniny a PVC,</p>
+                        <p class="subtitle mb-0">od kusové po sériovou výrobu.</p>
+                    </div>
+                </div>
+            </header>
+
+
+            <!-- Tabs -->
+            <div class="tabs is-right">
+                <ul>
+                    <li aria-controls="content1" class="is-active"><a>O nás</a></li>
+                    <li aria-controls="content2"><a>Foto</a></li>
+                    <li aria-controls="content3"><a>Kontakt</a></li>
+                    <!--   <li aria-controls="content4"><a>Documents</a></li>
+                    <li aria-controls="content5"><a>New tab</a></li>-->
+                </ul>
+            </div>
+
+
+            <div class="contents">
+
+                <!-- content1 -->
+                <div id="content1">
+                    <blockquote>
+                        Jsme rodinný tým zkušených odborníků specializující se na technické šití. Na trhu působíme
+                        od roku 2016.
+                    </blockquote>
+
+                    <br>
+
+                    <div class="content-block">
+                        <img src="ikony/camera-film-strip-svgrepo-com.svg" alt="Co šijeme" class="icon">
+                        <div class="text">
+                            <h3>Co šijeme</h3>
+                            <p> Naše práce
+                                zahrnuje šití autostanů,
+                                předstanů, táborových plachet, teepee a dalších přístřešků na zakázku. Umíme vytvořit
+                                plachty pro pergoly, stánky či
+                                slunečníky přesně podle vašich potřeb. Každý projekt přizpůsobujeme individuálně – od
+                                menších oprav po komplexní zakázky
+                                – s důrazem na kvalitu, funkčnost a dlouhou životnost výrobků.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <img src="ikony/scissors-svgrepo-com.svg" alt="Zakázková výroba" class="icon">
+                        <div class="text">
+                            <h3>Zakázková výroba</h3>
+                            <p>Vaši zakázku zpracujeme kompletně – od prvotního návrhu až po hotový výrobek. Připravíme
+                                návrhy i
+                                nákresy, provedeme kalkulaci a nabídneme nezávazný odhad ceny zdarma. Vytváříme nové
+                                střihy
+                                a repasujeme
+                                staré. Šijeme také na míru konstrukcím, které si sami necháte vyrobit.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <img src="ikony/zipper-material-svgrepo-com.svg" alt="Další služby" class="icon">
+                        <div class="text">
+                            <h3>Další služby</h3>
+                            <p>Nabízíme výměnu zipů a zdrhovadel všech délek. Součástí služeb je také čalounictví a naše
+                                pojízdná šicí
+                                dílna, která umožňuje lokální opravy a výrobu přímo u vás nebo v terénu.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <img src="ikony/needle-with-thread-to-sew-clothes-svgrepo-com.svg" alt="Proč si vybrat nás"
+                            class="icon">
+                        <div class="text">
+                            <h3>Proč si vybrat nás</h3>
+                            <p><strong>Tradiční postupy:</strong> Repasujeme, rekonstruujeme a opravujeme výrobky tak,
+                                aby
+                                vydržely co
+                                nejdéle.</p>
+                            <p><strong>Kvalitní materiál:</strong> Pomůžeme s výběrem materiálu a nabídneme možnost
+                                osobního
+                                výběru ze
+                                široké škály vzorků.</p>
+                            <p><strong>Konstrukce na zakázku:</strong> Opravíme nebo vyrobíme nové konstrukce ke stanům,
+                                autostanům a
+                                přístřeškům.</p>
+                            <p><strong>Precizní práce:</strong> Dbáme na funkčnost, životnost a kvalitní zpracování
+                                každého
+                                výrobku.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- content2 -->
+                <div id="content2" class="is-hidden">
+
+                    <div id="gallery-row">
+
+                        <section id="category-bus">
+                            <h3 class="subtitle is-5">Autobusová pergola</h3>
+                            <div id="gallery--getting-started1" class="pswp-gallery">
+                                <figure class="first-image">
+                                    <a href="foto/IMG_zkouskabus.jpg">
+                                        <img src="foto/IMG_zkouskabus.jpg" alt="Hlavní obrázek" class="first-image">
+                                    </a>
+
+                                </figure>
+
+                                <div style="display:none">
+                                    <a href="foto/IMG_logobus.jpg" data-pswp-width="1920" data-pswp-height="1080">
+                                    </a>
+                                    <a href="foto/IMG_sitibus.jpg" data-pswp-width="1920" data-pswp-height="1080">
+                                    </a>
+                                    <!--PRO SEO: <img src="foto/IMG_sitibus.jpg" alt="Autobus Sitibus">
+                                    nebo pro ukrytí z vizuálu: <img src="foto/pergola_condor_vchod.jpg" alt="Condor vchod"
+                                        style="width:1px; height:1px; position:absolute; left:-9999px;">
+
+                                        teď ALT slouží: Když se obrázek nenačte (např. špatný link), prohlížeč zobrazí alt místo obrázku. -->
+
+                                    <a href="foto/IMG_plachtabus.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/Index_bus.jpg" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                    <a href="foto/IMG-finalbus.jpg" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                </div>
+                            </div>
+                        </section>
+
+
+                        <section id="category-chaloupka">
+                            <h3 class="subtitle is-5">Dílničkový stánek na trhy</h3>
+                            <div id="gallery--getting-started2" class="pswp-gallery">
+                                <figure class="first-image">
+                                    <a href="foto/chaloupka.jpg">
+                                        <img src="foto/chaloupka.jpg" alt="Hlavní obrázek" class="first-image">
+                                    </a>
+                                </figure>
+
+                                <div style="display:none;">
+                                    <a href="foto/chaloupka_okna.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/chaloupka_siti.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/chaloupka_vlnky.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/chaloupka_střecha.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/chaloupka_vnitrek.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="category-vuz">
+                            <h3 class="subtitle is-5">Formanský vůz</h3>
+                            <div id="gallery--getting-started3" class="pswp-gallery">
+                                <figure class="first-image">
+                                    <a href="foto/vuz.jpg">
+                                        <img src="foto/vuz.jpg" alt="Hlavní obrázek" class="first-image"> </a>
+                                </figure>
+
+                                <div style="display:none;">
+                                    <a href="foto/vuz_nakres.jpg" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                    <a href="foto/vuz-strih.jpg" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                    <a href="foto/vuz_vypln.jpg" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                    <a href="foto/vuz_vypln_vsito.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/vuz_okna.jpg" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                </div>
+                            </div>
+                        </section>
+
+
+                        <section id="category-tramp">
+                            <h3 class="subtitle is-5">Vozík Tramp 66</h3>
+                            <div id="gallery--getting-started4" class="pswp-gallery">
+                                <figure class="first-image">
+                                    <a href="foto/vozík_Tramp66_bok.JPG">
+                                        <img src="foto/vozík_Tramp66_bok.JPG" alt="Hlavní obrázek" class="first-image">
+                                    </a>
+                                </figure>
+
+                                <div style="display:none">
+                                    <a href="foto/vozík_Tramp66_celo.JPG" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/vozík_Tramp66_in.JPG" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/vozík_Tramp66_prace.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/vozík_Tramp66_nakres.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/vozík_Tramp66_strih.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="category-lod">
+                            <h3 class="subtitle is-5">Loď čalounění </h3>
+                            <div id="gallery--getting-started5" class="pswp-gallery">
+                                <figure class="first-image">
+                                    <a href="foto/lod_final.jpg">
+                                        <img src="foto/lod_final.jpg" alt="Hlavní obrázek" class="first-image"></a>
+                                </figure>
+
+                                <div style="display:none">
+                                    <a href="foto/lod_I.JPG" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                    <a href="foto/lodII.JPG" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                    <a href="foto/lodIII.JPG" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                    <a href="foto/lodIV.JPG" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                    <a href="foto/lodV.JPG" data-pswp-width="1920" data-pswp-height="1080"></a>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="category-condor">
+                            <h3 class="subtitle is-5">Pergola k vozíku Condor</h3>
+                            <div id="gallery--getting-started6" class="pswp-gallery">
+                                <figure class="first-image">
+                                    <a href="foto/pergola_condor_bok.jpg">
+                                        <img src="foto/pergola_condor_bok.jpg" alt="Hlavní obrázek" class="first-image">
+                                    </a>
+                                </figure>
+
+                                <div style="display:none">
+                                    <a href="foto/pergola_condor_strecha.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/pergola_condor_sit.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/pergola_condor_vchod.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/pergola_condor_okno.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/pergola_condor_pul.jpg" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="category-pickup">
+                            <h3 class="subtitle is-5">Kufrový stan na Pick-up</h3>
+                            <div id="gallery--getting-started7" class="pswp-gallery">
+                                <figure class="first-image">
+                                    <a href="foto/autostan_pickup_full.jpg">
+                                        <img src="foto/autostan_pickup_full.jpg" alt="Hlavní obrázek"
+                                            class="first-image"></a>
+                                </figure>
+
+                                <div style="display:none">
+                                    <a href="foto/autostan_pickup_strih.JPG" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/autostan_pickup_sit.JPG" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/autostan_pickup_vchod.JPG" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/autostan_pickup_closs.JPG" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                    <a href="foto/autostan_pickup_open.JPG" data-pswp-width="1920"
+                                        data-pswp-height="1080"></a>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="category-tipi">
+                            <h3 class="subtitle is-5">TIPI</h3>
+                            <figure class="first-image">
+                                <a href="https://divilidi.cz/" target="_blank" aria-label="tipi">
+                                    <img src="foto/tipi.jpg" alt="Hlavní obrázek" class="first-image"></a>
+                            </figure>
+                        </section>
+                    </div>
+                </div>
+
+                <div id="content3" class="is-hidden">
+                    <div class="contact-section">
+                        <!-- Kontaktní informace -->
+                        <div class="contact-info"
+                            style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <p><strong>Adresa:</strong> Rudník 72, 54372</p>
+                            <p><strong>Místo:</strong> Krkonoše</p>
+                            <p><strong>Telefon:</strong> <a href="tel:+420605841391">+420 605 841 391</a></p>
+                            <p><strong>Email:</strong> <a href="mailto:bedaspol@gmail.com">bedaspol@gmail.com</a></p>
+                        </div>
+
+                        <!-- Formulář 
+                        <div class="contact-form" style="flex: 1; min-width: 250px;">
+                            <form>
+                                <div class="field">
+                                    <label class="label">Jméno</label>
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Vaše jméno">
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label class="label">Email</label>
+                                    <div class="control">
+                                        <input class="input" type="email" placeholder="Váš email">
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label class="label">Zpráva</label>
+                                    <div class="control">
+                                        <textarea class="textarea" placeholder="Vaše zpráva"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="control">
+                                    <button class="button is-link">Odeslat</button>
+                                </div>
+                            </form>
+                        </div>
+                        -->
+                    </div>
+                </div>
+                <!--   <div id="content4" class="is-hidden">Content for Documents</div>
+            <div id="content5" class="is-hidden">Content for new</div> -->
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align:center; padding:20px 0; font-size:0.9rem; color:#555;">
+        Lukáš Benda
+        <br>
+        IČO: 72925442
+        <br>
+        Adresa: Rudník 72, 54372, Krkonoše
+        <br>
+        Telefon: <a href="tel:+420605841391">+420 605 841 391</a> |
+        Email: <a href="mailto:bedaspol@gmail.com">bedaspol@gmail.com</a>
+    </footer>
+    <br>
+    <p>Coded by Gabriela Bendová &copy; 2025</p>
+
+    <!-- JS část -->
+    <script type="module">
+        // ---- Tab system ----
+        class Tab {
+            constructor(el) {
+                this.el = el;
+                const contentId = el.getAttribute('aria-controls');
+                this.content = document.getElementById(contentId);
+            }
+
+            activate() {
+                this.el.classList.add('is-active');
+                this.content.classList.remove('is-hidden');
+            }
+
+            deactivate() {
+                this.el.classList.remove('is-active');
+                this.content.classList.add('is-hidden');
+            }
+        }
+
+        const allItems = document.querySelectorAll('ul li');
+        let activeTab = null;
+
+        allItems.forEach((item, index) => {
+            const tab = new Tab(item);
+            if (!index) activeTab = tab;
+
+            item.addEventListener('click', e => {
+                activeTab.deactivate();
+                tab.activate();
+                activeTab = tab;
+            });
+        });
+
+        // ---- PhotoSwipe Lightbox ----
+
+        import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.js';
+        const galleryLinks = document.querySelectorAll('#gallery--getting-started1 a, #gallery--getting-started2 a, #gallery--getting-started3 a, #gallery--getting-started4 a, #gallery--getting-started5 a, #gallery--getting-started6 a, #gallery--getting-started7 a'
+        );
+
+        galleryLinks.forEach(link => {
+            const img = new Image();
+            img.src = link.href;
+            img.onload = () => {
+                link.setAttribute('data-pswp-width', img.width);
+                link.setAttribute('data-pswp-height', img.height);
+            }
+        });
+
+        const lightbox1 = new PhotoSwipeLightbox({
+            gallery: '#gallery--getting-started1',
+            children: 'a',
+            pswpModule: () => import('https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.esm.js')
+        });
+
+        const lightbox2 = new PhotoSwipeLightbox({
+            gallery: '#gallery--getting-started2',
+            children: 'a',
+            pswpModule: () => import('https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.esm.js')
+        });
+
+        const lightbox3 = new PhotoSwipeLightbox({
+            gallery: '#gallery--getting-started3',
+            children: 'a',
+            pswpModule: () => import('https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.esm.js')
+        });
+
+        const lightbox4 = new PhotoSwipeLightbox({
+            gallery: '#gallery--getting-started4',
+            children: 'a',
+            pswpModule: () => import('https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.esm.js')
+        });
+
+        const lightbox5 = new PhotoSwipeLightbox({
+            gallery: '#gallery--getting-started5',
+            children: 'a',
+            pswpModule: () => import('https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.esm.js')
+        });
+
+        const lightbox6 = new PhotoSwipeLightbox({
+            gallery: '#gallery--getting-started6',
+            children: 'a',
+            pswpModule: () => import('https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.esm.js')
+        });
+
+        const lightbox7 = new PhotoSwipeLightbox({
+            gallery: '#gallery--getting-started7',
+            children: 'a',
+            pswpModule: () => import('https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.esm.js')
+        });
+
+
+
+        lightbox1.init();
+        lightbox2.init();
+        lightbox3.init();
+        lightbox4.init();
+        lightbox5.init();
+        lightbox6.init();
+        lightbox7.init();
+
+
+        window.addEventListener('load', () => {
+            const savedTab = localStorage.getItem('activeTab');
+            if (savedTab) {
+                allItems.forEach(item => {
+                    const tab = new Tab(item);
+                    if (item.getAttribute('aria-controls') === savedTab) {
+                        tab.activate();
+                        activeTab = tab;
+                    } else {
+                        tab.deactivate();
+                    }
+                });
+            } else {
+                // výchozí první tab
+                activeTab.activate();
+            }
+        });
+
+        // Při kliknutí ulož aktivní tab
+        allItems.forEach(item => {
+            item.addEventListener('click', () => {
+                localStorage.setItem('activeTab', item.getAttribute('aria-controls'));
+            });
+        });
+    </script>
+</body>
+
+</html>
