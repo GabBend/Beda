@@ -24,6 +24,7 @@ SECRET_KEY = "django-insecure-nht7+l4^fmlda+@#_do7n)3zeh051r#5^a23(6u-xp^oxyrx8d
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+DEBUG_TOOLBAR = False
 
 ALLOWED_HOSTS = []
 INTERNAL_IPS = ["127.0.0.1"]
@@ -39,7 +40,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "blog",
-    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -50,8 +50,12 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
+
+
+if DEBUG and DEBUG_TOOLBAR:
+    INSTALLED_APPS += ["debug_toolbar"]
+    MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE
 
 ROOT_URLCONF = "_project.urls"
 
@@ -118,7 +122,7 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
