@@ -1,0 +1,57 @@
+Tvoje včerejší verze dělá čtverce + ořez na střed (super pro produktovky), ale pro galerii “foto” většinou chceš spíš:
+
+bez ořezu
+
+jen max šířka (např. 1600 px)
+
+a rozumná komprese
+
+Níže máš upravený skript “jen velikost + komprese”.
+
+✅ Varianta 1: jen zmenšit + komprimovat, bez ořezu (doporučené pro galerii)
+from PIL import Image, ImageOps
+from pathlib import Path
+
+SOURCE_DIR = Path(".")
+OUTPUT_DIR = Path("_hotovo")
+
+MAX_W = 1600          # zkus 1600 (nebo 1200 pro ještě menší data)
+JPEG_QUALITY = 78     # 75–82 je obvykle super kompromis
+
+OUTPUT_DIR.mkdir(exist_ok=True)
+
+def resize_keep_ratio(img: Image.Image, max_w: int) -> Image.Image:
+    w, h = img.size
+    if w <= max_w:
+        return img
+    new_h = int(h * (max_w / w))
+    return img.resize((max_w, new_h), Image.LANCZOS)
+
+for img_path in SOURCE_DIR.iterdir():
+    if img_path.is_dir():
+        continue
+    if img_path.suffix.lower() not in [".jpg", ".jpeg", ".png", ".webp"]:
+        continue
+
+    with Image.open(img_path) as img:
+        img = ImageOps.exif_transpose(img)
+
+        # vše ukládáme jako JPEG (kvůli kompatibilitě)
+        img = img.convert("RGB")
+        img = resize_keep_ratio(img, MAX_W)
+
+        out_path = OUTPUT_DIR / f"{img_path.stem}.jpg"
+        img.save(
+            out_path,
+            format="JPEG",
+            quality=JPEG_QUALITY,
+            optimize=True,
+            progressive=True,
+        )
+
+        print(f"OK: {out_path.name} ({img.size[0]}x{img.size[1]})")
+Co je důležité
+
+optimize=True a progressive=True často ušetří dost
+
+bez ořezu, fotka zůstane celá
