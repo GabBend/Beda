@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
 
     <title>Technické zakázkové šití</title>
     <meta name="description"
@@ -20,11 +21,13 @@
     <link rel="icon" type="image/svg+xml" href="{% static 'ikony/needle-with-thread-to-sew-clothes-svgrepo-com.svg' %}">
 
     <style>
+        html,
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             background-color: #ffffff;
             color: #222222;
+            color-scheme: light;
         }
 
         .section,
@@ -185,7 +188,7 @@
             Telefon: <a href="tel:+420605841391">+420 605 841 391</a><br>
             Email: <a href="mailto:bedaspol@gmail.com">bedaspol@gmail.com</a>
         </p>
-        <p>&copy; 2025 · Coded by Gabriela Bendová</p>
+        <p>&copy; 2025 - {% now "Y" %} · Coded by Gabriela Bendová</p>
     </footer>
 
     {% block scripts %}{% endblock %}
