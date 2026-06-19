@@ -26,8 +26,22 @@ SECRET_KEY = "django-insecure-nht7+l4^fmlda+@#_do7n)3zeh051r#5^a23(6u-xp^oxyrx8d
 DEBUG = False
 DEBUG_TOOLBAR = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "www.bedaspol.cz",
+    "bedaspol.cz",
+]
+
 INTERNAL_IPS = ["127.0.0.1"]
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://www.bedaspol.cz",
+    "https://bedaspol.cz",
+]
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 
 # Application definition
@@ -128,6 +142,8 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 CACHES = {
     "default": {
