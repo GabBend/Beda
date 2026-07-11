@@ -226,12 +226,6 @@
                         </a>
                     </li>
 
-                    <li class="{% if request.resolver_match.url_name == 'zakazkova_vyroba' %}is-active{% endif %}">
-                        <a href="{% url 'zakazkova_vyroba' %}">
-                            <img class="tab-needle" src="{% static 'ikony/needle-with-thread-to-sew-clothes-svgrepo-com.svg' %}" alt="">
-                            Zakázková výroba
-                        </a>
-                    </li>
 
                     <li class="{% if request.resolver_match.url_name == 'photo' %}is-active{% endif %}">
                         <a href="{% url 'photo' %}">
