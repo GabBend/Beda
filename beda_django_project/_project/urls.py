@@ -3,6 +3,8 @@ from django.conf import settings
 from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import StaticViewSitemap
+from django.views.generic import RedirectView
+from django.templatetags.static import static
 
 sitemaps = {
     "static": StaticViewSitemap,
