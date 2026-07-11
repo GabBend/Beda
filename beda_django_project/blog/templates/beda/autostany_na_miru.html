@@ -1,0 +1,819 @@
+{% extends "beda/_base.html" %}
+{% load static %}
+
+
+{% block title %}Autostany a předstany na míru | Výroba a opravy | Béďa{% endblock %}
+
+{% block description %}Navrhujeme, vyrábíme a opravujeme autostany, předstany a stany ke karavanům na míru. Nové
+střechy, bočnice, tropika, zipy, okna, přístřešky i konstrukce podle vašich potřeb.{% endblock %}
+
+{% block canonical %}https://www.bedaspol.cz/autostany-na-miru/{% endblock %}
+
+{% block og_title %}Autostany a předstany na míru | Béďa{% endblock %}
+
+{% block og_description %}Zakázková výroba, úpravy a opravy autostanů, předstanů a stanů ke karavanům. Od prvního návrhu
+až po hotový výrobek přesně podle vašich představ.{% endblock %}
+
+{% block og_url %}https://www.bedaspol.cz/autostany-na-miru/{% endblock %}
+
+
+{% block head %}
+<style>
+    .autostany-page {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .autostany-intro {
+        max-width: 880px;
+        margin-bottom: 3rem;
+    }
+
+    .autostany-eyebrow {
+        margin-bottom: 0.55rem;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #555555;
+    }
+
+    .autostany-intro .title {
+        margin-bottom: 0.8rem;
+    }
+
+    .autostany-intro .subtitle {
+        margin-bottom: 1.5rem;
+        line-height: 1.45;
+    }
+
+    .section-heading {
+        margin-bottom: 0.55rem !important;
+    }
+
+    .section-lead {
+        max-width: 800px;
+        margin-bottom: 1.8rem;
+        color: #555555;
+    }
+
+    .service-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.4rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .service-card {
+        position: relative;
+        height: 100%;
+        padding: 1.75rem;
+        border: 1px solid #e3e3e3;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    .service-card::before {
+        content: "";
+        position: absolute;
+        top: 1.75rem;
+        left: 0;
+        width: 4px;
+        height: 42px;
+        background-color: #222222;
+    }
+
+    .service-card h3 {
+        margin: 0 0 0.75rem 0;
+        padding-left: 0.4rem;
+        font-size: 1.28rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: #222222;
+    }
+
+    .service-card p {
+        margin-bottom: 0;
+        color: #444444;
+    }
+
+    .two-types-section {
+        margin-bottom: 3.5rem;
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: #f5f5f5;
+    }
+
+    .customer-types {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.6rem;
+    }
+
+    .customer-type {
+        padding: 1.6rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+    }
+
+    .customer-type h3 {
+        margin: 0 0 0.65rem 0;
+        font-size: 1.16rem;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .customer-type p:last-child {
+        margin-bottom: 0;
+    }
+
+    .situation-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem 2rem;
+        margin: 1.5rem 0 3.5rem;
+        padding: 0;
+        list-style: none;
+    }
+
+    .situation-list li {
+        position: relative;
+        margin: 0;
+        padding-left: 1.8rem;
+    }
+
+    .situation-list li::before {
+        content: "✓";
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .process-section {
+        margin-bottom: 3.5rem;
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: #f5f5f5;
+    }
+
+    .process-intro {
+        max-width: 820px;
+        margin-bottom: 0;
+    }
+
+    .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.35rem;
+        margin-top: 1.8rem;
+    }
+
+    .process-step {
+        position: relative;
+        padding-left: 3.35rem;
+    }
+
+    .process-number {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background-color: #222222;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .process-step h3 {
+        margin: 0 0 0.45rem 0;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .process-step p {
+        margin-bottom: 0;
+        color: #444444;
+    }
+
+    .materials-box {
+        margin-bottom: 3.5rem;
+        padding: 1.8rem 2rem;
+        border-left: 4px solid #333333;
+        background-color: #fafafa;
+    }
+
+    .materials-box p:last-child {
+        margin-bottom: 0;
+    }
+
+    .price-note {
+        margin-bottom: 3.5rem;
+        padding: 1.8rem 2rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+    }
+
+    .price-note p:last-child {
+        margin-bottom: 0;
+    }
+
+    .faq-section {
+        margin-bottom: 3.5rem;
+    }
+
+    .faq-item {
+        padding: 1.35rem 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .faq-item:first-of-type {
+        border-top: 1px solid #e5e5e5;
+    }
+
+    .faq-item h3 {
+        margin: 0 0 0.45rem 0;
+        font-size: 1.08rem;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .faq-item p {
+        margin-bottom: 0;
+    }
+
+    .contact-box {
+        padding: 2.25rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #ffffff;
+        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    .contact-box .title {
+        margin-bottom: 0.75rem;
+    }
+
+    .contact-details {
+        margin: 1.4rem 0 1.25rem;
+    }
+
+    .contact-details p {
+        margin-bottom: 0.25rem;
+    }
+
+    .back-link {
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    @media (max-width: 900px) {
+        .process-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .service-grid,
+        .customer-types,
+        .situation-list,
+        .process-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .autostany-intro {
+            margin-bottom: 2.3rem;
+        }
+
+        .service-card,
+        .customer-type,
+        .two-types-section,
+        .process-section,
+        .materials-box,
+        .price-note,
+        .contact-box {
+            padding: 1.4rem;
+        }
+
+        .process-step {
+            min-height: 2.7rem;
+        }
+
+        .gallery-link-box {
+            margin-bottom: 3rem;
+            padding: 1.8rem 2rem;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            text-align: center;
+            background-color: #fafafa;
+        }
+
+        .gallery-link-box .title {
+            margin-bottom: 0.65rem;
+        }
+
+        .gallery-link-box p {
+            margin-bottom: 1.2rem;
+        }
+    }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Umíte vyrobit celý nový autostan nebo předstan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Autostan nebo předstan můžeme navrhnout a vyrobit podle vašeho vozidla, karavanu, konstrukce, původního výrobku nebo vlastní představy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Musím mít připravený přesný technický výkres?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nemusíte. Pro první domluvu obvykle stačí fotografie, základní rozměry a popis požadavků. U rozsáhlejších zakázek je často nejlepší přivézt vozidlo, karavan nebo konstrukci přímo do dílny."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Opravujete také zipy, střechy a bočnice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Provádíme výměny dlouhých zipů, opravy děr a protržení, výměny střech, bočnic, oken, síťovin, tropik a dalších částí autostanů a předstanů."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Jak dlouho výroba nebo oprava trvá?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Termín závisí na rozsahu zakázky, dostupnosti materiálu a aktuální vytíženosti dílny. Jarní období bývá velmi vytížené, proto je výhodné řešit větší opravy a nové výrobky už na podzim nebo v zimě."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Přijímáte zakázky z celé České republiky?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Zakázky přijímáme od zákazníků z celé České republiky. Způsob předání a zaměření vždy domluvíme podle konkrétního výrobku."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="content autostany-page">
+
+    <div class="autostany-intro">
+        <p class="autostany-eyebrow">
+            Potřebujete stan, který se v běžných rozměrech nevyrábí?
+        </p>
+
+        <h1 class="title is-2">
+            Autostany a předstany na míru
+        </h1>
+
+        <p class="subtitle is-5">
+            Nevyrábíme podle katalogu. Autostan, předstan nebo stan ke karavanu
+            navrhneme podle vašich představ, rozměrů a skutečného způsobu používání.
+        </p>
+
+        <p>
+            Některý zákazník přijede s přesnou představou. Ví, kde chce mít vstup,
+            průhledná okna, záclonky, bočnice nebo navazující přístřešek.
+            Jiný zákazník ví jen to, že běžně prodávaný stan jeho potřebám nevyhovuje.
+        </p>
+
+        <p>
+            V obou případech společně hledáme vhodné řešení. Pomůžeme s návrhem,
+            výběrem materiálu i konstrukčními detaily a výrobek připravíme
+            tak, jako bychom ho vyráběli sami pro sebe.
+        </p>
+    </div>
+
+
+    <h2 class="title is-3 section-heading">
+        Co všechno kolem autostanů a předstanů řešíme
+    </h2>
+
+    <p class="section-lead">
+        Zakázka může znamenat kompletní výrobu nového stanu, výměnu jedné části
+        nebo opravu poškození. Rozsah práce vždy posoudíme podle skutečného stavu výrobku.
+    </p>
+
+
+    <div class="service-grid">
+
+        <article class="service-card">
+            <h3>Nové autostany a předstany</h3>
+
+            <p>
+                Navrhneme a vyrobíme nový stan podle konkrétního vozidla,
+                karavanu, připravené konstrukce nebo individuálního návrhu zákazníka.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Střechy, bočnice a tropika</h3>
+
+            <p>
+                Vyrábíme nové střechy, boční stěny, tropika a další samostatné části,
+                pokud původní materiál dosloužil nebo už nevyhovuje.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Zipy, okna a síťoviny</h3>
+
+            <p>
+                Měníme dlouhé zipy, průhledná okna, slídy, síťoviny a další prvky,
+                které jsou důležité pro pohodlné používání stanu.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Boční přístřešky a rozšíření</h3>
+
+            <p>
+                Ke stávajícímu nebo novému stanu můžeme navrhnout boční přístřešek,
+                další vstup, zastínění nebo jiné praktické rozšíření.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Střešní stany a obaly</h3>
+
+            <p>
+                Řešíme textilní části střešních stanů, krycí obaly a podle typu
+                zakázky také návaznost na plechovou vanu nebo připravenou konstrukci.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Opravy děr a protržení</h3>
+
+            <p>
+                Opravujeme lokální poškození, prodření a protržení. U starších výrobků
+                nejprve posoudíme, zda okolní materiál ještě opravu bezpečně unese.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Úpravy stávajícího řešení</h3>
+
+            <p>
+                Stan můžeme přizpůsobit nové konstrukci, změně vozidla nebo zkušenostem,
+                které jste získali při jeho skutečném používání v kempu.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Konstrukce a tyče ke stanu</h3>
+
+            <p>
+                U nových řešení pro karavany můžeme podle dohody řešit také tyče
+                nebo konstrukční prvky potřebné pro postavení stanu.
+            </p>
+        </article>
+
+    </div>
+
+
+    <section class="two-types-section">
+        <h2 class="title is-3 section-heading">
+            Ať už máte přesný návrh, nebo jen základní představu
+        </h2>
+
+        <p>
+            Zakázková výroba může začít dvěma různými způsoby.
+            Oba jsou naprosto v pořádku.
+        </p>
+
+        <div class="customer-types">
+
+            <article class="customer-type">
+                <h3>Přesně víte, co chcete</h3>
+
+                <p>
+                    Máte zkušenosti z cestování a víte, kde potřebujete vstup,
+                    jak velká mají být okna, kde má být síťovina, záclonka
+                    nebo navazující přístřešek.
+                </p>
+
+                <p>
+                    Vaši představu společně projdeme, technicky upřesníme
+                    a převedeme do hotového výrobku.
+                </p>
+            </article>
+
+
+            <article class="customer-type">
+                <h3>Potřebujete s návrhem poradit</h3>
+
+                <p>
+                    Stačí nám vysvětlit, jak chcete stan používat,
+                    kolik prostoru potřebujete a co vám na běžných výrobcích nevyhovuje.
+                </p>
+
+                <p>
+                    Navrhneme možné uspořádání a doporučíme řešení podle zkušeností
+                    se zakázkami, které už naší dílnou prošly.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+
+    <h2 class="title is-3 section-heading">
+        Kdy se na nás můžete obrátit
+    </h2>
+
+    <p class="section-lead">
+        Nevadí, že váš požadavek neodpovídá běžnému katalogovému výrobku.
+        Právě proto existuje zakázková výroba.
+    </p>
+
+    <ul class="situation-list">
+        <li>běžně prodávané stany nemají potřebné rozměry,</li>
+        <li>potřebujete nový předstan ke konkrétnímu karavanu,</li>
+        <li>máte vlastní vozidlo nebo konstrukci,</li>
+        <li>původní výrobce už náhradní díl nenabízí,</li>
+        <li>potřebujete nové tropiko, střechu nebo bočnici,</li>
+        <li>dlouhý zip se poškodil nebo přestal fungovat,</li>
+        <li>stan je potrhaný nebo má lokální díry,</li>
+        <li>chcete změnit umístění vstupu, oken nebo síťovin,</li>
+        <li>potřebujete doplnit přístřešek nebo rozšíření,</li>
+        <li>chcete kompletně nový výrobek podle vlastního návrhu.</li>
+    </ul>
+
+
+    <section class="process-section">
+        <h2 class="title is-3 section-heading">
+            Jak zakázka probíhá
+        </h2>
+
+        <p class="process-intro">
+            <strong>Způsob zaměření záleží na rozsahu zakázky.</strong>
+            Menší výrobek může vzniknout podle nákresu a rozměrů.
+            U celého předstanu je často nejlepší přivézt karavan, vozidlo
+            nebo konstrukci přímo k nám.
+        </p>
+
+
+        <div class="process-grid">
+
+            <div class="process-step">
+                <span class="process-number">1</span>
+
+                <h3>Domluvíme si zadání</h3>
+
+                <p>
+                    Zavoláte nebo napíšete, popíšete svůj požadavek
+                    a společně zvolíme nejlepší způsob dalšího postupu.
+                </p>
+            </div>
+
+
+            <div class="process-step">
+                <span class="process-number">2</span>
+
+                <h3>Zaměříme a navrhneme</h3>
+
+                <p>
+                    Projdeme rozměry, konstrukci, uspořádání,
+                    výběr materiálu a všechny důležité funkční detaily.
+                </p>
+            </div>
+
+
+            <div class="process-step">
+                <span class="process-number">3</span>
+
+                <h3>Zakázku vyrobíme</h3>
+
+                <p>
+                    Karavan, vozidlo nebo konstrukce mohou podle dohody
+                    zůstat u dílny, abychom mohli průběžně kontrolovat přesnost.
+                </p>
+            </div>
+
+
+            <div class="process-step">
+                <span class="process-number">4</span>
+
+                <h3>Hotový výrobek předáme</h3>
+
+                <p>
+                    Po dokončení společně zkontrolujeme výsledek
+                    a předáme stan připravený k dalšímu používání.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <div class="materials-box">
+        <h2 class="title is-4">
+            Materiál vybíráme podle způsobu použití
+        </h2>
+
+        <p>
+            Pracujeme například se směsovými tkaninami bavlna/PES,
+            bavlnou, lnem, PVC materiály, autoplachtovinou,
+            průhlednými fóliemi, slídami a síťovinami.
+            Používáme také kvalitní zipy, například YKK.
+        </p>
+
+        <p>
+            Neexistuje jeden materiál vhodný pro všechny zakázky.
+            Při výběru zohledňujeme hmotnost, odolnost, prodyšnost,
+            voděodolnost, mechanické namáhání i to, jak často
+            a v jakém prostředí bude stan používán.
+        </p>
+    </div>
+
+
+    <div class="price-note">
+        <h2 class="title is-4">
+            Proč může být zakázková výroba dražší než sériový výrobek
+        </h2>
+
+        <p>
+            Každý nový autostan nebo předstan vzniká pro konkrétní vozidlo,
+            konstrukci a požadavky jednoho zákazníka. Musíme jej individuálně
+            zaměřit, navrhnout, připravit střih a vyřešit všechny detaily.
+        </p>
+
+        <p>
+            Nejde tedy o sériovou výrobu jednoho stejného modelu.
+            Výsledkem je výrobek přizpůsobený právě vašemu způsobu používání,
+            rozměrům a představám.
+        </p>
+    </div>
+
+
+    <section class="faq-section">
+        <h2 class="title is-3 section-heading">
+            Často se nás ptáte
+        </h2>
+
+
+        <article class="faq-item">
+            <h3>Umíte vyrobit celý nový autostan nebo předstan?</h3>
+
+            <p>
+                Ano. Můžeme vycházet z konkrétního vozidla, karavanu,
+                konstrukce, původního výrobku nebo z vašeho vlastního návrhu.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Musím mít připravený přesný technický výkres?</h3>
+
+            <p>
+                Nemusíte. Pro první domluvu obvykle stačí fotografie,
+                základní rozměry a popis toho, co potřebujete.
+                Další podklady upřesníme podle typu zakázky.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Musím přivézt celý karavan nebo vozidlo?</h3>
+
+            <p>
+                U kompletní výroby nebo složitějšího přizpůsobení je to často
+                nejbezpečnější řešení. U menších oprav může stačit samotný výrobek
+                nebo poškozená část. Vždy se nejprve domluvíme.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Opravujete také staré autostany?</h3>
+
+            <p>
+                Ano, pokud to stav materiálu umožňuje. Pokud se však stará tkanina
+                už rozpadá nebo „sype“, nemusí být lokální oprava dlouhodobě účelná.
+                Stav vždy nejprve posoudíme.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Můžete vyměnit pouze zip, okno nebo jednu bočnici?</h3>
+
+            <p>
+                Ano. Rozsah opravy přizpůsobíme skutečnému poškození.
+                Řešíme dlouhé zipy, průhledné fólie, síťoviny,
+                jednotlivé bočnice, střechy i tropika.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Jak dlouho výroba nebo oprava trvá?</h3>
+
+            <p>
+                Záleží na rozsahu práce, dostupnosti materiálu a aktuální vytíženosti.
+                Jarní období bývá velmi rušné, protože zákazníci připravují stany
+                na novou sezonu. Větší opravy a nové výrobky je proto výhodné
+                řešit už na podzim nebo v zimě.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Přijímáte zakázky z celé České republiky?</h3>
+
+            <p>
+                Ano. Způsob předání, zaměření a případného ponechání vozidla
+                nebo konstrukce vždy domluvíme podle konkrétní zakázky.
+            </p>
+        </article>
+
+    </section>
+
+
+    <div class="contact-box">
+        <h2 class="title is-3">
+            Potřebujete nový autostan, předstan nebo opravu?
+        </h2>
+
+        <p>
+            Zavolejte nám nebo pošlete fotografie, základní rozměry
+            a stručný popis své představy. Zakázku společně projdeme
+            a navrhneme vhodný další postup.
+        </p>
+
+        <div class="contact-details">
+            <p>
+                <strong>Telefon:</strong>
+                <a href="tel:+420605841391">+420 605 841 391</a>
+            </p>
+
+            <p>
+                <strong>E-mail:</strong>
+                <a href="mailto:bedaspol@gmail.com">bedaspol@gmail.com</a>
+            </p>
+        </div>
+
+        <a class="button is-dark" href="{% url 'contact' %}">
+            Kontaktovat Béďu
+        </a>
+    </div>
+
+    <div class="gallery-link-box">
+        <h2 class="title is-4">
+            Prohlédněte si naši práci
+        </h2>
+    
+        <p>
+            Ukázky hotových výrobků, oprav a dalších realizací najdete
+            v naší fotogalerii.
+        </p>
+    
+        <a class="button is-light" href="{% url 'photo' %}">
+            Zobrazit fotogalerii
+        </a>
+    </div>
+
+    <div class="back-link">
+        <a href="{% url 'zakazkova_vyroba' %}">
+            ← Zpět na přehled zakázkové výroby
+        </a>
+    </div>
+
+</section>
+
+{% endblock %}

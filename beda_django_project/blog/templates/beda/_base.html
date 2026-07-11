@@ -7,9 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light">
 
-    <title>{% block title %}Technické zakázkové šití a opravy plachet | Béďa spol.{% endblock %}</title>
+    <title>{% block title %}Béďa – zakázková výroba a technické šití na míru{% endblock %}</title>
+
     <meta name="description"
-        content="{% block description %}Technické zakázkové šití, opravy plachet, autostanů, pergol, teepee a výrobků z těžších tkanin. Zakázková výroba v Krkonoších.{% endblock %}">
+        content="{% block description %}Navrhujeme a vyrábíme na míru z technických tkanin a PVC podle vašich rozměrů a požadavků. Pomůžeme s výběrem materiálu a ušijeme plachty, stany, autostany, pergoly, teepee i další atypické výrobky. Provádíme také opravy.{% endblock %}">
+
+    <link rel="canonical" href="{% block canonical %}https://www.bedaspol.cz/{% endblock %}">
+
     <!-- Bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
 
@@ -17,14 +21,50 @@
     <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.css">
 
     <!-- Favicon -->
-    
     <link rel="icon" type="image/svg+xml" href="{% static 'ikony/needle-with-thread-to-sew-clothes-svgrepo-com.svg' %}">
-    
-    <meta property="og:title" content="Technické zakázkové šití | Béďa spol.">
-    <meta property="og:description" content="Autostany, plachty, pergoly, teepee, čalounění a zakázková výroba.">
+
+    <!-- Open Graph -->
+    <meta property="og:title"
+        content="{% block og_title %}Béďa – zakázková výroba a technické šití na míru{% endblock %}">
+
+    <meta property="og:description"
+        content="{% block og_description %}Navrhujeme a vyrábíme na míru z technických tkanin a PVC podle vašich rozměrů. Plachty, stany, autostany, pergoly, teepee a další atypické výrobky.{% endblock %}">
+
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.bedaspol.cz/">
-    <meta property="og:image" content="https://www.bedaspol.cz/static/foto/og-beda.jpg">
+    <meta property="og:site_name" content="Béďa">
+
+    <meta property="og:url" content="{% block og_url %}https://www.bedaspol.cz/{% endblock %}">
+
+    <meta property="og:image"
+        content="{% block og_image %}https://www.bedaspol.cz/static/foto/og-beda.jpg{% endblock %}">
+
+    <!-- Strukturovaná data firmy -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Béďa",
+      "alternateName": "Béďa a spol. – výroba šišatých kol",
+      "legalName": "Lukáš Benda",
+      "url": "https://www.bedaspol.cz/",
+      "image": "https://www.bedaspol.cz/static/foto/og-beda.jpg",
+      "description": "Zakázková výroba a technické šití na míru ze středně těžkých až těžkých tkanin a PVC. Návrh, výběr materiálu a výroba podle rozměrů a požadavků zákazníka.",
+      "telephone": "+420605841391",
+      "email": "bedaspol@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rudník 72",
+        "addressLocality": "Rudník",
+        "postalCode": "54372",
+        "addressCountry": "CZ"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Česká republika"
+      }
+    }
+    </script>
+
 
     <style>
         html,
@@ -155,13 +195,22 @@
             <header class="mb-5">
                 <div class="is-flex is-align-items-center">
                     <figure class="image is-128x128 mr-4">
-                        <img src="{% static 'foto/logo_beda.jpg' %}" alt="Logo společnosti" width="128" height="128"
+                        <img src="{% static 'foto/logo_beda.jpg' %}" alt="Béďa – technické zakázkové šití" width="128" height="128"
                             loading="lazy" decoding="async">
                     </figure>
+            
                     <div>
-                        <h1 class="title is-4 mb-0" style="margin-bottom: 0.75rem;">TECHNICKÉ ZAKÁZKOVÉ ŠITÍ</h1>
-                        <p class="subtitle mb-0">Šijeme střednětěžké až těžké tkaniny a PVC,</p>
-                        <p class="subtitle mb-0">od kusové po sériovou výrobu.</p>
+                        <p class="title is-4 mb-0" style="margin-bottom: 0.75rem;">
+                            TECHNICKÉ ZAKÁZKOVÉ ŠITÍ
+                        </p>
+            
+                        <p class="subtitle mb-0">
+                            Šijeme střednětěžké až těžké tkaniny a PVC,
+                        </p>
+            
+                        <p class="subtitle mb-0">
+                            od kusové po sériovou výrobu.
+                        </p>
                     </div>
                 </div>
             </header>
@@ -174,6 +223,13 @@
                             <img class="tab-needle"
                                 src="{% static 'ikony/needle-with-thread-to-sew-clothes-svgrepo-com.svg' %}" alt="">
                             O nás
+                        </a>
+                    </li>
+
+                    <li class="{% if request.resolver_match.url_name == 'zakazkova_vyroba' %}is-active{% endif %}">
+                        <a href="{% url 'zakazkova_vyroba' %}">
+                            <img class="tab-needle" src="{% static 'ikony/needle-with-thread-to-sew-clothes-svgrepo-com.svg' %}" alt="">
+                            Zakázková výroba
                         </a>
                     </li>
 
