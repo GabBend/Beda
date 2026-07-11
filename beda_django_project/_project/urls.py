@@ -14,6 +14,13 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     path("", include("blog.urls")),
+    path(
+        "favicon.ico",
+        RedirectView.as_view(
+            url=static("favicon.ico"),
+            permanent=True,
+        ),
+    ),
 ]
 
 if settings.DEBUG and getattr(settings, "DEBUG_TOOLBAR", False):
