@@ -1,0 +1,851 @@
+{% extends "beda/_base.html" %}
+{% load static %}
+
+
+{% block title %}Opravy plachet, stanů a technických textilií | Béďa{% endblock %}
+
+{% block description %}Opravujeme plachty, stany, autostany, předstany, pergoly a další výrobky z technických tkanin a
+PVC. Výměny zipů, oken, bočnic, střech, tropik i opravy děr a protržení.{% endblock %}
+
+{% block canonical %}https://www.bedaspol.cz/opravy-technickych-textilii/{% endblock %}
+
+{% block og_title %}Opravy plachet, stanů a technických textilií | Béďa{% endblock %}
+
+{% block og_description %}Opravy plachet, autostanů, předstanů, pergol a dalších výrobků z technických tkanin. Zipy,
+okna, střechy, bočnice, tropika i lokální poškození.{% endblock %}
+
+{% block og_url %}https://www.bedaspol.cz/opravy-technickych-textilii/{% endblock %}
+
+
+{% block head %}
+<style>
+    .opravy-page {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .opravy-intro {
+        max-width: 880px;
+        margin-bottom: 3rem;
+    }
+
+    .opravy-eyebrow {
+        margin-bottom: 0.55rem;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #555555;
+    }
+
+    .opravy-intro .title {
+        margin-bottom: 0.8rem;
+    }
+
+    .opravy-intro .subtitle {
+        margin-bottom: 1.5rem;
+        line-height: 1.45;
+    }
+
+    .section-heading {
+        margin-bottom: 0.55rem !important;
+    }
+
+    .section-lead {
+        max-width: 800px;
+        margin-bottom: 1.8rem;
+        color: #555555;
+    }
+
+    .service-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.4rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .service-card {
+        position: relative;
+        height: 100%;
+        padding: 1.75rem;
+        border: 1px solid #e3e3e3;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    .service-card::before {
+        content: "";
+        position: absolute;
+        top: 1.75rem;
+        left: 0;
+        width: 4px;
+        height: 42px;
+        background-color: #222222;
+    }
+
+    .service-card h3 {
+        margin: 0 0 0.75rem 0;
+        padding-left: 0.4rem;
+        font-size: 1.28rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: #222222;
+    }
+
+    .service-card p {
+        margin-bottom: 0;
+        color: #444444;
+    }
+
+    .condition-section {
+        margin-bottom: 3.5rem;
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: #f5f5f5;
+    }
+
+    .condition-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.6rem;
+    }
+
+    .condition-card {
+        padding: 1.6rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+    }
+
+    .condition-card h3 {
+        margin: 0 0 0.65rem 0;
+        font-size: 1.16rem;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .condition-card p:last-child {
+        margin-bottom: 0;
+    }
+
+    .situation-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem 2rem;
+        margin: 1.5rem 0 3.5rem;
+        padding: 0;
+        list-style: none;
+    }
+
+    .situation-list li {
+        position: relative;
+        margin: 0;
+        padding-left: 1.8rem;
+    }
+
+    .situation-list li::before {
+        content: "✓";
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .process-section {
+        margin-bottom: 3.5rem;
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: #f5f5f5;
+    }
+
+    .process-intro {
+        max-width: 820px;
+        margin-bottom: 0;
+    }
+
+    .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.35rem;
+        margin-top: 1.8rem;
+    }
+
+    .process-step {
+        position: relative;
+        padding-left: 3.35rem;
+    }
+
+    .process-number {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background-color: #222222;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .process-step h3 {
+        margin: 0 0 0.45rem 0;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .process-step p {
+        margin-bottom: 0;
+        color: #444444;
+    }
+
+    .repair-note {
+        margin-bottom: 3.5rem;
+        padding: 1.8rem 2rem;
+        border-left: 4px solid #333333;
+        background-color: #fafafa;
+    }
+
+    .repair-note p:last-child {
+        margin-bottom: 0;
+    }
+
+    .season-note {
+        margin-bottom: 3.5rem;
+        padding: 1.8rem 2rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+    }
+
+    .season-note p:last-child {
+        margin-bottom: 0;
+    }
+
+    .faq-section {
+        margin-bottom: 3.5rem;
+    }
+
+    .faq-item {
+        padding: 1.35rem 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .faq-item:first-of-type {
+        border-top: 1px solid #e5e5e5;
+    }
+
+    .faq-item h3 {
+        margin: 0 0 0.45rem 0;
+        font-size: 1.08rem;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .faq-item p {
+        margin-bottom: 0;
+    }
+
+    .gallery-link-box {
+        margin-bottom: 3rem;
+        padding: 1.8rem 2rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #fafafa;
+    }
+
+    .gallery-link-box .title {
+        margin-bottom: 0.65rem;
+    }
+
+    .gallery-link-box p {
+        margin-bottom: 1.2rem;
+    }
+
+    .contact-box {
+        padding: 2.25rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #ffffff;
+        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    .contact-box .title {
+        margin-bottom: 0.75rem;
+    }
+
+    .contact-details {
+        margin: 1.4rem 0 1.25rem;
+    }
+
+    .contact-details p {
+        margin-bottom: 0.25rem;
+    }
+
+    .back-link {
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    @media (max-width: 900px) {
+        .process-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .service-grid,
+        .condition-grid,
+        .situation-list,
+        .process-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .opravy-intro {
+            margin-bottom: 2.3rem;
+        }
+
+        .service-card,
+        .condition-card,
+        .condition-section,
+        .process-section,
+        .repair-note,
+        .season-note,
+        .gallery-link-box,
+        .contact-box {
+            padding: 1.4rem;
+        }
+
+        .process-step {
+            min-height: 2.7rem;
+        }
+    }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Opravujete plachty, stany a autostany?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Opravujeme plachty, stany, autostany, předstany, pergoly a další výrobky z technických tkanin a PVC, pokud stav původního materiálu umožňuje účelnou opravu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Měníte dlouhé zipy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Provádíme výměny dlouhých zipů u autostanů, předstanů, plachet a dalších technických výrobků."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Umíte opravit díry a protržení?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Lokální díry, prodření a protržení opravujeme podle rozsahu poškození a stavu okolního materiálu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kdy už oprava nemá smysl?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pokud je původní materiál výrazně zestárlý, křehký, rozpadá se nebo se takzvaně sype, nemusí nová záplata ani šev v okolní tkanině dlouhodobě držet. V takovém případě může být vhodnější výroba nové části."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Musím přivézt celý výrobek?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Záleží na typu opravy. U některých zakázek stačí poškozená část, u složitějších výrobků je vhodné přivézt celý stan, plachtu, konstrukci nebo vozidlo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Jak dlouho oprava trvá?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Termín závisí na rozsahu opravy, dostupnosti materiálu a aktuální vytíženosti dílny. Jarní období bývá velmi vytížené, proto doporučujeme větší opravy řešit už na podzim nebo v zimě."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="content opravy-page">
+
+    <div class="opravy-intro">
+        <p class="opravy-eyebrow">
+            Je výrobek poškozený, ale ještě by mohl dál sloužit?
+        </p>
+
+        <h1 class="title is-2">
+            Opravy plachet, stanů a technických textilií
+        </h1>
+
+        <p class="subtitle is-5">
+            Opravujeme poškozené plachty, autostany, předstany,
+            pergoly a další výrobky z technických tkanin a PVC.
+        </p>
+
+        <p>
+            Rozsah opravy může být velmi různý. Někdy stačí opravit jednu díru,
+            jindy je potřeba vyměnit dlouhý zip, průhledné okno, bočnici,
+            střechu, tropiko nebo celou opotřebenou část výrobku.
+        </p>
+
+        <p>
+            Každý výrobek nejprve posoudíme. Důležité není jen samotné poškození,
+            ale také stav okolního materiálu. Oprava má smysl pouze tehdy,
+            pokud bude možné nový šev nebo záplatu bezpečně uchytit
+            do dostatečně pevné tkaniny.
+        </p>
+    </div>
+
+
+    <h2 class="title is-3 section-heading">
+        Jaké opravy provádíme
+    </h2>
+
+    <p class="section-lead">
+        Opravujeme jednotlivé části i rozsáhlejší poškození.
+        Skutečný rozsah práce určíme až po posouzení konkrétního výrobku.
+    </p>
+
+
+    <div class="service-grid">
+
+        <article class="service-card">
+            <h3>Opravy děr a protržení</h3>
+
+            <p>
+                Opravujeme lokální díry, prodření, trhliny
+                a protržení plachet, stanů, bočnic, střech
+                a dalších technických textilních částí.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Výměny dlouhých zipů</h3>
+
+            <p>
+                Měníme poškozené a nefunkční zipy
+                u autostanů, předstanů, plachet, bočnic
+                a dalších technických výrobků.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Střechy a tropika</h3>
+
+            <p>
+                Pokud původní střecha nebo tropiko dosloužily,
+                můžeme podle stavu a konstrukce opravit poškozenou část
+                nebo připravit část novou.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Bočnice a stěny</h3>
+
+            <p>
+                Opravujeme nebo vyměňujeme boční stěny,
+                jednotlivé panely, vstupy a další části stanů,
+                pergol a přístřešků.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Průhledné fólie a slídy</h3>
+
+            <p>
+                Vyměňujeme poškozená průhledná okna,
+                slídy a fólie u stanů, pergol,
+                plachet a dalších výrobků.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Síťoviny a větrací části</h3>
+
+            <p>
+                Opravujeme a měníme poškozené síťoviny,
+                větrací části a další prvky,
+                které musí zachovat proudění vzduchu.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Okraje, uchycení a popruhy</h3>
+
+            <p>
+                Opravujeme namáhané okraje, vytržená oka,
+                popruhy, úchyty, lemování
+                a další spojovací nebo upevňovací prvky.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Úpravy původního výrobku</h3>
+
+            <p>
+                Podle konkrétní situace můžeme při opravě
+                změnit některé funkční části, doplnit nové uchycení,
+                zip, výztuhu nebo jiné praktické řešení.
+            </p>
+        </article>
+
+    </div>
+
+
+    <section class="condition-section">
+        <h2 class="title is-3 section-heading">
+            Ne každé poškození znamená, že je výrobek na vyhození
+        </h2>
+
+        <p>
+            Před opravou vždy zvažujeme, zda bude výsledek pevný,
+            funkční a odpovídající hodnotě původního výrobku.
+        </p>
+
+        <div class="condition-grid">
+
+            <article class="condition-card">
+                <h3>Kdy oprava obvykle dává smysl</h3>
+
+                <p>
+                    Okolní materiál je stále pevný,
+                    poškození je lokální a nový šev,
+                    záplata nebo náhradní část se má o co bezpečně opřít.
+                </p>
+
+                <p>
+                    Oprava může prodloužit životnost výrobku
+                    a oddálit nutnost úplné výměny.
+                </p>
+            </article>
+
+
+            <article class="condition-card">
+                <h3>Kdy může být lepší nová část</h3>
+
+                <p>
+                    Pokud je tkanina křehká, výrazně zestárlá,
+                    rozpadá se nebo se při manipulaci dál trhá,
+                    nemusí lokální oprava dlouhodobě vydržet.
+                </p>
+
+                <p>
+                    V takovém případě doporučíme výrobu nové bočnice,
+                    střechy, tropika nebo jiné poškozené části.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+
+    <h2 class="title is-3 section-heading">
+        S jakým poškozením se na nás můžete obrátit
+    </h2>
+
+    <p class="section-lead">
+        Fotografie nám pomohou s prvním posouzením,
+        ale konečné rozhodnutí často vyžaduje vidět výrobek přímo.
+    </p>
+
+    <ul class="situation-list">
+        <li>plachta nebo stan jsou protržené,</li>
+        <li>dlouhý zip se rozjíždí nebo nejde zavřít,</li>
+        <li>průhledná fólie je popraskaná nebo poškozená,</li>
+        <li>síťovina je roztržená,</li>
+        <li>bočnice nebo střecha jsou prodřené,</li>
+        <li>vytrhlo se oko, popruh nebo uchycení,</li>
+        <li>poškodil se lem nebo okraj výrobku,</li>
+        <li>potřebujete vyměnit celé tropiko,</li>
+        <li>chcete opravit nebo vyměnit jednu část stanu,</li>
+        <li>původní výrobce už náhradní díly nenabízí.</li>
+    </ul>
+
+
+    <section class="process-section">
+        <h2 class="title is-3 section-heading">
+            Jak oprava probíhá
+        </h2>
+
+        <p class="process-intro">
+            <strong>Nejdříve potřebujeme zjistit skutečný stav výrobku.</strong>
+            Fotografie jsou vhodné pro první orientaci,
+            ale cenu a možnosti opravy často určíme až po osobním posouzení.
+        </p>
+
+
+        <div class="process-grid">
+
+            <div class="process-step">
+                <span class="process-number">1</span>
+
+                <h3>Pošlete fotografie nebo zavoláte</h3>
+
+                <p>
+                    Popíšete poškození, stáří výrobku
+                    a případně pošlete fotografie problematického místa.
+                </p>
+            </div>
+
+
+            <div class="process-step">
+                <span class="process-number">2</span>
+
+                <h3>Výrobek posoudíme</h3>
+
+                <p>
+                    Zkontrolujeme nejen poškozené místo,
+                    ale také pevnost okolního materiálu
+                    a možnosti bezpečného zpracování.
+                </p>
+            </div>
+
+
+            <div class="process-step">
+                <span class="process-number">3</span>
+
+                <h3>Domluvíme rozsah opravy</h3>
+
+                <p>
+                    Vysvětlíme možné řešení,
+                    předpokládaný rozsah práce
+                    a případně doporučíme výrobu nové části.
+                </p>
+            </div>
+
+
+            <div class="process-step">
+                <span class="process-number">4</span>
+
+                <h3>Opravu provedeme</h3>
+
+                <p>
+                    Po odsouhlasení zakázku opravíme
+                    a připravíme výrobek k dalšímu používání.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <div class="repair-note">
+        <h2 class="title is-4">
+            Starý materiál se někdy už opravit nedá
+        </h2>
+
+        <p>
+            U stanů, plachet a dalších venkovních výrobků může materiál
+            po letech ztratit pevnost vlivem slunce, vlhkosti,
+            dlouhodobého skladování a pravidelného namáhání.
+        </p>
+
+        <p>
+            Pokud se tkanina při dotyku trhá, rozpadá nebo „sype“,
+            nemá nový šev dostatečně pevný podklad.
+            V takové situaci by oprava mohla vydržet jen velmi krátce.
+        </p>
+    </div>
+
+
+    <div class="season-note">
+        <h2 class="title is-4">
+            Větší opravy řešte ideálně mimo hlavní sezonu
+        </h2>
+
+        <p>
+            Jarní období bývá velmi vytížené,
+            protože zákazníci připravují stany, plachty,
+            pergoly a další výrobky na novou sezonu.
+        </p>
+
+        <p>
+            Pokud plánujete větší opravu, výměnu střechy,
+            bočnice, tropika nebo dlouhého zipu,
+            doporučujeme ozvat se už na podzim nebo v zimě.
+        </p>
+    </div>
+
+
+    <section class="faq-section">
+        <h2 class="title is-3 section-heading">
+            Často se nás ptáte
+        </h2>
+
+
+        <article class="faq-item">
+            <h3>Opravujete plachty, stany a autostany?</h3>
+
+            <p>
+                Ano. Opravujeme plachty, autostany,
+                předstany, pergoly a další výrobky
+                z technických tkanin a PVC.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Měníte také dlouhé zipy?</h3>
+
+            <p>
+                Ano. Výměny dlouhých zipů patří mezi časté opravy
+                u autostanů, předstanů, bočnic a plachet.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Umíte opravit díru nebo protržení?</h3>
+
+            <p>
+                Ano, pokud je okolní materiál dostatečně pevný.
+                Způsob opravy zvolíme podle velikosti,
+                umístění a namáhání poškozeného místa.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Kdy už oprava nemá smysl?</h3>
+
+            <p>
+                Pokud je materiál křehký, rozpadající se
+                nebo výrazně oslabený ve větší ploše,
+                nový šev ani záplata nemusí bezpečně držet.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Musím přivézt celý výrobek?</h3>
+
+            <p>
+                Záleží na typu opravy. Někdy stačí samotná bočnice,
+                střecha nebo jiná oddělitelná část.
+                U složitějších výrobků může být nutné přivézt celý stan,
+                konstrukci nebo vozidlo.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Dokážete vyrobit novou část podle původní?</h3>
+
+            <p>
+                Ano, v některých případech můžeme podle původní části,
+                konstrukce nebo zaměření vyrobit novou střechu,
+                bočnici, tropiko či jiný díl.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Jak dlouho oprava trvá?</h3>
+
+            <p>
+                Termín závisí na rozsahu poškození,
+                potřebném materiálu a aktuální vytíženosti dílny.
+                Přesnější odhad sdělíme po posouzení zakázky.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Přijímáte zakázky z celé České republiky?</h3>
+
+            <p>
+                Ano. Způsob předání výrobku
+                nebo poškozené části domluvíme
+                podle velikosti a charakteru zakázky.
+            </p>
+        </article>
+
+    </section>
+
+
+    <div class="gallery-link-box">
+        <h2 class="title is-4">
+            Prohlédněte si naši práci
+        </h2>
+
+        <p>
+            Ukázky oprav, plachet, stanů
+            a dalších realizací najdete v naší fotogalerii.
+        </p>
+
+        <a class="button is-light" href="{% url 'photo' %}">
+            Zobrazit fotogalerii
+        </a>
+    </div>
+
+
+    <div class="contact-box">
+        <h2 class="title is-3">
+            Potřebujete posoudit opravu?
+        </h2>
+
+        <p>
+            Pošlete nám fotografie poškození,
+            stručný popis výrobku a přibližné rozměry.
+            Řekneme vám, zda bude potřeba výrobek přivézt osobně.
+        </p>
+
+        <div class="contact-details">
+            <p>
+                <strong>Telefon:</strong>
+                <a href="tel:+420605841391">+420 605 841 391</a>
+            </p>
+
+            <p>
+                <strong>E-mail:</strong>
+                <a href="mailto:bedaspol@gmail.com">bedaspol@gmail.com</a>
+            </p>
+        </div>
+
+        <a class="button is-dark" href="{% url 'contact' %}">
+            Kontaktovat Béďu
+        </a>
+    </div>
+
+
+    <div class="back-link">
+        <a href="{% url 'zakazkova_vyroba' %}">
+            ← Zpět na přehled zakázkové výroby
+        </a>
+    </div>
+
+</section>
+
+{% endblock %}

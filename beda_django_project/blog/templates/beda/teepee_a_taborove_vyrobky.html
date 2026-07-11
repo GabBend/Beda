@@ -1,0 +1,211 @@
+{% extends "beda/_base.html" %}
+{% load static %}
+
+{% block title %}Teepee, táborové stany a přístřešky na míru | Béďa{% endblock %}
+
+{% block description %}
+Navrhujeme a vyrábíme teepee, táborové stany, šeltry, přístřešky a další vybavení z technických tkanin podle vašich
+rozměrů a požadavků.
+{% endblock %}
+
+{% block canonical %}
+https://www.bedaspol.cz/teepee-a-taborove-vyrobky/
+{% endblock %}
+
+{% block og_title %}
+Teepee, táborové stany a přístřešky na míru | Béďa
+{% endblock %}
+
+{% block og_description %}
+Výroba teepee, šeltrů, táborových přístřešků a dalších výrobků z technických tkanin na míru.
+{% endblock %}
+
+{% block og_url %}
+https://www.bedaspol.cz/teepee-a-taborove-vyrobky/
+{% endblock %}
+
+{% block content %}
+
+<section class="content">
+
+    <p class="subtitle is-6">
+        Potřebujete vybavení, které vydrží skutečný pobyt venku?
+    </p>
+
+    <h1 class="title is-2">
+        Teepee a táborové výrobky na míru
+    </h1>
+
+    <p class="subtitle is-5">
+        Navrhujeme a vyrábíme teepee, šeltry, táborové plachty, přístřešky a další vybavení podle vašich představ.
+    </p>
+
+    <p>
+        Každý tábor, klub, spolek nebo rodina používá vybavení trochu jinak. Proto nevyrábíme pouze podle katalogových
+        rozměrů, ale především podle skutečných potřeb zákazníků.
+    </p>
+
+    <p>
+        Pomůžeme s výběrem materiálu, navrhneme vhodné provedení a společně doladíme všechny detaily tak, aby výrobek
+        dobře sloužil mnoho let.
+    </p>
+
+    <hr>
+
+    <h2 class="title is-3">
+        Co vyrábíme
+    </h2>
+
+    <div class="columns is-multiline">
+
+        <div class="column is-half">
+            <div class="box">
+                <h3 class="title is-5">Teepee</h3>
+
+                <p>
+                    Výroba teepee různých velikostí podle konkrétních požadavků zákazníka.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="column is-half">
+            <div class="box">
+                <h3 class="title is-5">Táborové přístřešky</h3>
+
+                <p>
+                    Velké přístřešky pro tábory, akce, závody nebo společenské využití.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="column is-half">
+            <div class="box">
+                <h3 class="title is-5">Šeltry</h3>
+
+                <p>
+                    Lehké přístřešky pro pobyt v přírodě i individuální zakázky.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="column is-half">
+            <div class="box">
+                <h3 class="title is-5">Táborové plachty</h3>
+
+                <p>
+                    Plachty přesně podle požadovaných rozměrů a způsobu využití.
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <h2 class="title is-3">
+        Zakázková výroba
+    </h2>
+
+    <p>
+        Můžete nám dodat vlastní rozměry, nákres nebo jen popsat svoji představu.
+        Společně navrhneme řešení, doporučíme vhodný materiál a připravíme výrobek přesně podle způsobu použití.
+    </p>
+
+    <p>
+        Nejsme omezeni pouze uvedenými výrobky. Pokud potřebujete atypické řešení pro pobyt v přírodě nebo táboření,
+        rádi jej s vámi navrhneme.
+    </p>
+
+    <hr>
+
+    <h2 class="title is-3">
+        Opravy
+    </h2>
+
+    <p>
+        Provádíme také opravy teepee, táborových plachet, přístřešků a dalších výrobků z technických tkanin, pokud
+        jejich technický stav umožňuje kvalitní opravu.
+    </p>
+
+    <hr>
+
+    <div class="notification is-light">
+
+        <h2 class="title is-4">
+            Příroda je nám blízká
+        </h2>
+
+        <p>
+            Nevyrábíme vybavení jen od stolu.
+            Sami trávíme čas v přírodě, na vodě, při cestování i na táborech. Díky tomu dobře víme, co musí výrobek
+            vydržet a co od něj zákazníci očekávají.
+        </p>
+
+        <p>
+            Pokud vás zajímá cestování, pobyt v přírodě nebo naše další outdoorové projekty, podívejte se také na náš
+            sesterský projekt:
+        </p>
+
+        <p class="has-text-centered mt-5">
+
+            <a class="button is-dark" href="https://www.divilidi.cz/" target="_blank" rel="noopener">
+
+                Poznat DiviLidi →
+
+            </a>
+
+        </p>
+
+    </div>
+
+    <hr>
+
+    <div class="has-text-centered">
+
+        <h2 class="title is-3">
+            Máte vlastní představu?
+        </h2>
+
+        <p>
+            Pošlete nám fotografie, nákres nebo rozměry. Společně navrhneme nejlepší možné řešení.
+        </p>
+
+        <p class="mt-5">
+
+            <a class="button is-dark" href="{% url 'contact' %}">
+
+                Kontaktovat Béďu
+
+            </a>
+
+        </p>
+
+        <p class="mt-4">
+
+            <a href="{% url 'photo' %}">
+
+                Prohlédnout fotogalerii →
+
+            </a>
+
+        </p>
+
+        <p class="mt-2">
+
+            <a href="{% url 'zakazkova_vyroba' %}">
+
+                ← Zpět na zakázkovou výrobu
+
+            </a>
+
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

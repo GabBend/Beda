@@ -1,0 +1,843 @@
+{% extends "beda/_base.html" %}
+{% load static %}
+
+
+{% block title %}Atypické výrobky z technických tkanin na míru | Béďa{% endblock %}
+
+{% block description %}Navrhujeme a vyrábíme atypické obaly, kryty, zástěny, přepážky a další výrobky z technických
+tkanin a PVC podle vašich rozměrů, konstrukce a způsobu použití.{% endblock %}
+
+{% block canonical %}https://www.bedaspol.cz/atypicke-vyrobky/{% endblock %}
+
+{% block og_title %}Atypické výrobky z technických tkanin na míru | Béďa{% endblock %}
+
+{% block og_description %}Máte vlastní nápad nebo potřebujete výrobek, který se běžně neprodává? Navrhneme a ušijeme
+řešení z technických tkanin a PVC přesně na míru.{% endblock %}
+
+{% block og_url %}https://www.bedaspol.cz/atypicke-vyrobky/{% endblock %}
+
+
+{% block head %}
+<style>
+    .atypicke-page {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .atypicke-intro {
+        max-width: 880px;
+        margin-bottom: 3rem;
+    }
+
+    .atypicke-eyebrow {
+        margin-bottom: 0.55rem;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #555555;
+    }
+
+    .atypicke-intro .title {
+        margin-bottom: 0.8rem;
+    }
+
+    .atypicke-intro .subtitle {
+        margin-bottom: 1.5rem;
+        line-height: 1.45;
+    }
+
+    .section-heading {
+        margin-bottom: 0.55rem !important;
+    }
+
+    .section-lead {
+        max-width: 800px;
+        margin-bottom: 1.8rem;
+        color: #555555;
+    }
+
+    .service-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.4rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .service-card {
+        position: relative;
+        height: 100%;
+        padding: 1.75rem;
+        border: 1px solid #e3e3e3;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    .service-card::before {
+        content: "";
+        position: absolute;
+        top: 1.75rem;
+        left: 0;
+        width: 4px;
+        height: 42px;
+        background-color: #222222;
+    }
+
+    .service-card h3 {
+        margin: 0 0 0.75rem 0;
+        padding-left: 0.4rem;
+        font-size: 1.28rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: #222222;
+    }
+
+    .service-card p {
+        margin-bottom: 0;
+        color: #444444;
+    }
+
+    .starting-point-section {
+        margin-bottom: 3.5rem;
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: #f5f5f5;
+    }
+
+    .starting-point-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.6rem;
+    }
+
+    .starting-point-card {
+        padding: 1.6rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+    }
+
+    .starting-point-card h3 {
+        margin: 0 0 0.65rem 0;
+        font-size: 1.16rem;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .starting-point-card p:last-child {
+        margin-bottom: 0;
+    }
+
+    .situation-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem 2rem;
+        margin: 1.5rem 0 3.5rem;
+        padding: 0;
+        list-style: none;
+    }
+
+    .situation-list li {
+        position: relative;
+        margin: 0;
+        padding-left: 1.8rem;
+    }
+
+    .situation-list li::before {
+        content: "✓";
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .process-section {
+        margin-bottom: 3.5rem;
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: #f5f5f5;
+    }
+
+    .process-intro {
+        max-width: 820px;
+        margin-bottom: 0;
+    }
+
+    .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.35rem;
+        margin-top: 1.8rem;
+    }
+
+    .process-step {
+        position: relative;
+        padding-left: 3.35rem;
+    }
+
+    .process-number {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background-color: #222222;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .process-step h3 {
+        margin: 0 0 0.45rem 0;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .process-step p {
+        margin-bottom: 0;
+        color: #444444;
+    }
+
+    .materials-box {
+        margin-bottom: 3.5rem;
+        padding: 1.8rem 2rem;
+        border-left: 4px solid #333333;
+        background-color: #fafafa;
+    }
+
+    .materials-box p:last-child {
+        margin-bottom: 0;
+    }
+
+    .custom-note {
+        margin-bottom: 3.5rem;
+        padding: 1.8rem 2rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+    }
+
+    .custom-note p:last-child {
+        margin-bottom: 0;
+    }
+
+    .faq-section {
+        margin-bottom: 3.5rem;
+    }
+
+    .faq-item {
+        padding: 1.35rem 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .faq-item:first-of-type {
+        border-top: 1px solid #e5e5e5;
+    }
+
+    .faq-item h3 {
+        margin: 0 0 0.45rem 0;
+        font-size: 1.08rem;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .faq-item p {
+        margin-bottom: 0;
+    }
+
+    .gallery-link-box {
+        margin-bottom: 3rem;
+        padding: 1.8rem 2rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #fafafa;
+    }
+
+    .gallery-link-box .title {
+        margin-bottom: 0.65rem;
+    }
+
+    .gallery-link-box p {
+        margin-bottom: 1.2rem;
+    }
+
+    .contact-box {
+        padding: 2.25rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #ffffff;
+        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    .contact-box .title {
+        margin-bottom: 0.75rem;
+    }
+
+    .contact-details {
+        margin: 1.4rem 0 1.25rem;
+    }
+
+    .contact-details p {
+        margin-bottom: 0.25rem;
+    }
+
+    .back-link {
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    @media (max-width: 900px) {
+        .process-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .service-grid,
+        .starting-point-grid,
+        .situation-list,
+        .process-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .atypicke-intro {
+            margin-bottom: 2.3rem;
+        }
+
+        .service-card,
+        .starting-point-card,
+        .starting-point-section,
+        .process-section,
+        .materials-box,
+        .custom-note,
+        .gallery-link-box,
+        .contact-box {
+            padding: 1.4rem;
+        }
+
+        .process-step {
+            min-height: 2.7rem;
+        }
+    }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Umíte vyrobit výrobek, který se běžně neprodává?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Atypické zakázky navrhujeme podle rozměrů, konstrukce, účelu a požadavků zákazníka. Nejprve posoudíme, zda je možné požadované řešení z technických tkanin nebo PVC vyrobit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Musím mít připravený technický výkres?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nemusíte. Pro první posouzení často stačí fotografie, základní rozměry, jednoduchý nákres nebo popis problému, který má výrobek vyřešit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mohu přivézt konstrukci nebo původní výrobek?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. U složitějších tvarů bývá konstrukce, původní výrobek nebo konkrétní zařízení nejlepším podkladem pro přesné zaměření a průběžnou kontrolu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pomůžete mi s výběrem materiálu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Vhodný materiál doporučíme podle požadované pevnosti, hmotnosti, voděodolnosti, prodyšnosti, mechanického namáhání a prostředí, ve kterém bude výrobek používán."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vyrábíte také jednotlivé kusy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Zaměřujeme se na kusovou zakázkovou výrobu a podle dohody také na menší série."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Přijímáte zakázky z celé České republiky?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Zakázky přijímáme od zákazníků z celé České republiky. Způsob zaměření, dopravy nebo předání vždy domluvíme podle velikosti a charakteru výrobku."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="content atypicke-page">
+
+    <div class="atypicke-intro">
+        <p class="atypicke-eyebrow">
+            Potřebujete něco, co v běžné nabídce vůbec nenajdete?
+        </p>
+
+        <h1 class="title is-2">
+            Atypické výrobky z technických tkanin a PVC
+        </h1>
+
+        <p class="subtitle is-5">
+            Přinesete rozměry, konstrukci, původní výrobek nebo jen svoji představu.
+            Společně navrhneme řešení a převedeme ho do hotového výrobku.
+        </p>
+
+        <p>
+            Některé zakázky nelze jednoduše zařadit mezi plachty, stany nebo pergoly.
+            Zákazník potřebuje kryt na konkrétní stroj, obal zvláštního tvaru,
+            zástěnu do daného prostoru nebo úplně nový výrobek,
+            který se v katalogových rozměrech vůbec nevyrábí.
+        </p>
+
+        <p>
+            Právě takové požadavky řešíme individuálně. Nejdříve potřebujeme pochopit,
+            k čemu má výrobek sloužit, co musí vydržet a jak se s ním bude pracovat.
+            Potom pomůžeme vybrat materiál, způsob konstrukce, uchycení,
+            otevírání i další potřebné detaily.
+        </p>
+    </div>
+
+
+    <h2 class="title is-3 section-heading">
+        Jaké atypické výrobky můžeme vyrobit
+    </h2>
+
+    <p class="section-lead">
+        Následující příklady ukazují nejčastější oblasti.
+        Nejde však o uzavřený katalog – každý neobvyklý požadavek nejprve posoudíme.
+    </p>
+
+
+    <div class="service-grid">
+
+        <article class="service-card">
+            <h3>Obaly na stroje a zařízení</h3>
+
+            <p>
+                Krycí obaly přizpůsobené konkrétním rozměrům,
+                tvaru stroje, způsobu manipulace a prostředí,
+                ve kterém má být zařízení chráněno.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Kryty atypických předmětů</h3>
+
+            <p>
+                Ochranné kryty pro výrobky, konstrukce, vybavení
+                nebo jiné předměty, na které běžně prodávané obaly nesedí.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Zástěny a přepážky</h3>
+
+            <p>
+                Textilní oddělení prostorů, ochranné zástěny,
+                clony a přepážky pro soukromé, provozní
+                i technické využití.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Ochrana proti prachu a nečistotám</h3>
+
+            <p>
+                Kryty a oddělení prostorů, které pomáhají chránit
+                zařízení, materiál nebo pracovní prostředí
+                před prachem a dalšími nečistotami.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Výrobky podle konstrukce</h3>
+
+            <p>
+                Pokud máte kovovou, dřevěnou nebo jinou připravenou konstrukci,
+                můžeme podle ní navrhnout přesně padnoucí textilní část.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Výrobky s okny a síťovinami</h3>
+
+            <p>
+                Do návrhu můžeme podle potřeby začlenit průhledné fólie,
+                slídy, síťoviny, větrací části nebo kombinaci více materiálů.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Výrobky se zipy a otevíráním</h3>
+
+            <p>
+                Řešíme různé způsoby přístupu, otevírání, rolování,
+                odepínání a zavírání podle toho, jak bude zákazník výrobek používat.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Jednotlivé kusy i menší série</h3>
+
+            <p>
+                Vyrobíme jeden atypický kus a podle dohody
+                můžeme připravit také opakovanou výrobu menší série.
+            </p>
+        </article>
+
+    </div>
+
+
+    <section class="starting-point-section">
+        <h2 class="title is-3 section-heading">
+            Nemusíte vědět, jak se má výrobek technicky ušít
+        </h2>
+
+        <p>
+            Potřebujeme především pochopit, jaký problém má výsledný výrobek vyřešit.
+            Podklady mohou vypadat různě podle složitosti zakázky.
+        </p>
+
+        <div class="starting-point-grid">
+
+            <article class="starting-point-card">
+                <h3>Máte konstrukci, rozměry nebo původní výrobek</h3>
+
+                <p>
+                    Přivezete konstrukci, zařízení, starý výrobek,
+                    jednoduchý nákres nebo fotografie s rozměry.
+                </p>
+
+                <p>
+                    Podklady společně projdeme a upřesníme všechny části,
+                    které jsou důležité pro přesné zpracování.
+                </p>
+            </article>
+
+
+            <article class="starting-point-card">
+                <h3>Máte pouze nápad nebo problém</h3>
+
+                <p>
+                    Vysvětlíte nám, co potřebujete zakrýt, oddělit,
+                    chránit nebo jinak vyřešit a jak má být výrobek používán.
+                </p>
+
+                <p>
+                    Podle zkušeností navrhneme možné provedení
+                    a řekneme vám, jaké podklady budeme k výrobě potřebovat.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+
+    <h2 class="title is-3 section-heading">
+        Kdy se na nás můžete obrátit
+    </h2>
+
+    <p class="section-lead">
+        Zakázková výroba dává smysl tam, kde sériově vyráběné řešení
+        neodpovídá rozměrům, tvaru, materiálu ani způsobu používání.
+    </p>
+
+    <ul class="situation-list">
+        <li>vhodný výrobek se běžně vůbec neprodává,</li>
+        <li>standardní rozměry neodpovídají vašemu požadavku,</li>
+        <li>potřebujete obal přesně na konkrétní stroj,</li>
+        <li>výrobek musí kopírovat nepravidelný tvar,</li>
+        <li>máte vlastní konstrukci a potřebujete textilní část,</li>
+        <li>potřebujete speciální uchycení nebo otevírání,</li>
+        <li>výrobek musí obsahovat okna, zipy nebo síťoviny,</li>
+        <li>potřebujete oddělit nebo chránit konkrétní prostor,</li>
+        <li>chcete vyrobit jeden kus nebo menší sérii,</li>
+        <li>máte původní výrobek, který již nelze koupit.</li>
+    </ul>
+
+
+    <section class="process-section">
+        <h2 class="title is-3 section-heading">
+            Jak vzniká atypický výrobek
+        </h2>
+
+        <p class="process-intro">
+            <strong>U atypických zakázek je nejdůležitější domluva.</strong>
+            Než začneme stříhat materiál, potřebujeme společně upřesnit
+            účel výrobku, rozměry a všechny důležité funkční prvky.
+        </p>
+
+
+        <div class="process-grid">
+
+            <div class="process-step">
+                <span class="process-number">1</span>
+
+                <h3>Popíšete svoji potřebu</h3>
+
+                <p>
+                    Sdělíte nám, co má výrobek řešit,
+                    kde bude používán a jaké podklady máte k dispozici.
+                </p>
+            </div>
+
+
+            <div class="process-step">
+                <span class="process-number">2</span>
+
+                <h3>Navrhneme provedení</h3>
+
+                <p>
+                    Upřesníme tvar, materiál, uchycení,
+                    otevírání, zesílení a další důležité detaily.
+                </p>
+            </div>
+
+
+            <div class="process-step">
+                <span class="process-number">3</span>
+
+                <h3>Výrobek zhotovíme</h3>
+
+                <p>
+                    Po odsouhlasení řešení a ceny připravíme střih
+                    a výrobek ušijeme podle dohodnutého zadání.
+                </p>
+            </div>
+
+
+            <div class="process-step">
+                <span class="process-number">4</span>
+
+                <h3>Výsledek společně zkontrolujeme</h3>
+
+                <p>
+                    Hotový výrobek zkontrolujeme
+                    a podle typu zakázky ověříme jeho přizpůsobení konstrukci.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <div class="materials-box">
+        <h2 class="title is-4">
+            Materiál vybíráme podle skutečného použití
+        </h2>
+
+        <p>
+            Pracujeme například s technickými tkaninami,
+            směsovými materiály bavlna/PES, bavlnou, lnem,
+            PVC materiály, autoplachtovinou, průhlednými fóliemi,
+            slídami a různými druhy síťovin.
+        </p>
+
+        <p>
+            Při výběru zohledňujeme požadovanou hmotnost,
+            pevnost, voděodolnost, prodyšnost, pružnost,
+            četnost manipulace a prostředí, ve kterém bude výrobek používán.
+        </p>
+    </div>
+
+
+    <div class="custom-note">
+        <h2 class="title is-4">
+            Atypická výroba začíná společným hledáním řešení
+        </h2>
+
+        <p>
+            U některých zakázek zákazník přesně ví, co chce,
+            a my jeho návrh technicky zpracujeme. Jindy přichází pouze
+            s problémem a vhodné provedení hledáme společně.
+        </p>
+
+        <p>
+            Každou zakázku bereme jako vlastní a při výrobě přemýšlíme nad tím,
+            aby hotový výrobek nebyl pouze ušitý podle rozměrů,
+            ale aby se dal také dobře a prakticky používat.
+        </p>
+    </div>
+
+
+    <section class="faq-section">
+        <h2 class="title is-3 section-heading">
+            Často se nás ptáte
+        </h2>
+
+
+        <article class="faq-item">
+            <h3>Umíte vyrobit výrobek, který se běžně neprodává?</h3>
+
+            <p>
+                Ano, právě na takové zakázky se zaměřujeme.
+                Nejprve však musíme posoudit, zda je možné požadované řešení
+                z našich materiálů a dostupnými postupy vyrobit.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Musím mít připravený technický výkres?</h3>
+
+            <p>
+                Nemusíte. Pro první domluvu často stačí fotografie,
+                základní rozměry, jednoduchý nákres nebo vysvětlení,
+                jaký problém má výrobek vyřešit.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Mohu přivézt konstrukci nebo původní výrobek?</h3>
+
+            <p>
+                Ano. U složitých tvarů je konstrukce,
+                zařízení nebo původní výrobek často nejlepším podkladem
+                pro přesné zaměření a průběžnou kontrolu.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Pomůžete mi vybrat materiál?</h3>
+
+            <p>
+                Ano. Materiál doporučíme podle požadované odolnosti,
+                hmotnosti, voděodolnosti, prodyšnosti
+                a způsobu používání hotového výrobku.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Můžete vyrobit pouze jeden kus?</h3>
+
+            <p>
+                Ano. Kusová výroba je běžnou součástí naší práce.
+                Podle dohody můžeme připravit také menší sérii.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Jak zjistím cenu atypického výrobku?</h3>
+
+            <p>
+                Cena závisí na rozměrech, použitém materiálu,
+                složitosti tvaru, množství detailů a času potřebném
+                pro návrh, přípravu střihu a samotnou výrobu.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Jak dlouho výroba trvá?</h3>
+
+            <p>
+                Termín závisí na rozsahu zakázky, dostupnosti materiálu
+                a aktuální vytíženosti dílny. Přesnější odhad sdělíme
+                po posouzení konkrétního požadavku.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Přijímáte zakázky z celé České republiky?</h3>
+
+            <p>
+                Ano. Způsob zaměření, dopravy konstrukce
+                nebo předání hotového výrobku domluvíme
+                podle velikosti a charakteru zakázky.
+            </p>
+        </article>
+
+    </section>
+
+
+    <div class="gallery-link-box">
+        <h2 class="title is-4">
+            Prohlédněte si naši práci
+        </h2>
+
+        <p>
+            Ukázky atypických výrobků, plachet, stanů,
+            oprav a dalších realizací najdete v naší fotogalerii.
+        </p>
+
+        <a class="button is-light" href="{% url 'photo' %}">
+            Zobrazit fotogalerii
+        </a>
+    </div>
+
+
+    <div class="contact-box">
+        <h2 class="title is-3">
+            Máte vlastní nápad nebo neobvyklý požadavek?
+        </h2>
+
+        <p>
+            Pošlete nám fotografie, rozměry, nákres
+            nebo stručně popište, co potřebujete vyřešit.
+            Zakázku posoudíme a navrhneme další postup.
+        </p>
+
+        <div class="contact-details">
+            <p>
+                <strong>Telefon:</strong>
+                <a href="tel:+420605841391">+420 605 841 391</a>
+            </p>
+
+            <p>
+                <strong>E-mail:</strong>
+                <a href="mailto:bedaspol@gmail.com">bedaspol@gmail.com</a>
+            </p>
+        </div>
+
+        <a class="button is-dark" href="{% url 'contact' %}">
+            Kontaktovat Béďu
+        </a>
+    </div>
+
+
+    <div class="back-link">
+        <a href="{% url 'zakazkova_vyroba' %}">
+            ← Zpět na přehled zakázkové výroby
+        </a>
+    </div>
+
+</section>
+
+{% endblock %}

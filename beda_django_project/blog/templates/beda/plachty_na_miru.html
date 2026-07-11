@@ -1,0 +1,842 @@
+{% extends "beda/_base.html" %}
+{% load static %}
+
+
+{% block title %}Plachty na míru | Zakázková výroba technických plachet | Béďa{% endblock %}
+
+{% block description %}Navrhujeme a vyrábíme plachty na míru podle vašich rozměrů a způsobu použití. Krycí, ochranné,
+transportní a atypické plachty z technických tkanin a PVC.{% endblock %}
+
+{% block canonical %}https://www.bedaspol.cz/plachty-na-miru/{% endblock %}
+
+{% block og_title %}Plachty na míru | Zakázková výroba | Béďa{% endblock %}
+
+{% block og_description %}Zakázková výroba krycích, ochranných, transportních a atypických plachet podle vašich rozměrů,
+konstrukce a požadavků.{% endblock %}
+
+{% block og_url %}https://www.bedaspol.cz/plachty-na-miru/{% endblock %}
+
+
+{% block head %}
+<style>
+    .plachty-page {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .plachty-intro {
+        max-width: 880px;
+        margin-bottom: 3rem;
+    }
+
+    .plachty-eyebrow {
+        margin-bottom: 0.55rem;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #555555;
+    }
+
+    .plachty-intro .title {
+        margin-bottom: 0.8rem;
+    }
+
+    .plachty-intro .subtitle {
+        margin-bottom: 1.5rem;
+        line-height: 1.45;
+    }
+
+    .section-heading {
+        margin-bottom: 0.55rem !important;
+    }
+
+    .section-lead {
+        max-width: 800px;
+        margin-bottom: 1.8rem;
+        color: #555555;
+    }
+
+    .service-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.4rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .service-card {
+        position: relative;
+        height: 100%;
+        padding: 1.75rem;
+        border: 1px solid #e3e3e3;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    .service-card::before {
+        content: "";
+        position: absolute;
+        top: 1.75rem;
+        left: 0;
+        width: 4px;
+        height: 42px;
+        background-color: #222222;
+    }
+
+    .service-card h3 {
+        margin: 0 0 0.75rem 0;
+        padding-left: 0.4rem;
+        font-size: 1.28rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: #222222;
+    }
+
+    .service-card p {
+        margin-bottom: 0;
+        color: #444444;
+    }
+
+    .idea-section {
+        margin-bottom: 3.5rem;
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: #f5f5f5;
+    }
+
+    .idea-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.6rem;
+    }
+
+    .idea-card {
+        padding: 1.6rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+    }
+
+    .idea-card h3 {
+        margin: 0 0 0.65rem 0;
+        font-size: 1.16rem;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .idea-card p:last-child {
+        margin-bottom: 0;
+    }
+
+    .situation-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem 2rem;
+        margin: 1.5rem 0 3.5rem;
+        padding: 0;
+        list-style: none;
+    }
+
+    .situation-list li {
+        position: relative;
+        margin: 0;
+        padding-left: 1.8rem;
+    }
+
+    .situation-list li::before {
+        content: "✓";
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .process-section {
+        margin-bottom: 3.5rem;
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: #f5f5f5;
+    }
+
+    .process-intro {
+        max-width: 820px;
+        margin-bottom: 0;
+    }
+
+    .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.35rem;
+        margin-top: 1.8rem;
+    }
+
+    .process-step {
+        position: relative;
+        padding-left: 3.35rem;
+    }
+
+    .process-number {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background-color: #222222;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .process-step h3 {
+        margin: 0 0 0.45rem 0;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .process-step p {
+        margin-bottom: 0;
+        color: #444444;
+    }
+
+    .materials-box {
+        margin-bottom: 3.5rem;
+        padding: 1.8rem 2rem;
+        border-left: 4px solid #333333;
+        background-color: #fafafa;
+    }
+
+    .materials-box p:last-child {
+        margin-bottom: 0;
+    }
+
+    .custom-note {
+        margin-bottom: 3.5rem;
+        padding: 1.8rem 2rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+    }
+
+    .custom-note p:last-child {
+        margin-bottom: 0;
+    }
+
+    .faq-section {
+        margin-bottom: 3.5rem;
+    }
+
+    .faq-item {
+        padding: 1.35rem 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .faq-item:first-of-type {
+        border-top: 1px solid #e5e5e5;
+    }
+
+    .faq-item h3 {
+        margin: 0 0 0.45rem 0;
+        font-size: 1.08rem;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .faq-item p {
+        margin-bottom: 0;
+    }
+
+    .gallery-link-box {
+        margin-bottom: 3rem;
+        padding: 1.8rem 2rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #fafafa;
+    }
+
+    .gallery-link-box .title {
+        margin-bottom: 0.65rem;
+    }
+
+    .gallery-link-box p {
+        margin-bottom: 1.2rem;
+    }
+
+    .contact-box {
+        padding: 2.25rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #ffffff;
+        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    .contact-box .title {
+        margin-bottom: 0.75rem;
+    }
+
+    .contact-details {
+        margin: 1.4rem 0 1.25rem;
+    }
+
+    .contact-details p {
+        margin-bottom: 0.25rem;
+    }
+
+    .back-link {
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    @media (max-width: 900px) {
+        .process-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .service-grid,
+        .idea-grid,
+        .situation-list,
+        .process-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .plachty-intro {
+            margin-bottom: 2.3rem;
+        }
+
+        .service-card,
+        .idea-card,
+        .idea-section,
+        .process-section,
+        .materials-box,
+        .custom-note,
+        .gallery-link-box,
+        .contact-box {
+            padding: 1.4rem;
+        }
+
+        .process-step {
+            min-height: 2.7rem;
+        }
+    }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Umíte vyrobit plachtu přesně podle mých rozměrů?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Plachtu navrhneme a vyrobíme podle vašich rozměrů, konstrukce, způsobu použití a požadovaného uchycení."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Musím dodat přesný technický výkres?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nemusíte. Pro první posouzení často stačí fotografie, základní rozměry, jednoduchý nákres a popis toho, k čemu má plachta sloužit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pomůžete mi vybrat vhodný materiál?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Materiál doporučíme podle prostředí, požadované hmotnosti, odolnosti, způsobu používání a mechanického namáhání plachty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vyrábíte také plachty na přívěsné vozíky?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Vyrábíme plachty na přívěsné vozíky a další transportní plachty podle konkrétní konstrukce a rozměrů."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Opravujete také starší plachty?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano, pokud stav původního materiálu umožňuje účelnou a dostatečně pevnou opravu. Starou nebo rozpadající se tkaninu vždy nejprve posoudíme."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Přijímáte zakázky z celé České republiky?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Zakázky přijímáme od zákazníků z celé České republiky. Způsob zaměření a předání domluvíme podle rozměrů a typu výrobku."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="content plachty-page">
+
+    <div class="plachty-intro">
+        <p class="plachty-eyebrow">
+            Potřebujete plachtu, která se v běžných rozměrech nevyrábí?
+        </p>
+
+        <h1 class="title is-2">
+            Plachty na míru
+        </h1>
+
+        <p class="subtitle is-5">
+            Navrhneme a vyrobíme technickou plachtu přesně podle vašich rozměrů,
+            konstrukce, způsobu používání a požadovaného uchycení.
+        </p>
+
+        <p>
+            Některé plachty mají chránit výrobek před počasím, jiné musí odolávat
+            pravidelnému převážení, mechanickému namáhání nebo dlouhodobému
+            používání ve venkovním prostředí. Proto nevyrábíme jednu univerzální
+            variantu pro všechny.
+        </p>
+
+        <p>
+            Společně upřesníme účel plachty, vybereme vhodný materiál
+            a domluvíme potřebné detaily – například způsob otevírání,
+            upevnění, zesílení, oka, popruhy, zipy, průhledná místa
+            nebo další funkční prvky.
+        </p>
+    </div>
+
+
+    <h2 class="title is-3 section-heading">
+        Jaké plachty vyrábíme
+    </h2>
+
+    <p class="section-lead">
+        Každá zakázka vzniká podle konkrétního účelu. Následující příklady
+        ukazují nejčastější oblasti, ale nejsou uzavřeným katalogem.
+    </p>
+
+
+    <div class="service-grid">
+
+        <article class="service-card">
+            <h3>Krycí plachty na míru</h3>
+
+            <p>
+                Plachty na zakrytí strojů, zařízení, konstrukcí, materiálu
+                a dalších předmětů, které je potřeba chránit před deštěm,
+                prachem, větrem nebo nečistotami.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Plachty na přívěsné vozíky</h3>
+
+            <p>
+                Plachty přizpůsobené konkrétní korbě a konstrukci vozíku,
+                včetně způsobu napínání, otevírání a upevnění.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Transportní plachty</h3>
+
+            <p>
+                Ochranné plachty pro převážení výrobků, materiálu nebo vybavení,
+                navržené s ohledem na pravidelnou manipulaci a namáhání při přepravě.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Plachty na stroje a zařízení</h3>
+
+            <p>
+                Kryty a obaly na konkrétní stroje, techniku nebo atypická zařízení,
+                u kterých běžně prodávané rozměry neodpovídají skutečné potřebě.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Boční stěny a zástěny</h3>
+
+            <p>
+                Textilní stěny, zástěny, oddělení prostorů a další prvky,
+                které mohou chránit před větrem, deštěm, prachem
+                nebo nežádoucím pohledem.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Atypické plachty podle návrhu</h3>
+
+            <p>
+                Pokud potřebujete neobvyklý tvar, speciální způsob uchycení
+                nebo kombinaci více materiálů a funkčních prvků,
+                řešení navrhneme individuálně.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Plachty s průhlednými částmi</h3>
+
+            <p>
+                Podle účelu můžeme doplnit průhlednou fólii, okna,
+                pohledové části nebo kombinovat plný materiál se síťovinou.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Opravy technických plachet</h3>
+
+            <p>
+                Doplňkově opravujeme díry, protržení, poškozené okraje,
+                uchycení nebo zipy, pokud stav původního materiálu
+                umožňuje smysluplnou opravu.
+            </p>
+        </article>
+
+    </div>
+
+
+    <section class="idea-section">
+        <h2 class="title is-3 section-heading">
+            Můžete přijít s přesným návrhem i s pouhou představou
+        </h2>
+
+        <p>
+            Ne každý zákazník má připravený technický výkres.
+            Způsob spolupráce přizpůsobíme tomu, jaké podklady máte k dispozici.
+        </p>
+
+        <div class="idea-grid">
+
+            <article class="idea-card">
+                <h3>Máte rozměry nebo vlastní nákres</h3>
+
+                <p>
+                    Dodáte nám základní rozměry, jednoduchý nákres,
+                    fotografii nebo původní výrobek. Společně zkontrolujeme,
+                    zda jsou podklady pro výrobu dostačující.
+                </p>
+
+                <p>
+                    Upřesníme uchycení, otevírání, zesílení a další prvky,
+                    které ovlivňují použitelnost výsledné plachty.
+                </p>
+            </article>
+
+
+            <article class="idea-card">
+                <h3>Potřebujete vše nejprve vymyslet</h3>
+
+                <p>
+                    Vysvětlíte nám, co má plachta chránit, kde bude používána
+                    a jak často s ní budete manipulovat.
+                </p>
+
+                <p>
+                    Na základě zkušeností navrhneme vhodné provedení
+                    a pomůžeme vybrat materiál odpovídající skutečnému použití.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+
+    <h2 class="title is-3 section-heading">
+        Kdy se na nás můžete obrátit
+    </h2>
+
+    <p class="section-lead">
+        Zakázková výroba je vhodná všude tam, kde běžná plachta
+        nesedí rozměrem, tvarem, materiálem nebo způsobem uchycení.
+    </p>
+
+    <ul class="situation-list">
+        <li>potřebujete plachtu přesně podle konkrétní konstrukce,</li>
+        <li>standardní rozměry dostupné na trhu vám nevyhovují,</li>
+        <li>plachta musí mít atypický tvar nebo výřezy,</li>
+        <li>potřebujete jiný způsob otevírání či přístupu,</li>
+        <li>plachta bude pravidelně mechanicky namáhána,</li>
+        <li>potřebujete kombinovat plný materiál, fólii a síťovinu,</li>
+        <li>chcete doplnit popruhy, oka, zipy nebo zesílení,</li>
+        <li>potřebujete kryt na stroj či zařízení,</li>
+        <li>potřebujete plachtu na přívěsný vozík,</li>
+        <li>máte původní výrobek a potřebujete vytvořit nový.</li>
+    </ul>
+
+
+    <section class="process-section">
+        <h2 class="title is-3 section-heading">
+            Jak zakázková výroba probíhá
+        </h2>
+
+        <p class="process-intro">
+            <strong>Způsob zaměření přizpůsobíme konkrétní zakázce.</strong>
+            U menší plachty mohou stačit rozměry a nákres.
+            U složitější konstrukce může být nejlepší přivézt ji přímo k nám.
+        </p>
+
+
+        <div class="process-grid">
+
+            <div class="process-step">
+                <span class="process-number">1</span>
+
+                <h3>Popíšete svůj požadavek</h3>
+
+                <p>
+                    Sdělíte nám účel plachty, základní rozměry
+                    a případně pošlete fotografie nebo nákres.
+                </p>
+            </div>
+
+
+            <div class="process-step">
+                <span class="process-number">2</span>
+
+                <h3>Navrhneme provedení</h3>
+
+                <p>
+                    Upřesníme tvar, materiál, způsob uchycení,
+                    otevírání a všechny důležité funkční prvky.
+                </p>
+            </div>
+
+
+            <div class="process-step">
+                <span class="process-number">3</span>
+
+                <h3>Plachtu vyrobíme</h3>
+
+                <p>
+                    Po odsouhlasení řešení a ceny připravíme střih
+                    a plachtu ušijeme podle dohodnutého zadání.
+                </p>
+            </div>
+
+
+            <div class="process-step">
+                <span class="process-number">4</span>
+
+                <h3>Hotový výrobek předáme</h3>
+
+                <p>
+                    Výsledek zkontrolujeme a předáme připravený
+                    k montáži nebo dalšímu používání.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <div class="materials-box">
+        <h2 class="title is-4">
+            Materiál volíme podle toho, co má plachta vydržet
+        </h2>
+
+        <p>
+            Pracujeme s různými technickými tkaninami, PVC materiály,
+            autoplachtovinou, průhlednými fóliemi, slídami,
+            síťovinami i dalšími materiály vhodnými pro konkrétní použití.
+        </p>
+
+        <p>
+            Při výběru zohledňujeme například hmotnost, pevnost,
+            voděodolnost, pružnost, prodyšnost, odolnost proti slunečnímu záření
+            a způsob, jakým bude zákazník s plachtou manipulovat.
+        </p>
+    </div>
+
+
+    <div class="custom-note">
+        <h2 class="title is-4">
+            Zakázková plachta není sériový výrobek
+        </h2>
+
+        <p>
+            Každou plachtu musíme individuálně zaměřit, navrhnout
+            a připravit podle konkrétních rozměrů a požadavků.
+            Cena proto závisí především na velikosti, materiálu,
+            členitosti tvaru a množství práce.
+        </p>
+
+        <p>
+            Výsledkem však není univerzální výrobek přibližných rozměrů,
+            ale řešení přizpůsobené přesně tomu, co potřebujete zakrýt,
+            chránit nebo převážet.
+        </p>
+    </div>
+
+
+    <section class="faq-section">
+        <h2 class="title is-3 section-heading">
+            Často se nás ptáte
+        </h2>
+
+
+        <article class="faq-item">
+            <h3>Umíte vyrobit plachtu přesně podle mých rozměrů?</h3>
+
+            <p>
+                Ano. Plachtu připravíme podle rozměrů, konstrukce,
+                způsobu používání a požadovaného uchycení.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Musím mít přesný technický výkres?</h3>
+
+            <p>
+                Nemusíte. Pro první posouzení často stačí fotografie,
+                orientační rozměry, jednoduchý nákres a popis účelu.
+                Další podklady společně upřesníme.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Mohu přivézt konstrukci nebo původní plachtu?</h3>
+
+            <p>
+                Ano. U některých zakázek je konstrukce nebo původní výrobek
+                nejlepším podkladem pro přesné zaměření a výrobu.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Pomůžete mi vybrat vhodný materiál?</h3>
+
+            <p>
+                Ano. Vhodný materiál doporučíme podle prostředí,
+                požadované pevnosti, hmotnosti, odolnosti
+                a způsobu manipulace s hotovou plachtou.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Vyrábíte také plachty na přívěsné vozíky?</h3>
+
+            <p>
+                Ano. Plachtu můžeme přizpůsobit konkrétní korbě,
+                konstrukci, rozměrům i požadovanému způsobu otevírání.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Opravujete také starší plachty?</h3>
+
+            <p>
+                Ano, pokud původní materiál stále umožňuje dostatečně pevnou
+                a účelnou opravu. Pokud se tkanina již rozpadá nebo „sype“,
+                může být vhodnější výroba nové části nebo celé plachty.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Jak dlouho výroba trvá?</h3>
+
+            <p>
+                Termín závisí na velikosti, složitosti, dostupnosti materiálu
+                a aktuální vytíženosti dílny. Přesnější časový odhad sdělíme
+                po posouzení konkrétní zakázky.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Přijímáte zakázky z celé České republiky?</h3>
+
+            <p>
+                Ano. Způsob předání podkladů, konstrukce nebo hotového výrobku
+                domluvíme podle rozměrů a charakteru zakázky.
+            </p>
+        </article>
+
+    </section>
+
+
+    <div class="gallery-link-box">
+        <h2 class="title is-4">
+            Prohlédněte si naši práci
+        </h2>
+
+        <p>
+            Ukázky plachet, stanů, oprav a dalších realizací
+            najdete v naší fotogalerii.
+        </p>
+
+        <a class="button is-light" href="{% url 'photo' %}">
+            Zobrazit fotogalerii
+        </a>
+    </div>
+
+
+    <div class="contact-box">
+        <h2 class="title is-3">
+            Potřebujete vyrobit plachtu na míru?
+        </h2>
+
+        <p>
+            Pošlete nám fotografii, základní rozměry, jednoduchý nákres
+            nebo stručný popis toho, co má plachta splňovat.
+            Zakázku posoudíme a navrhneme další postup.
+        </p>
+
+        <div class="contact-details">
+            <p>
+                <strong>Telefon:</strong>
+                <a href="tel:+420605841391">+420 605 841 391</a>
+            </p>
+
+            <p>
+                <strong>E-mail:</strong>
+                <a href="mailto:bedaspol@gmail.com">bedaspol@gmail.com</a>
+            </p>
+        </div>
+
+        <a class="button is-dark" href="{% url 'contact' %}">
+            Kontaktovat Béďu
+        </a>
+    </div>
+
+
+    <div class="back-link">
+        <a href="{% url 'zakazkova_vyroba' %}">
+            ← Zpět na přehled zakázkové výroby
+        </a>
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,832 @@
+{% extends "beda/_base.html" %}
+{% load static %}
+
+
+{% block title %}Pergoly a přístřešky na míru | Zakázkové opláštění | Béďa{% endblock %}
+
+{% block description %}Navrhujeme a vyrábíme opláštění pergol, boční stěny, zastínění a přístřešky na míru z technických
+tkanin a PVC podle konkrétní konstrukce a prostoru.{% endblock %}
+
+{% block canonical %}https://www.bedaspol.cz/pergoly-a-pristresky/{% endblock %}
+
+{% block og_title %}Pergoly a přístřešky na míru | Béďa{% endblock %}
+
+{% block og_description %}Zakázková výroba střech, bočních stěn, zastínění a opláštění pergol a přístřešků přesně podle
+vašich rozměrů a konstrukce.{% endblock %}
+
+{% block og_url %}https://www.bedaspol.cz/pergoly-a-pristresky/{% endblock %}
+
+
+{% block head %}
+<style>
+    .pergoly-page {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .pergoly-intro {
+        max-width: 880px;
+        margin-bottom: 3rem;
+    }
+
+    .pergoly-eyebrow {
+        margin-bottom: 0.55rem;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #555555;
+    }
+
+    .pergoly-intro .title {
+        margin-bottom: 0.8rem;
+    }
+
+    .pergoly-intro .subtitle {
+        margin-bottom: 1.5rem;
+        line-height: 1.45;
+    }
+
+    .section-heading {
+        margin-bottom: 0.55rem !important;
+    }
+
+    .section-lead {
+        max-width: 800px;
+        margin-bottom: 1.8rem;
+        color: #555555;
+    }
+
+    .service-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.4rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .service-card {
+        position: relative;
+        height: 100%;
+        padding: 1.75rem;
+        border: 1px solid #e3e3e3;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    .service-card::before {
+        content: "";
+        position: absolute;
+        top: 1.75rem;
+        left: 0;
+        width: 4px;
+        height: 42px;
+        background-color: #222222;
+    }
+
+    .service-card h3 {
+        margin: 0 0 0.75rem 0;
+        padding-left: 0.4rem;
+        font-size: 1.28rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: #222222;
+    }
+
+    .service-card p {
+        margin-bottom: 0;
+        color: #444444;
+    }
+
+    .use-section {
+        margin-bottom: 3.5rem;
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: #f5f5f5;
+    }
+
+    .use-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.6rem;
+    }
+
+    .use-card {
+        padding: 1.6rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+    }
+
+    .use-card h3 {
+        margin: 0 0 0.65rem 0;
+        font-size: 1.16rem;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .use-card p:last-child {
+        margin-bottom: 0;
+    }
+
+    .situation-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem 2rem;
+        margin: 1.5rem 0 3.5rem;
+        padding: 0;
+        list-style: none;
+    }
+
+    .situation-list li {
+        position: relative;
+        margin: 0;
+        padding-left: 1.8rem;
+    }
+
+    .situation-list li::before {
+        content: "✓";
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .process-section {
+        margin-bottom: 3.5rem;
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: #f5f5f5;
+    }
+
+    .process-intro {
+        max-width: 820px;
+        margin-bottom: 0;
+    }
+
+    .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.35rem;
+        margin-top: 1.8rem;
+    }
+
+    .process-step {
+        position: relative;
+        padding-left: 3.35rem;
+    }
+
+    .process-number {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background-color: #222222;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .process-step h3 {
+        margin: 0 0 0.45rem 0;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .process-step p {
+        margin-bottom: 0;
+        color: #444444;
+    }
+
+    .materials-box {
+        margin-bottom: 3.5rem;
+        padding: 1.8rem 2rem;
+        border-left: 4px solid #333333;
+        background-color: #fafafa;
+    }
+
+    .materials-box p:last-child {
+        margin-bottom: 0;
+    }
+
+    .custom-note {
+        margin-bottom: 3.5rem;
+        padding: 1.8rem 2rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+    }
+
+    .custom-note p:last-child {
+        margin-bottom: 0;
+    }
+
+    .faq-section {
+        margin-bottom: 3.5rem;
+    }
+
+    .faq-item {
+        padding: 1.35rem 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .faq-item:first-of-type {
+        border-top: 1px solid #e5e5e5;
+    }
+
+    .faq-item h3 {
+        margin: 0 0 0.45rem 0;
+        font-size: 1.08rem;
+        font-weight: 700;
+        color: #222222;
+    }
+
+    .faq-item p {
+        margin-bottom: 0;
+    }
+
+    .gallery-link-box {
+        margin-bottom: 3rem;
+        padding: 1.8rem 2rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #fafafa;
+    }
+
+    .gallery-link-box .title {
+        margin-bottom: 0.65rem;
+    }
+
+    .gallery-link-box p {
+        margin-bottom: 1.2rem;
+    }
+
+    .contact-box {
+        padding: 2.25rem;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #ffffff;
+        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    .contact-box .title {
+        margin-bottom: 0.75rem;
+    }
+
+    .contact-details {
+        margin: 1.4rem 0 1.25rem;
+    }
+
+    .contact-details p {
+        margin-bottom: 0.25rem;
+    }
+
+    .back-link {
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    @media (max-width: 900px) {
+        .process-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .service-grid,
+        .use-grid,
+        .situation-list,
+        .process-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .pergoly-intro {
+            margin-bottom: 2.3rem;
+        }
+
+        .service-card,
+        .use-card,
+        .use-section,
+        .process-section,
+        .materials-box,
+        .custom-note,
+        .gallery-link-box,
+        .contact-box {
+            padding: 1.4rem;
+        }
+
+        .process-step {
+            min-height: 2.7rem;
+        }
+    }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Umíte vyrobit střechu na pergolu přesně podle konstrukce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Střechu nebo jiné opláštění navrhneme a vyrobíme podle konkrétních rozměrů, sklonu, konstrukce a způsobu uchycení."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vyrábíte také boční stěny k pergolám?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Vyrábíme boční stěny, zástěny a další textilní části, které mohou chránit před větrem, deštěm, sluncem nebo nežádoucím pohledem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Musím dodat přesný technický výkres?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nemusíte. Pro první posouzení často stačí fotografie, základní rozměry, jednoduchý nákres a popis požadovaného použití."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pomůžete mi vybrat vhodný materiál?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Materiál doporučíme podle požadované hmotnosti, odolnosti, voděodolnosti, zastínění, prodyšnosti a způsobu používání."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Opravujete také starší střechy a bočnice pergol?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano, pokud stav původního materiálu umožňuje pevnou a účelnou opravu. U starého nebo rozpadajícího se materiálu může být vhodnější výroba nové části."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Přijímáte zakázky z celé České republiky?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Zakázky přijímáme od zákazníků z celé České republiky. Způsob zaměření a předání vždy domluvíme podle konkrétní konstrukce a výrobku."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="content pergoly-page">
+
+    <div class="pergoly-intro">
+        <p class="pergoly-eyebrow">
+            Máte konstrukci, ale běžně prodávané zastřešení nebo opláštění na ni nesedí?
+        </p>
+
+        <h1 class="title is-2">
+            Pergoly a přístřešky na míru
+        </h1>
+
+        <p class="subtitle is-5">
+            Navrhneme a vyrobíme střechu, boční stěny, zastínění nebo další textilní části
+            přesně podle vaší pergoly, přístřešku či jiné venkovní konstrukce.
+        </p>
+
+        <p>
+            Každá konstrukce má jiné rozměry, sklon, způsob kotvení a jiné nároky
+            na používání. Proto řešíme každou zakázku individuálně a nepoužíváme
+            jedno univerzální provedení pro všechny.
+        </p>
+
+        <p>
+            Společně upřesníme, zda má výrobek chránit před deštěm, sluncem,
+            větrem nebo pohledy z okolí. Podle toho doporučíme materiál,
+            způsob uchycení, otevírání, napínání i další konstrukční detaily.
+        </p>
+    </div>
+
+
+    <h2 class="title is-3 section-heading">
+        Co můžeme pro vaši pergolu nebo přístřešek vyrobit
+    </h2>
+
+    <p class="section-lead">
+        Zakázka může zahrnovat jednu střechu, kompletní opláštění
+        nebo jen konkrétní boční stěnu či zástěnu.
+    </p>
+
+
+    <div class="service-grid">
+
+        <article class="service-card">
+            <h3>Střechy na pergoly</h3>
+
+            <p>
+                Zakázkové textilní zastřešení podle přesných rozměrů,
+                sklonu konstrukce, způsobu napnutí a požadovaného uchycení.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Boční stěny a závětří</h3>
+
+            <p>
+                Boční opláštění, zástěny a ochrana proti větru,
+                dešti nebo nežádoucím pohledům z okolí.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Zastínění pergol</h3>
+
+            <p>
+                Textilní zastínění přizpůsobené konkrétnímu prostoru,
+                orientaci pergoly a požadovanému množství světla.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Stahovací a odnímatelné části</h3>
+
+            <p>
+                Podle konstrukce můžeme navrhnout otevírání, rolování,
+                odnímání nebo jiné řešení pro snadnější používání během sezony.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Přístřešky a venkovní krytí</h3>
+
+            <p>
+                Textilní části přístřešků, krytých posezení, venkovních pracovišť
+                a dalších konstrukcí pro soukromé i firemní použití.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Průhledné stěny a okna</h3>
+
+            <p>
+                Boční stěny můžeme doplnit průhlednou fólií nebo okny,
+                aby zůstal zachován výhled a zároveň byl prostor chráněný.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Atypické opláštění konstrukcí</h3>
+
+            <p>
+                Pokud vaše konstrukce není běžná pergola,
+                řešení navrhneme podle konkrétního tvaru, použití a požadavků.
+            </p>
+        </article>
+
+
+        <article class="service-card">
+            <h3>Opravy střech a bočnic</h3>
+
+            <p>
+                Doplňkově opravujeme díry, protržení, zipy, okraje,
+                uchycení a další poškození, pokud stav materiálu umožňuje opravu.
+            </p>
+        </article>
+
+    </div>
+
+
+    <section class="use-section">
+        <h2 class="title is-3 section-heading">
+            Pergolu můžete mít promyšlenou do detailu, nebo teprve hledat řešení?
+        </h2>
+
+        <p>
+            Každý zákazník přichází s jinou představou.
+            Někdo přesně ví, co potřebuje, jiný chce nejprve poradit.
+        </p>
+
+        <div class="use-grid">
+
+            <article class="use-card">
+                <h3>Máte jasnou představu</h3>
+
+                <p>
+                    Víte, kde má být vstup, jak se mají stěny otevírat,
+                    kterou část chcete průhlednou a jak má být vše uchyceno.
+                </p>
+
+                <p>
+                    Vaše požadavky společně technicky upřesníme
+                    a převedeme do hotového výrobku.
+                </p>
+            </article>
+
+
+            <article class="use-card">
+                <h3>Potřebujete s návrhem pomoci</h3>
+
+                <p>
+                    Stačí nám popsat, před čím má pergola chránit
+                    a jak má být během roku používána.
+                </p>
+
+                <p>
+                    Doporučíme materiál, způsob otevírání,
+                    uchycení i provedení jednotlivých částí.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+
+    <h2 class="title is-3 section-heading">
+        Kdy je zakázková výroba vhodná
+    </h2>
+
+    <p class="section-lead">
+        Zakázkové opláštění má smysl všude tam, kde běžný výrobek
+        neodpovídá rozměrům, tvaru konstrukce nebo způsobu používání.
+    </p>
+
+    <ul class="situation-list">
+        <li>máte pergolu nebo přístřešek nestandardních rozměrů,</li>
+        <li>potřebujete střechu přesně podle sklonu konstrukce,</li>
+        <li>chcete prostor chránit před větrem a deštěm,</li>
+        <li>potřebujete boční stěny s průhlednými částmi,</li>
+        <li>chcete zastínění, které lze odnímat nebo rolovat,</li>
+        <li>potřebujete jiný způsob uchycení než běžné řešení,</li>
+        <li>potřebujete zakrýt atypickou venkovní konstrukci,</li>
+        <li>chcete doplnit zipy, popruhy, oka nebo zesílení,</li>
+        <li>původní střecha nebo bočnice už dosloužila,</li>
+        <li>máte pouze konstrukci a potřebujete vše navrhnout.</li>
+    </ul>
+
+
+    <section class="process-section">
+        <h2 class="title is-3 section-heading">
+            Jak zakázka probíhá
+        </h2>
+
+        <p class="process-intro">
+            <strong>Způsob zaměření závisí na konkrétní konstrukci.</strong>
+            Někdy stačí přesné rozměry a fotografie,
+            jindy je nejlepší konstrukci vidět přímo na místě nebo ji přivézt k nám.
+        </p>
+
+
+        <div class="process-grid">
+
+            <div class="process-step">
+                <span class="process-number">1</span>
+
+                <h3>Popíšete, co potřebujete</h3>
+
+                <p>
+                    Pošlete fotografie, rozměry, nákres
+                    a vysvětlíte, před čím má opláštění chránit.
+                </p>
+            </div>
+
+
+            <div class="process-step">
+                <span class="process-number">2</span>
+
+                <h3>Navrhneme provedení</h3>
+
+                <p>
+                    Upřesníme materiál, uchycení, otevírání,
+                    napínání i všechny důležité detaily.
+                </p>
+            </div>
+
+
+            <div class="process-step">
+                <span class="process-number">3</span>
+
+                <h3>Výrobek ušijeme</h3>
+
+                <p>
+                    Po odsouhlasení řešení a ceny připravíme střih
+                    a jednotlivé části vyrobíme podle zadání.
+                </p>
+            </div>
+
+
+            <div class="process-step">
+                <span class="process-number">4</span>
+
+                <h3>Hotové opláštění předáme</h3>
+
+                <p>
+                    Výrobek zkontrolujeme a předáme připravený
+                    k montáži nebo dalšímu používání.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <div class="materials-box">
+        <h2 class="title is-4">
+            Materiál vybíráme podle prostředí a způsobu používání
+        </h2>
+
+        <p>
+            Pracujeme s technickými tkaninami, PVC materiály,
+            autoplachtovinou, průhlednými fóliemi, síťovinami
+            a dalšími materiály vhodnými pro venkovní použití.
+        </p>
+
+        <p>
+            Při výběru zohledňujeme například hmotnost,
+            voděodolnost, odolnost proti slunečnímu záření,
+            mechanické namáhání, prodyšnost i to,
+            zda bude výrobek na konstrukci trvale, nebo jen během sezony.
+        </p>
+    </div>
+
+
+    <div class="custom-note">
+        <h2 class="title is-4">
+            Každá pergola potřebuje jiné řešení
+        </h2>
+
+        <p>
+            Rozdíl může být v jediném centimetru, ve sklonu konstrukce,
+            umístění sloupků nebo způsobu, jakým se má stěna otevírat.
+            Proto opláštění vyrábíme podle konkrétní konstrukce,
+            nikoli podle univerzálního katalogového rozměru.
+        </p>
+
+        <p>
+            Výsledkem je řešení, které odpovídá prostoru,
+            způsobu používání a skutečným požadavkům zákazníka.
+        </p>
+    </div>
+
+
+    <section class="faq-section">
+        <h2 class="title is-3 section-heading">
+            Často se nás ptáte
+        </h2>
+
+
+        <article class="faq-item">
+            <h3>Umíte vyrobit střechu na pergolu přesně podle konstrukce?</h3>
+
+            <p>
+                Ano. Střechu navrhneme podle rozměrů,
+                sklonu, tvaru konstrukce a požadovaného uchycení.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Vyrábíte také boční stěny?</h3>
+
+            <p>
+                Ano. Boční stěny mohou být plné, průhledné,
+                se zipy, rolováním nebo jiným způsobem otevírání.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Musím mít technický výkres?</h3>
+
+            <p>
+                Nemusíte. Pro první posouzení často stačí fotografie,
+                základní rozměry, jednoduchý nákres a popis využití.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Pomůžete mi vybrat vhodný materiál?</h3>
+
+            <p>
+                Ano. Materiál doporučíme podle požadované hmotnosti,
+                voděodolnosti, zastínění, prodyšnosti a způsobu používání.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Může být část stěny průhledná?</h3>
+
+            <p>
+                Ano. Podle návrhu můžeme použít průhlednou fólii,
+                kombinaci plného materiálu a oken nebo další řešení.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Opravujete také starší střechy pergol?</h3>
+
+            <p>
+                Ano, pokud stav původního materiálu umožňuje pevnou opravu.
+                U starého a rozpadajícího se materiálu může být vhodnější výroba nové části.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Jak dlouho výroba trvá?</h3>
+
+            <p>
+                Termín závisí na velikosti, složitosti,
+                dostupnosti materiálu a aktuální vytíženosti dílny.
+                Přesnější odhad sdělíme po posouzení konkrétní zakázky.
+            </p>
+        </article>
+
+
+        <article class="faq-item">
+            <h3>Přijímáte zakázky z celé České republiky?</h3>
+
+            <p>
+                Ano. Způsob zaměření, předání konstrukce
+                nebo montáže vždy domluvíme podle konkrétního případu.
+            </p>
+        </article>
+
+    </section>
+
+
+    <div class="gallery-link-box">
+        <h2 class="title is-4">
+            Prohlédněte si naši práci
+        </h2>
+
+        <p>
+            Ukázky pergol, plachet, stanů, oprav
+            a dalších realizací najdete v naší fotogalerii.
+        </p>
+
+        <a class="button is-light" href="{% url 'photo' %}">
+            Zobrazit fotogalerii
+        </a>
+    </div>
+
+
+    <div class="contact-box">
+        <h2 class="title is-3">
+            Potřebujete střechu, boční stěny nebo opláštění na míru?
+        </h2>
+
+        <p>
+            Pošlete nám fotografie, základní rozměry,
+            nákres nebo stručný popis vaší konstrukce.
+            Zakázku posoudíme a navrhneme další postup.
+        </p>
+
+        <div class="contact-details">
+            <p>
+                <strong>Telefon:</strong>
+                <a href="tel:+420605841391">+420 605 841 391</a>
+            </p>
+
+            <p>
+                <strong>E-mail:</strong>
+                <a href="mailto:bedaspol@gmail.com">bedaspol@gmail.com</a>
+            </p>
+        </div>
+
+        <a class="button is-dark" href="{% url 'contact' %}">
+            Kontaktovat Béďu
+        </a>
+    </div>
+
+
+    <div class="back-link">
+        <a href="{% url 'zakazkova_vyroba' %}">
+            ← Zpět na přehled zakázkové výroby
+        </a>
+    </div>
+
+</section>
+
+{% endblock %}
