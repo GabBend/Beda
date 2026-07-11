@@ -17,7 +17,7 @@ urlpatterns = [
     path(
         "favicon.ico",
         RedirectView.as_view(
-            url=static("favicon.ico"),
+            url=static("ikony/needle-with-thread-to-sew-clothes-svgrepo-com.svg"),
             permanent=True,
         ),
     ),
