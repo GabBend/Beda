@@ -107,11 +107,18 @@
             color: #555;
         }
 
-        .tabs li.is-active a {
-            border-bottom-color: #000;
-            color: #2e333d;
-        }
+        @media (max-width: 768px) {
+    .tabs a {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        font-size: 1rem;
+    }
 
+    .tabs li.is-active a::after {
+        left: 32%;
+        right: 32%;
+    }
+}
         /* bloky na O nás */
         .content-block {
             display: flex;
@@ -213,7 +220,18 @@ body {
 
 .tabs li.is-active a {
     color: #111111 !important;
-    border-bottom-color: #111111 !important;
+    border-bottom-color: transparent !important;
+    position: relative;
+}
+
+.tabs li.is-active a::after {
+    content: "";
+    position: absolute;
+    left: 28%;
+    right: 28%;
+    bottom: -1px;
+    height: 2px;
+    background-color: #222222;
 }
 
 /* Citace */
