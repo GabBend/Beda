@@ -235,6 +235,67 @@ atypických výrobků přesně na míru.{% endblock %}
         margin-bottom: 0.25rem;
     }
 
+    .season-popup[hidden] {
+        display: none;
+    }
+
+    .season-popup {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.25rem;
+        background-color: rgba(0, 0, 0, 0.58);
+    }
+
+    .season-popup-dialog {
+        position: relative;
+        width: min(100%, 560px);
+        padding: 2.25rem;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
+    }
+
+    .season-popup-dialog h2 {
+        margin: 0 2.25rem 0.8rem 0;
+        color: #222222;
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+
+    .season-popup-dialog p {
+        margin-bottom: 1.5rem;
+        color: #444444;
+        line-height: 1.6;
+    }
+
+    .season-popup-close {
+        position: absolute;
+        top: 0.7rem;
+        right: 0.8rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: #222222;
+        font-size: 2rem;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .season-popup-close:hover,
+    .season-popup-close:focus-visible {
+        color: #0f4c81;
+    }
+
+    body.popup-open {
+        overflow: hidden;
+    }
+
     @media (max-width: 768px) {
 
         .benefit-grid,
@@ -253,12 +314,39 @@ atypických výrobků přesně na míru.{% endblock %}
         .contact-box {
             padding: 1.4rem;
         }
+
+        .season-popup-dialog {
+            padding: 1.7rem;
+        }
+
+        .season-popup-dialog h2 {
+            font-size: 1.45rem;
+        }
     }
 </style>
 {% endblock %}
 
 
 {% block content %}
+
+<div class="season-popup" id="seasonPopup" hidden>
+    <div class="season-popup-dialog" role="dialog" aria-modal="true" aria-labelledby="seasonPopupTitle">
+        <button class="season-popup-close" id="seasonPopupClose" type="button"
+            aria-label="Zavřít upozornění">&times;</button>
+
+        <h2 id="seasonPopupTitle">Nenechávejte opravy na jaro</h2>
+
+        <p>
+            Máte potrhaný slunečník, plachtu, stan nebo jiný textilní výrobek?
+            Využijte zimní období k opravě a připravte vše včas na novou sezonu.
+            Na jaře bývají termíny rychle obsazené.
+        </p>
+
+        <a class="button is-dark" href="{% url 'contact' %}">
+            Nezávazně poptat opravu
+        </a>
+    </div>
+</div>
 
 <section class="content home-page">
 
@@ -277,8 +365,10 @@ atypických výrobků přesně na míru.{% endblock %}
         </p>
 
         <p>
-            Béďa a spol. je rodinná šicí dílna z Krkonoš, která se od roku 2016 specializuje na zakázkovou výrobu z technických tkanin a
-            PVC. Navrhujeme, vyrábíme a opravujeme plachty, autostany, pergoly, teepee i další atypické výrobky podle požadavků
+            Béďa a spol. je rodinná šicí dílna z Krkonoš, která se od roku 2016 specializuje na zakázkovou výrobu z
+            technických tkanin a
+            PVC. Navrhujeme, vyrábíme a opravujeme plachty, autostany, pergoly, teepee i další atypické výrobky podle
+            požadavků
             zákazníků z celé České republiky, vyrábíme jednotlivé kusy i menší série.
         </p>
 
@@ -549,4 +639,57 @@ atypických výrobků přesně na míru.{% endblock %}
 
 </section>
 
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const popup = document.getElementById("seasonPopup");
+        const closeButton = document.getElementById("seasonPopupClose");
+        const storageKey = "bedaSeasonPopupClosedAt";
+        const sevenDays = 7 * 24 * 60 * 60 * 1000;
+
+        let closedAt = 0;
+
+        try {
+            closedAt = Number(localStorage.getItem(storageKey)) || 0;
+        } catch (error) {
+            closedAt = 0;
+        }
+
+        function closePopup() {
+            popup.hidden = true;
+            document.body.classList.remove("popup-open");
+
+            try {
+                localStorage.setItem(storageKey, Date.now().toString());
+            } catch (error) {
+                // Stránka bude fungovat i v prohlížeči s vypnutým úložištěm.
+            }
+        }
+
+        if (Date.now() - closedAt > sevenDays) {
+            window.setTimeout(function () {
+                popup.hidden = false;
+                document.body.classList.add("popup-open");
+                closeButton.focus();
+            }, 500);
+        }
+
+        closeButton.addEventListener("click", closePopup);
+
+        popup.addEventListener("click", function (event) {
+            if (event.target === popup) {
+                closePopup();
+            }
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && !popup.hidden) {
+                closePopup();
+            }
+        });
+    });
+</script>
 {% endblock %}
