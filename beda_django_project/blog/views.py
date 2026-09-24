@@ -8,7 +8,7 @@ from .models import NavstevaWebu
 
 
 def zapocitat_navstevu(request):
-    dnes = timezone.localdate()
+    dnes = timezone.now().date()
     klic_navstevy = f"navsteva_webu_{dnes.isoformat()}"
 
     # Nezapočítáváme stejný prohlížeč vícekrát během jednoho dne
@@ -80,7 +80,7 @@ def photo(request):
 def contact(request):
     zapocitat_navstevu(request)
 
-    dnes = timezone.localdate()
+    dnes = timezone.now().date()
     pred_7_dny = dnes - timedelta(days=6)
     pred_30_dny = dnes - timedelta(days=29)
 
