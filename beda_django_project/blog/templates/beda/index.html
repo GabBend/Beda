@@ -469,89 +469,6 @@ atypických výrobků přesně na míru.{% endblock %}
         </a>
 
 
-        <a class="service-card" href="{% url 'autostany' %}">
-            <h3>Autostany a předstany na míru</h3>
-
-            <p>
-                Kompletní výroba, nové střechy, bočnice, tropika,
-                okna, zipy, přístřešky i úpravy stávajících stanů.
-            </p>
-
-            <span class="service-card-more">
-                Více o autostanech a předstanech →
-            </span>
-        </a>
-
-
-        <a class="service-card" href="{% url 'plachty_na_miru' %}">
-            <h3>Plachty na míru</h3>
-
-            <p>
-                Krycí, ochranné, transportní a technické plachty
-                podle konkrétních rozměrů a způsobu použití.
-            </p>
-
-            <span class="service-card-more">
-                Více o plachtách na míru →
-            </span>
-        </a>
-
-
-        <a class="service-card" href="{% url 'pergoly_a_pristresky' %}">
-            <h3>Pergoly a přístřešky</h3>
-
-            <p>
-                Střechy pergol, boční stěny, zastínění,
-                průhledné části a opláštění venkovních konstrukcí.
-            </p>
-
-            <span class="service-card-more">
-                Více o pergolách a přístřešcích →
-            </span>
-        </a>
-
-
-        <a class="service-card" href="{% url 'teepee_a_taborove_vyrobky' %}">
-            <h3>Teepee a táborové výrobky</h3>
-
-            <p>
-                Teepee, šeltry, táborové plachty,
-                přístřešky a další vybavení pro pobyt v přírodě.
-            </p>
-
-            <span class="service-card-more">
-                Více o teepee a táborových výrobcích →
-            </span>
-        </a>
-
-
-        <a class="service-card" href="{% url 'atypicke_vyrobky' %}">
-            <h3>Atypické výrobky</h3>
-
-            <p>
-                Obaly na stroje, kryty, zástěny, přepážky
-                a další výrobky, které v běžné nabídce nenajdete.
-            </p>
-
-            <span class="service-card-more">
-                Více o atypické výrobě →
-            </span>
-        </a>
-
-
-        <a class="service-card" href="{% url 'opravy_technickych_textilii' %}">
-            <h3>Opravy technických textilií</h3>
-
-            <p>
-                Opravy děr, protržení, střech, bočnic, tropik,
-                průhledných fólií, síťovin, zipů a uchycení.
-            </p>
-
-            <span class="service-card-more">
-                Více o opravách →
-            </span>
-        </a>
-
     </div>
 
 
@@ -674,7 +591,7 @@ atypických výrobků přesně na míru.{% endblock %}
                 popup.hidden = false;
                 document.body.classList.add("popup-open");
                 closeButton.focus();
-            }, 500);
+            }, 20000);
         }
 
         closeButton.addEventListener("click", closePopup);
