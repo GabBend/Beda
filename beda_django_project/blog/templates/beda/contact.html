@@ -1,19 +1,87 @@
 {% extends "beda/_base.html" %}
+
 {% block title %}Kontakt | Technické zakázkové šití Béďa spol.{% endblock %}
-{% block description %}Kontakt na technické zakázkové šití Béďa spol. Rudník, Krkonoše. Opravy plachet, autostanů,
-pergol, čalounění a zakázková výroba.{% endblock %}
+
+{% block description %}
+Kontakt na technické zakázkové šití Béďa spol. Rudník, Krkonoše.
+Opravy plachet, autostanů, pergol, čalounění a zakázková výroba.
+{% endblock %}
 
 {% block content %}
 
 <div id="content3">
     <div class="contact-section">
-        <div class="contact-info"
-            style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 0.5rem;">
-            <p><strong>Adresa:</strong> Rudník 72, 54372</p>
-            <p><strong>Místo:</strong> Krkonoše</p>
-            <p><strong>Telefon:</strong> <a href="tel:+420605841391">+420 605 841 391</a></p>
-            <p><strong>Email:</strong> <a href="mailto:bedaspol@gmail.com">bedaspol@gmail.com</a></p>
+
+        <div class="contact-info" style="
+                flex: 1;
+                min-width: 250px;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            ">
+
+            <p>
+                <strong>Adresa:</strong>
+                Rudník 72, 54372
+            </p>
+
+            <p>
+                <strong>Místo:</strong>
+                Krkonoše
+            </p>
+
+            <p>
+                <strong>Telefon:</strong>
+                <a href="tel:+420605841391">
+                    +420 605 841 391
+                </a>
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                <a href="mailto:bedaspol@gmail.com">
+                    bedaspol@gmail.com
+                </a>
+            </p>
         </div>
+
+        <div class="visitor-counter" style="
+                flex: 1;
+                min-width: 240px;
+                padding-left: 2rem;
+                border-left: 1px solid #d8d8d8;
+            ">
+
+            <p style="
+                margin-bottom: 1rem;
+                font-size: 1.15rem;
+                font-weight: bold;
+                color: #222222;
+            ">
+                Návštěvnost webu
+            </p>
+
+            <p style="margin-bottom: 0.4rem;">
+                Dnes:
+                <strong>{{ navstevy_dnes }}</strong>
+            </p>
+
+            <p style="margin-bottom: 0.4rem;">
+                Za posledních 7 dní:
+                <strong>{{ navstevy_7_dni }}</strong>
+            </p>
+
+            <p style="margin-bottom: 0.4rem;">
+                Za posledních 30 dní:
+                <strong>{{ navstevy_30_dni }}</strong>
+            </p>
+
+            <p>
+                Celkem:
+                <strong>{{ navstevy_celkem }}</strong>
+            </p>
+        </div>
+
     </div>
 </div>
 
