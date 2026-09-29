@@ -323,6 +323,19 @@ atypických výrobků přesně na míru.{% endblock %}
             font-size: 1.45rem;
         }
     }
+
+    .zuio-poster {
+    display: block;
+    width: min(100%, 560px);
+    margin: 3rem auto;
+}
+
+.zuio-poster img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
 </style>
 {% endblock %}
 
@@ -442,33 +455,13 @@ atypických výrobků přesně na míru.{% endblock %}
     </div>
 
 
-    <h2 class="title is-3 section-heading">
-        Co pro vás můžeme vyrobit
-    </h2>
-
-    <p class="section-lead">
-        Každá zakázka je jiná. Vyberte oblast, která je vašemu požadavku nejbližší.
-        Pokud si nejste jistí, vůbec to nevadí – stačí nám popsat, co potřebujete vyřešit.
-    </p>
-
-
-    <div class="service-grid">
-
         <a class="service-card main-service-card" href="{% url 'zakazkova_vyroba' %}">
-            <h3>Zakázková výroba</h3>
-
-            <p>
-                Přehled možností výroby z technických tkanin a PVC.
-                Navrhujeme jednotlivé výrobky i menší série podle vašich rozměrů,
-                konstrukce a požadavků.
-            </p>
-
             <span class="service-card-more">
                 Prohlédnout zakázkovou výrobu →
             </span>
         </a>
 
-    </div>
+   
 
 
     <section class="process-section">
@@ -555,19 +548,11 @@ atypických výrobků přesně na míru.{% endblock %}
 
 </section>
 
-<section aria-labelledby="zuio-tip"
-    style="margin: 3rem auto; padding: 2rem; max-width: 960px; border-radius: 20px; background: #eaf8f2; text-align: center;">
-    <p style="margin: 0 0 .5rem; color: #198754; font-weight: 700;">TIP NA DÁREK</p>
-    <h2 id="zuio-tip" style="margin: 0 0 1rem;">Hledáte originální dárek?</h2>
-    <p style="margin: 0 auto 1.5rem; max-width: 580px;">
-        Na ZUIO objevíte handmade dárky. Vyberte si podle toho,
-        komu chcete udělat radost.
-    </p>
-    <a href="https://www.zuio.cz/inspirace/"
-        style="display: inline-block; padding: .8rem 1.4rem; border-radius: 999px; background: #198754; color: white; text-decoration: none; font-weight: 700;">
-        Najít dárek na ZUIO →
-    </a>
-</section>
+<a href="https://www.zuio.cz/inspirace/" class="zuio-poster" aria-label="Objevte handmade dárky na ZUIO">
+    <img src="{% static 'ZUIO-promo.webp' %}" alt="ZUIO – inspirace na originální dárky" width="1000" height="1000"
+        loading="lazy">
+</a>
+
 
 {% endblock %}
 
