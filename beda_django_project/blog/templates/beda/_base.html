@@ -271,6 +271,7 @@ blockquote *,
     color: #222222;
 }
 
+
 @media (max-width: 768px) {
     .visitor-counter {
         padding-left: 0 !important;
@@ -278,7 +279,92 @@ blockquote *,
         border-left: none !important;
         border-top: 1px solid #d8d8d8;
     }
+
+
+    .section {
+        padding: 1.25rem 1rem;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+
+    header > .is-flex > div {
+        width: 100%;
+        min-width: 0;
+    }
+
+    header figure.image {
+        margin-right: 0 !important;
+    }
+
+    header .title,
+    header .subtitle {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    header .title {
+        font-size: 1.35rem !important;
+        line-height: 1.25;
+    }
+
+    header .subtitle {
+        font-size: 1rem !important;
+        line-height: 1.4;
+    }
+
+    /* Navigace se může zalomit */
+    .tabs {
+        overflow: visible;
+    }
+
+    .tabs ul {
+        width: 100%;
+        min-width: 0;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .tabs a {
+        white-space: normal;
+        padding: 0.65rem 0.75rem;
+    }
+
+    /* Obsah nesmí roztahovat stránku */
+    .content,
+    .content-block,
+    .content-block .text {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    /* Galerie nebude mít pevnou šířku */
+    .first-image {
+        width: 100%;
+        max-width: 290px;
+    }
+
+    .first-image img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 29 / 22;
+        object-fit: cover;
+    }
+
+    .site-header-content {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 1rem;
+    }   
+
 }
+
 
     </style>
 
@@ -292,7 +378,7 @@ blockquote *,
 
             <!-- HLAVIČKA -->
             <header class="mb-5">
-                <div class="is-flex is-align-items-center">
+                <div class="is-flex is-align-items-center site-header-content">
                     <figure class="image is-128x128 mr-4">
                         <img src="{% static 'foto/logo_beda.jpg' %}" alt="Béďa – technické zakázkové šití" width="128" height="128"
                             loading="lazy" decoding="async">
