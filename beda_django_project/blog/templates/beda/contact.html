@@ -1,4 +1,5 @@
 {% extends "beda/_base.html" %}
+{% load static %}
 
 {% block title %}Kontakt | Technické zakázkové šití Béďa spol.{% endblock %}
 
@@ -82,7 +83,16 @@ Opravy plachet, autostanů, pergol, čalounění a zakázková výroba.
             </p>
         </div>
 
-    </div>
-</div>
-
-{% endblock %}
+        </div>
+        
+        <div style="max-width:720px; margin:2rem auto 1rem; padding:0 12px;">
+            <a href="https://www.zuio.cz/" target="_blank" rel="noopener" aria-label="ZUIO – originální dárky od českých tvůrců"
+                style="display:block;">
+                <img src="{% static 'zuio-banner.png' %}"
+                    alt="ZUIO – objevte originální dárky od českých tvůrců nebo vystavte vlastní tvorbu zdarma." loading="lazy"
+                    width="2048" height="683" style="display:block; width:100%; height:auto; border-radius:12px;">
+            </a>
+        </div>
+        </div>
+        
+        {% endblock %}
